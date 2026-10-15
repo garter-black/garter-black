@@ -1,0 +1,61 @@
+<!--page {"title":"The Ladies · The Black Garter, Rockdale","desc":"Every lady on The Black Garter roster, Rockdale. Working names, profiles, who is in today and tomorrow. Call or text the house to book.","canonical":"/ladies","og":"/assets/black-room.jpg"} -->
+<!--head-->
+<link rel="stylesheet" href="/assets/ladies.css?v={{ver}}">
+<!--/head-->
+<section id="ladies" class="lhead">
+  <div class="wrap">
+    <div class="crumb rv"><a href="/">The Black Garter</a><i>&middot;</i><span>The ladies</span></div>
+    <div class="kick rv">The Ladies</div>
+    <h2 class="rv lh-h">Working names. <em>One discreet house.</em></h2>
+    <p class="lede rv">Everyone on the roster, newest shifts first. <b>Tap a lady for her profile,</b> or ask the desk who is in.</p>
+    <div class="lbar rv">
+      <div class="tabs" role="tablist" aria-label="Show">
+        <button class="tab" role="tab" aria-selected="true" data-f="all">All <b id="c-all"></b></button>
+        <button class="tab" role="tab" aria-selected="false" data-f="today">Today <b id="c-today"></b></button>
+        <button class="tab" role="tab" aria-selected="false" data-f="tomorrow">Tomorrow <b id="c-tomorrow"></b></button>
+      </div>
+      <label class="fld lsort"><span class="sr">Sort</span>
+        <select id="lsort"><option value="recent">Recently working</option><option value="name">Name, A to Z</option></select>
+      </label>
+    </div>
+    <div class="rost" id="lgrid" aria-live="polite">
+      <div class="rc sk"><div class="ph"></div></div><div class="rc sk"><div class="ph"></div></div><div class="rc sk"><div class="ph"></div></div><div class="rc sk"><div class="ph"></div></div>
+    </div>
+    <div class="rost-foot rv" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px">
+      <a class="btn solid" href="tel:{{tel}}">Call the house</a>
+      <a class="btn ghost" href="/#roster">Tonight's roster</a>
+      <a class="btn ghost" href="/rose">Work with us</a>
+    </div>
+  </div>
+</section>
+<!--scripts-->
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var grid=document.getElementById('lgrid'), sortSel=document.getElementById('lsort'), tabs=document.querySelectorAll('#ladies .tab');
+  var all=[], f='all', esc=GB.esc;
+  function card(g,i){
+    var img=g.photo?'<img src="'+esc(g.photo)+'" alt="'+esc(g.name)+' at The Black Garter" loading="'+(i<8?'eager':'lazy')+'" width="640" height="853">':'<span class="noph" aria-hidden="true">'+esc(g.name.charAt(0))+'</span>';
+    var sub=[g.age||'',esc(g.nationality||'')].filter(Boolean).join(' &middot; ');
+    var st=g.today?'<span class="live">In today</span>':g.tomorrow?'Tomorrow':(g.lastWorked?'Last in '+esc(g.lastWorked):'New to the house');
+    return '<a class="rc" href="/ladies/'+encodeURIComponent(g.slug)+'"><div class="ph">'+img+'</div><span class="cobl"></span><div class="meta"><div class="nm">'+esc(g.name)+'</div>'+(sub?'<div class="sh" style="margin-top:6px;color:var(--mute)">'+sub+(g.rating?' &middot; '+GB.stars(g.rating.avg):'')+'</div>':'')+'<div class="sh">'+st+'</div></div></a>';
+  }
+  function render(){
+    var list=all.filter(function(g){return f==='all'||g[f];});
+    grid.innerHTML=list.length?list.map(card).join(''):'<div class="rost-empty">'+(f==='all'?'The roster is being rebuilt for the new season. <b>Call or text {{phone}}</b> and the desk will tell you who is in.':f==='today'?'Nobody is set for today yet. <b>Call or text {{phone}}</b>.':'Tomorrow isn\'t set yet. Check back later today.')+'</div>';
+    if(window.gsap&&!matchMedia('(prefers-reduced-motion: reduce)').matches)gsap.from('#lgrid .rc',{opacity:0,y:24,duration:.9,stagger:.04,ease:'expo.out'});
+  }
+  function load(){
+    GB.api('/api/ladies?sort='+sortSel.value).then(function(d){
+      all=d.list||[];
+      document.getElementById('c-all').textContent=all.length||'';
+      document.getElementById('c-today').textContent=all.filter(function(g){return g.today;}).length||'';
+      document.getElementById('c-tomorrow').textContent=all.filter(function(g){return g.tomorrow;}).length||'';
+      render();
+    }).catch(function(){grid.innerHTML='<div class="rost-empty">The ladies page is updating. <b>Call or text {{phone}}</b>.</div>';});
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){f=t.getAttribute('data-f');tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false');});render();});});
+  sortSel.addEventListener('change',load);
+  load();
+});
+</script>
+<!--/scripts-->

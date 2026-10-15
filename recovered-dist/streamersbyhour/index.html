@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STREAM Â· Streamers Sanctuary</title>
+<meta name="description" content="The Streamers Sanctuary. Hotel-by-the-hour rooms for creators, on 2.2 Gbps fibre with Category 8 ethernet and WiFi 7. Private. Fast. Yours by the hour.">
+<link rel="canonical" href="https://garter.black/streamersbyhour">
+<meta property="og:url" content="https://garter.black/streamersbyhour">
+<meta property="og:title" content="STREAM Â· Streamers Sanctuary">
+<meta property="og:description" content="Hotel-by-the-hour rooms for creators. 2.2 Gbps fibre, Category 8 ethernet, WiFi 7. Private and fast.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#140D0F;
+  --ink-hi:#1E1316;
+  --ink-lo:#0C0809;
+  --bone:#F2ECE1;
+  --bone-dim:#D9CFBE;
+  --body:#C4B8AC;
+  --mute:#8E8278;
+  --accent:#6E1F2A;
+  --accent-hi:#8C2A39;
+  --gold:#A8834C;
+  --rule:#332A2C;
+  --hair:rgba(242,236,225,.12);
+  --hair-faint:rgba(242,236,225,.05);
+  --disp:"Cormorant Garamond",Didot,"Times New Roman",serif;
+  --sans:"Jost","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --gut:clamp(18px,4vw,64px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background-color:var(--ink);
+  background-image:radial-gradient(ellipse 130% 80% at 50% -10%, var(--ink-hi) 0%, var(--ink) 44%, var(--ink-lo) 100%);
+  color:var(--body);
+  font-family:var(--sans);
+  font-weight:400;line-height:1.7;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 var(--gut)}
+.rails{position:fixed;inset:0;z-index:0;pointer-events:none;display:grid;grid-template-columns:repeat(12,1fr);padding:0 var(--gut)}
+.rails i{border-left:1px solid var(--hair-faint);display:block}
+.rails i:last-child{border-right:1px solid var(--hair-faint)}
+@media(max-width:860px){.rails{grid-template-columns:repeat(6,1fr)}}
+.stage{position:relative;z-index:1}
+
+nav{border-bottom:1px solid var(--bone);background:var(--ink)}
+nav .bar{display:flex;flex-wrap:wrap;align-items:stretch;min-height:62px}
+nav a{display:flex;align-items:center;padding:16px 20px 14px;font-weight:500;font-size:11px;letter-spacing:.24em;text-transform:uppercase;border-right:1px solid var(--hair);transition:color .16s,background .16s}
+nav a:first-child{padding-left:0}
+nav a:hover{background:var(--bone);color:var(--ink)}
+nav .brand{font-family:var(--disp);font-weight:500;letter-spacing:.06em;font-size:16px;margin-right:auto;text-transform:uppercase}
+nav .brand .dot{color:var(--accent-hi)}
+nav a:hover .dot{color:var(--ink)}
+@media(max-width:640px){nav .brand{margin-right:0;width:100%;border-right:0;border-bottom:1px solid var(--hair)}}
+
+.poster{position:relative;padding:clamp(48px,11vh,120px) 0 clamp(52px,11vh,130px)}
+.poster .eyebrow{display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;padding-bottom:20px;border-bottom:1px solid var(--hair)}
+.eyebrow .tag{font-weight:500;font-size:clamp(10px,1vw,11px);letter-spacing:.4em;text-transform:uppercase;color:var(--gold)}
+.hero-type{margin:clamp(36px,8vh,80px) 0 0}
+h1{font-family:var(--disp);font-weight:300;font-size:clamp(38px,9vw,132px);line-height:.94;letter-spacing:-.02em;text-transform:uppercase;margin-left:-.02em;color:var(--bone)}
+h1 .ln{display:block;white-space:nowrap}
+h1 .ln .mv{display:inline-block;animation:breathe 5.5s ease-in-out infinite}
+h1 .ln.two .mv{animation-delay:.8s}
+h1 .stop{color:var(--accent-hi)}
+@keyframes breathe{0%,100%{letter-spacing:-.02em;opacity:1}50%{letter-spacing:.06em;opacity:.78}}
+.promise{font-family:var(--disp);font-weight:300;font-style:italic;font-size:clamp(19px,2.6vw,32px);line-height:1.3;letter-spacing:-.01em;max-width:26ch;color:var(--bone-dim);margin-top:clamp(30px,5vh,56px)}
+.promise em{color:var(--gold);font-style:italic}
+.lede{font-size:clamp(14px,1.05vw,16px);line-height:1.75;max-width:52ch;color:var(--body);margin-top:clamp(24px,4vh,44px)}
+.lede .rule{display:block;width:72px;height:1px;background:var(--accent-hi);margin-bottom:24px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,6vw,96px);margin-top:clamp(36px,7vh,80px);align-items:start}
+
+section{padding:clamp(52px,8vw,96px) 0;border-top:1px solid var(--hair)}
+.sec-head{display:flex;align-items:baseline;gap:26px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,44px)}
+.sec-no{font-weight:500;font-size:11px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+.sec-title{font-family:var(--disp);font-weight:400;font-size:clamp(26px,3.4vw,42px);letter-spacing:.08em;text-transform:uppercase;color:var(--bone)}
+.sec-rule{height:1px;background:var(--hair);flex:1;margin-bottom:clamp(28px,4vw,44px)}
+p.para{margin-bottom:20px;max-width:840px;font-size:15px}
+p.para strong{color:var(--bone);font-weight:600}
+p.para em{color:var(--gold)}
+
+.specs{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0;border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
+.spec{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:28px 24px 32px;background:rgba(20,13,15,.5)}
+.spec .sp-v{font-family:var(--disp);font-weight:500;font-size:clamp(30px,3.4vw,44px);letter-spacing:.02em;color:var(--bone);display:block;line-height:1}
+.spec .sp-v .u{font-size:.5em;color:var(--gold);font-weight:400}
+.spec .sp-n{font-weight:500;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-hi);display:block;margin-top:12px}
+.spec .sp-d{font-size:13px;line-height:1.65;color:var(--body);margin-top:8px;display:block}
+
+.rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:0;border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
+.room{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:30px 26px 34px;background:rgba(20,13,15,.5)}
+.room .r-name{font-family:var(--disp);font-weight:500;font-size:clamp(20px,2vw,26px);letter-spacing:.05em;color:var(--bone);text-transform:uppercase;display:block;line-height:1.15}
+.room .r-rate{font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-top:10px}
+.room .r-desc{font-size:13px;line-height:1.7;color:var(--body);margin-top:10px;display:block}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(28px,4vw,48px)}
+.btn{display:inline-flex;align-items:center;padding:15px 30px;font-weight:500;font-size:11px;letter-spacing:.24em;text-transform:uppercase;border:1px solid var(--bone);color:var(--bone);transition:background .16s,color .16s}
+.btn:hover{background:var(--bone);color:var(--ink)}
+.btn.solid{background:var(--accent-hi);border-color:var(--accent-hi);color:var(--bone)}
+.btn.solid:hover{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+
+footer{border-top:1px solid var(--hair)}
+footer .wrap{padding-top:clamp(44px,6vw,72px);padding-bottom:clamp(44px,6vw,72px)}
+.f-line{font-size:12px;line-height:1.9;color:var(--mute);max-width:920px;margin-bottom:24px}
+
+/* ============ 18+ GATE + MUSIC CHOICE (shell gb:music interface) ============ */
+#agegate{position:fixed;inset:0;z-index:2147483000;background:var(--ink);display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:var(--sans)}
+#agegate.gone{opacity:0;pointer-events:none;transition:opacity .6s}
+#agegate .ag-inner{max-width:460px}
+#agegate .ag-kick{font-weight:500;font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+#agegate h2{font-family:var(--disp);font-weight:300;font-size:clamp(24px,4vw,40px);line-height:1.15;color:var(--bone);text-transform:uppercase;letter-spacing:.02em}
+#agegate .ag-rule{width:64px;height:1px;background:var(--accent-hi);margin:22px auto}
+#agegate p{font-size:13px;line-height:1.8;color:var(--mute);max-width:44ch;margin:0 auto 28px}
+#agegate .ag-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+#agegate .ag-btn{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.3em;text-transform:uppercase;padding:15px 30px;cursor:pointer;border:1px solid var(--bone);background:transparent;color:var(--bone);transition:background .22s,color .22s}
+#agegate .ag-btn.solid{background:var(--accent-hi);border-color:var(--accent-hi)}
+#agegate .ag-btn:hover{background:var(--bone);color:var(--ink)}
+#mgate{display:none}
+</style>
+</head>
+<body>
+
+<!-- ============ 18+ GATE + MUSIC CHOICE ============ -->
+<div id="agegate" role="dialog" aria-modal="true" aria-label="Age verification">
+  <div class="ag-inner">
+    <div class="ag-kick">The Streamers Sanctuary</div>
+    <h2>You must be 18 or over to enter</h2>
+    <div class="ag-rule"></div>
+    <p>This site is for adults. By entering you confirm you are of legal age and consent to viewing it.</p>
+    <div class="ag-row">
+      <button class="ag-btn solid" id="ag-enter" type="button">Enter</button>
+      <a class="ag-btn" href="https://www.google.com">Leave</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MUSIC CHOICE (after 18+). No audio before consent. ============ -->
+<div id="mgate" class="agegate" style="display:none" role="dialog" aria-modal="true" aria-label="Music">
+  <div class="ag-inner">
+    <div class="ag-kick">The Streamers Sanctuary</div>
+    <h2>Do you want music?</h2>
+    <div class="ag-rule"></div>
+    <p>Music On is recommended. No audio plays until you choose, and you can turn it off at any time.</p>
+    <div class="ag-row">
+      <button class="ag-btn solid" id="ag-music-on" type="button">Music On</button>
+      <button class="ag-btn" id="ag-music-off" type="button">Music Off</button>
+    </div>
+  </div>
+</div>
+
+<!-- local player assets (shell interface). No external audio host, no autoplay. -->
+<div id="gb-music-player" data-gb-music-player hidden></div>
+
+
+<script>
+(function(){
+  var K = 'gb-music';
+  function store(v){ try{ localStorage.setItem(K, v); }catch(e){} }
+  function val(){ try{ return localStorage.getItem(K); }catch(e){ return null; } }
+  var gate = document.getElementById('agegate');
+  var enterBtn = document.getElementById('ag-enter');
+  var musicGate = document.getElementById('mgate');
+  function fire(enabled){
+    /* shell player listens for gb:music {detail:{enabled,userGesture}} */
+    try{ document.dispatchEvent(new CustomEvent('gb:music', { detail:{ enabled: !!enabled, userGesture: true } })); }catch(e){}
+  }
+  if (gate && enterBtn) {
+    if (val()) { gate.classList.add('gone'); }  /* returning visitor, already confirmed 18+ */
+    enterBtn.addEventListener('click', function(){
+      gate.classList.add('gone');
+      if (!val()) {
+        if (musicGate) { musicGate.style.display = 'flex'; }
+      }
+    });
+    var on = document.getElementById('ag-music-on');
+    var off = document.getElementById('ag-music-off');
+    if (on) on.addEventListener('click', function(){ store('on'); fire(true); if(musicGate){musicGate.style.display='none';} });
+    if (off) off.addEventListener('click', function(){ store('off'); fire(false); if(musicGate){musicGate.style.display='none';} });
+  }
+})();
+</script>
+
+<div class="rails" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<nav>
+  <div class="bar wrap">
+    <a class="brand" href="#top">STREAM<span class="dot">.</span></a>
+    <a href="#rooms">Rooms</a>
+    <a href="#network">Network</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#book">Book</a>
+    <a href="/">The Black Garter</a>
+  </div>
+</nav>
+
+<div class="stage">
+<main id="top">
+  <div class="poster wrap">
+    <div class="eyebrow">
+      <span class="tag">Streamers Sanctuary</span>
+      <span class="tag">Hotel by the hour</span>
+      <span class="tag">2.2 Gbps Â· Cat 8 Â· WiFi 7</span>
+    </div>
+    <div class="hero-type">
+      <h1>
+        <span class="ln"><span class="mv">STREAMERS</span></span>
+        <span class="ln two"><span class="mv">SANCTUAR<span class="stop">Y.</span></span></span>
+      </h1>
+    </div>
+    <div class="hero-grid">
+      <p class="promise">A room that is only yours for the hour it needs to be. <em>Fast enough to broadcast. Quiet enough to breathe.</em></p>
+      <div class="lede">
+        <span class="rule"></span>
+        <p>The Streamers Sanctuary is short-term rooms for creators - streamers, OnlyFans talent, anyone who needs a private, wired, broadcast-grade room by the hour or for the short stay. No leases, no leases on your attention. Just a clean room on a serious connection.</p>
+      </div>
+    </div>
+    <figure id="creator-venue" style="margin-top:48px;border:1px solid var(--hair)"><img src="/assets/creator-workspace-20261005.png" alt="Three adult creators discussing a project at a laptop in a lounge-style studio; illustrative scene" width="1672" height="941" loading="lazy" style="display:block;width:100%;height:auto"><figcaption style="padding:14px 18px;font:400 11px/1.6 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--bone-dim)">Studio atmosphere &middot; illustration</figcaption></figure>
+  </div>
+
+  <section id="rooms">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-no">01 / The Rooms</span>
+        <h2 class="sec-title">Hotel by the hour</h2>
+        <span class="sec-rule"></span>
+      </div>
+      <p class="para">Short-term room bookings for streamers and OnlyFans creators. Book by the hour, by the night, or by the shoot. Every room is <strong>private, lockable, and wired</strong> - nothing shared, nothing overheard.</p>
+      <div class="rooms">
+        <div class="room"><span class="r-name">The Studio</span><span class="r-rate">from $60 / hour</span><span class="r-desc">Broadcast-grade room with ring light, blackout blinds, and a Cat 8 drop to a broadcast desk. For the stream that has to be perfect.</span></div>
+        <div class="room"><span class="r-name">The Private</span><span class="r-rate">from $45 / hour</span><span class="r-desc">A quiet room for content that does not need a crew. WiFi 7, a lock, and soundproofed walls. Yours for the hour.</span></div>
+        <div class="room"><span class="r-name">The Suite</span><span class="r-rate">from $90 / hour</span><span class="r-desc">The full room. Private entrance, en suite, Cat 8 + WiFi 7, and a broadcast desk. For the long shoot or the overnight.</span></div>
+        <div class="room"><span class="r-name">The Short Stay</span><span class="r-rate">from $120 / night</span><span class="r-desc">Overnight and short-term bookings for creators passing through. Same network, same privacy, a bed instead of a set.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="network">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-no">02 / The Network</span>
+        <h2 class="sec-title">Built for broadcast</h2>
+        <span class="sec-rule"></span>
+      </div>
+      <p class="para">Every room is on a connection that will not drop a stream. The sanctuary runs on dedicated infrastructure, not a shared motel router.</p>
+      <div class="specs">
+        <div class="spec"><span class="sp-v">2.2 <span class="u">Gbps</span></span><span class="sp-n">Fibre to the room</span><span class="sp-d">Dedicated fibre, symmetric where it matters. Enough upstream to push 4K without a hiccup.</span></div>
+        <div class="spec"><span class="sp-v">Cat <span class="u">8</span></span><span class="sp-n">Ethernet category 8</span><span class="sp-d">Category 8 cable, 40 Gbps capable. A hard-wired drop for the stream that cannot afford a wireless wobble.</span></div>
+        <div class="spec"><span class="sp-v">WiFi <span class="u">7</span></span><span class="sp-n">802.11be</span><span class="sp-d">WiFi 7 throughout, multi-link and low latency. For the device that has to be wireless.</span></div>
+        <div class="spec"><span class="sp-v">1:1</span><span class="sp-n">No contention</span><span class="sp-d">Every room gets its own pipe. No one else's upload is eating your bitrate.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-no">03 / Privacy</span>
+        <h2 class="sec-title">Discreet by design</h2>
+        <span class="sec-rule"></span>
+      </div>
+      <p class="para">The sanctuary is built around one principle: <strong>what happens in your room stays in your room</strong>. Private entrances, soundproofed walls, and a check-in that does not ask why. Discretion is not a feature here - it is the architecture.</p>
+    </div>
+  </section>
+
+  <section id="creators">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-no">04 / Creators</span>
+        <h2 class="sec-title">OnlyFans &amp; Fanvue, managed</h2>
+        <span class="sec-rule"></span>
+      </div>
+      <p class="para">An optional creator partnership run from the same house: planning, editing, scheduling and account security. <strong>You keep your accounts and approve every post.</strong> The split, the weekly pay, the hours ceiling, the separate AI consent and how to stop are all written down before you sign.</p>
+      <p class="para" style="margin-top:14px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)">Sample page of what you will be given when you arrive</p>
+      <div class="cta-row">
+        <a class="btn solid" href="/rose/samples/black-garter-house-preview-sample.pdf" target="_blank" rel="noopener">Creator Partnership Guide (PDF)</a>
+        <a class="btn" href="/rose">Work with us</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-no">05 / Book</span>
+        <h2 class="sec-title">Reserve the hour</h2>
+        <span class="sec-rule"></span>
+      </div>
+      <p class="para">Bookings by the hour, the night, or the shoot. Tell us what you need and when - a room, the network, and nothing else in your way.</p>
+      <div class="cta-row">
+        <a class="btn solid" href="sms:0412216197">Book a room &middot; 0412 216 197</a>
+        <a class="btn" href="mailto:stream@garter.black">Ask a question</a>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="f-line">STREAM is the streamers' sanctuary of The Black Garter, Sydney, Australia. Rooms by the hour or the short stay, for creators who need a private, wired, broadcast-grade space.</p>
+    <p class="f-line">&copy; 2026 The Black Garter Â· Sydney, Australia Â· stream.garter.black</p>
+  </div>
+<div style="margin:0 0 10px;font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:.14em;line-height:2.1;color:rgba(10,10,10,.72);text-transform:uppercase"><a href="/" style="color:inherit">The Black Garter</a></div>
+<div class="cisfoot" style="margin:56px 0 0;padding:22px 0 10px;border-top:1px solid rgba(10,10,10,.25);font-family:Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:.14em;line-height:2.1;color:rgba(10,10,10,.72);text-transform:uppercase;">SEVEN STARS PROPERTIES PTY LTD &middot; ABN 87 902 523 599 &middot; SYDNEY NSW<br><a href="/" style="color:inherit;">GARTER.BLACK</a> &middot; <a href="/rose" style="color:inherit;">BLACK ROSE</a> &middot; <a href="https://69.business" style="color:inherit;">69.BUSINESS</a></div>
+</footer>
+</body>
+</html>

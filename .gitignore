@@ -1,0 +1,80 @@
+# ── SOURCE OF TRUTH ────────────────────────────────────────────────────────────
+# This repo holds SOURCE ONLY. Everything below is derived or sensitive and must
+# never be committed. If you find yourself wanting to hand-edit dist/, edit src/
+# and run build.py instead.
+# ───────────────────────────────────────────────────────────────────────────────
+
+# Build output. Regenerate with: python build.py
+# Never hand-edit, never commit. This is what caused the 15-file production drift.
+dist/
+output/
+
+# Local dev + runtime state (local sqlite copies, miniflare cache).
+.wrangler/
+__pycache__/
+*.pyc
+
+# Secrets. Production values live in Cloudflare as `wrangler pages secret`.
+# Local dev values live in .dev.vars only.
+.env
+.env.*
+.dev.vars
+
+# Screenshots and generated evidence
+shots/
+
+# Preserved old snapshots moved out of dist/
+work/_backup-files/
+
+# Node / miniflare scratch
+node_modules/
+
+# Worker scratch: raw scraped third-party pages, logs and discovery dumps.
+# Some contain theblackgarter.com.au entries; house rule forbids holding that
+# data. Briefs and reports under tasks/*.md are kept.
+tasks/work-directory/
+tasks/logs/
+tasks/shots/
+
+# ── ALL MEDIA ──────────────────────────────────────────────────────────────────
+# git is not a media host (SOURCE-OF-TRUTH-PLAN.md §1). Media belongs in R2 /
+# object storage. Matched by extension so a stray `cp -r dist/` or a drag-in of
+# an asset folder cannot commit images, video, audio or fonts by accident.
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.avif
+*.bmp
+*.tiff
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.mkv
+*.avi
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.ogg
+*.svg
+*.ico
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.eot
+
+# Downloadable documents under samples/ are media too: they are reproduced from
+# the authoring tool and served from R2, never edited or versioned here.
+*.pdf
+
+# Roster / customer data never enters git: real names, ages, IDs, contacts.
+# The live roster is D1 (binding DB). data/brothels.json in this repo is the
+# public venue directory seed - verified free of names, phones and emails.
+data/**/roster*.json
+data/**/ladies*.json
+*roster*.csv
+*ladies*.csv

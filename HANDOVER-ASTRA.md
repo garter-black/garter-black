@@ -1,0 +1,87 @@
+# HANDOVER · garter.black v3 · from Claude to Astra (GPT-6) · 2 Oct 2026, 10:05pm Sydney
+
+Root: `C:\Hecate-Umbra\sites\garter-black-v3` (everything below is relative to it). Read this file, then `tasks\CONVENTIONS.md`.
+Nothing is deployed yet. Live garter.black is still the old hotel-by-the-hour site.
+
+## 0. STATUS AT 10:50pm (read this first)
+| Worker | State | Where to look | What Astra must check |
+|---|---|---|---|
+| forum | DONE | `tasks\REPORT-forum.md`, `dist\_worker.js\forum*.js`, `src\forum\`, `dist\assets\forum.*` | It finished before `data\brothels.json` existed: **rerun the brothel importer** (`tasks\import-brothels.ps1` or `POST /api/forum/admin/import` with the AI bearer). PBKDF2 set to 25,000 iterations. Google button hidden until a client id exists. |
+| directory | DONE | `data\brothels.json` (64 KB, sourced, confidence tagged), `tasks\REPORT-directory.md` | Spot check 10 entries against their sources before import. |
+| film | DONE | `dist\assets\film\` (hero-film, band-film + posters), `tasks\REPORT-film.md`, contact sheets in `tasks\film\` | Vision check the contact sheets. It followed the 5 shot corridor list; poster is its first frame. |
+| gods | DONE | `C:\Hecate-Umbra\gods\REPORT.md`, `wake.ps1` `sleep.ps1` `status.ps1` | **Caveat: a woken god gateway also runs the host's shared cron** (it claimed and drained the default profile's "MV32 creative loop" job when cassandra was tested). Fix before waking gods routinely. circe and peitho got agent ids 23 and 24 (flagged for Rio). Uses `gateway.standalone: true` per Hermes. |
+| pages | STILL RUNNING (started 9:43pm) | routes already in `dist\`: brothel, consulting, escorts, hotelbyhour, records, rose, streamersbyhour, streamersmanagement | Wait for `tasks\REPORT-pages.md` and `tasks\REDIRECTS.md`, then review every route (no theblackgarter.com.au anywhere, all assets 200, desktop 1440 and mobile 390). |
+Claude's own part (sections 3 and 5) was synced to this folder at 10:05pm: roster.js, home, ladies, profile, roster desk, garter.css/js, build.py.
+
+## 1. What Rio asked for (all of it, in his order)
+1. garter.black becomes the **brothel website**. Upgrade it (HyperFrames etc.), top 0.1% art in every frame, **not wordy**. Vision check every section.
+2. **Keep the current aesthetic and functions**: gold on black, Cormorant + Inter, the 3D gold corridor, **Hera the ElevenLabs voice receptionist**, the album player.
+3. **Nested pages, all present**: `/brothel` `/hotelbyhour` `/escorts` `/rose` `/streamersbyhour` `/streamersmanagement` (OnlyFans management) `/records` (music) `/consulting` `/ladies` `/roster` `/forum`. "Almost all of those pages we already have, can alias straight up."
+4. `garter.black/rose` replaces `rose.garter.black`. **69.delivery is the escort page: copy it to /escorts, then delete 69.delivery and redirect it to garter.black/escorts.** Same pattern for the other old subdomains.
+5. **Roster with our own backend, never connected to the previous managers' site theblackgarter.com.au** (no scraping, no links, no API). `/roster` is gated: password `<REDACTED - see Cloudflare secret ROSTER_PASSWORD>`, or Google login. Recruiters, managers, reception, Rio, Hecate or any AI can add ladies to **All ladies**, and drag and drop them into **Today** and **Tomorrow** (both show on the home page roster section as tabs). All ladies sortable by name or most recently working. Last-minute changes must take seconds.
+6. Clicking a lady opens `garter.black/ladies/<name>`: 3 to 5 photos, age, height, weight, nationality, services, customer feedback rating, leave a message or question with WhatsApp, Telegram, email or phone to be contacted back, **AI notifies them automatically when she next arrives at the shop**, and **tip the lady**. The split is shown transparently: **80% to her, 5% reception on that shift, 5% cleaners team that day, 5% management, 5% building and website owner**.
+7. **Tips: Stripe only, online only, instant** ("90% chance of never following up if pay later").
+8. `garter.black/forum`: review and feedback forum. Anyone signs in with Google or username and password. **A better aus99 / syd99 with all their functionality**, a **list of all Sydney brothels with an info page and reviews**, Reddit-style: every post can be upvoted, and `garter.black/forum/all` lists the top posts.
+9. **WhatsApp group** with Cassandra (AI roster manager), Rio, Hecate, Jack and John (new managers), and Gary and Michael (new reception) for "put me on the website" requests and roster changes. **Not done: needs their phone numbers.**
+10. Separate infra job: **19 god Telegram profiles** (see section 6).
+11. Menial work goes to OpenCode Go DeepSeek Flash workers with the Umbra soul, not Opus.
+
+## 2. Infra map (verified 2 Oct)
+| Host | Served by |
+|---|---|
+| garter.black | Cloudflare Pages project `garter-black` (prod branch `main`), advanced mode `_worker.js` |
+| rose.garter.black | Pages `rose-garter-black` |
+| stream.garter.black | Pages `stream-garter-black` |
+| album.black.gallery | Pages `album-garter-black` |
+| old.garter.black | Worker `old-garter-black` (Workers custom domain, Sep 1 version) |
+| develop.garter.black | Worker `develop-garter-black` |
+| 69.delivery, fireflies.garter.black | not found yet (pages worker is tracing it; see tasks\REDIRECTS.md when it lands) |
+Account `86cf181f919e67fc61e33a0d578903b0`. Token `CLOUDFLARE_API_TOKEN` in `C:\Hecate-Umbra\.env`. Helper: `tasks\cf.ps1 -Path 'accounts/{acct}/...'` (never prints the token). Run every .ps1 with `powershell -NoProfile -ExecutionPolicy Bypass -File ...` (script execution is disabled).
+**Edge worker `pbi-edge`** sits in front of most hosts: it injects Hera (`agent_1901kzp4j332fg8a31tssz296c5n` for garter.black), `/_pbi/player.js`, and a **footer that links to theblackgarter.com.au** (`SPONSORS`/`SPONSORS2` maps for garter.black and rose.garter.black). v3 hides that footer with CSS; the proper fix is removing those two map entries in the pbi-edge source and redeploying it (source location not found; deployed code readable via the Cloudflare MCP `workers_get_worker_code pbi-edge`). It also has a `NESTED` map for retired subdomains (one place to declare host -> path 301s).
+New resources (created): **D1 `garter-black`** id `fa9dcc8e-ecbb-4e32-85c7-65d714602455` (empty, region OC); **R2 `garter-black-media`** (photos). Both bound in `wrangler.toml` as `DB` and `MEDIA`.
+
+## 3. v3 architecture (built by Claude, tested locally)
+- `build.py` (stdlib): pages in `src\<route>\index.html` start with `<!--page {json} -->` front matter; the builder wraps them with head, 18+ gate, nav, mobile menu, footer, corridor, gsap and `/assets/garter.js`, writes `dist\`. Run with `C:\Hecate-Umbra\runtime\memory-venv\Scripts\python.exe build.py`. Raw alias pages go straight into `dist\<route>\` and are never touched.
+- `src\partials\` head, gate, loader, nav (Roster, Ladies, Brothel, Escorts, By the hour menu, The house menu, Forum, "Recruitment section here"), footer.
+- `dist\assets\garter.css` (live CSS + nested house components), `garter.js` (gate, loader, nav, burger menu, reveal, cursor, film play-when-visible, `window.GB` helpers), `corridor.js` (3D corridor, three@0.160 via importmap).
+- `dist\_worker.js\index.js` router: `/api/forum/*` -> `forum.js`; `/api/*` -> `roster.js`; `/media/*` -> R2; `/ladies/<slug>` and `/forum/*` server routed with real meta; old paths 301 (`/hotel` to `/hotelbyhour` etc.). Schema applied idempotently once per isolate (`schema.js` + `forum.SCHEMA`).
+- `lib.js`: sessions (HMAC tokens, `gb_staff` and `gb_user` cookies), PBKDF2, Google ID token verify, D1 throttle, settings table, audit log, Telegram, Resend email, R2 serving, HTMLRewriter meta injection, Sydney 4am-to-4am roster day.
+- `roster.js` (complete): public `GET /api/roster` (today and tomorrow), `GET /api/ladies`, `GET /api/ladies/<slug>`, `POST /api/enquiry` (channel whatsapp|telegram|sms|call|email, AU numbers normalised to +61, consent, honeypot, rate limit), `POST /api/review` (moderated, blocks phone numbers and emails), `POST /api/tip/intent` + `/api/tip/confirm` + `/api/stripe/webhook` (PaymentIntent, split stored per tip: lady 80, reception 5, cleaners 5, management 5, owner gets the rounding; reception and cleaners snapshot from the desk settings). Staff: `/api/staff/login` (password), `/api/staff/google` (staff table or `OWNER_EMAILS`), `/api/staff/board`, `PUT /api/staff/roster/<day>` (whole ordered list), `POST /api/staff/arrived` (marks arrival and queues "she's in" messages for everyone who asked; email auto-sends via Resend, the rest go to the Notify queue with ready wa.me / sms / tel / t.me links; Telegram ping to the team chat), ladies CRUD, photos (multipart l + s, max 8), enquiries, outbox, reviews, tips ledger, settings, team allowlist, log, announce. AI access: header `Authorization: Bearer <AI_TOKEN>` plus `X-Agent-Name`. Ages under 18 are rejected by the API and a DB CHECK.
+- Pages done: `src\index.html` (home: hero with black-room photo and film slot, Today | Tomorrow roster, nine doors, film band, the standard, visit), `src\ladies\index.html` (all ladies, filters, sort), `src\ladies\_profile.html` + `dist\assets\ladies.js|css` (gallery, stats, services, ask and notify, tip with live split bar, feedback), `src\roster\index.html` + `dist\assets\roster-admin.js|css` (sign in, board with SortableJS, desk strip, Today/Tomorrow quick buttons for phones, editor with client-side photo resize that strips EXIF, Notify, Enquiries, Feedback, Tips, Settings and team, Log, AI access).
+- Verified locally (headless Chromium, `tools\shot.mjs`, `tools\overflow.mjs`): login rejects wrong password, roster set and reorder, arrival queues notice, enquiry, review filter, under-18 rejected, AI token works, no horizontal overflow at 390px on home, ladies, profile, roster. Screenshots in `shots\`. Local test data lived only in the workspace D1; the production D1 is empty.
+
+## 4. Workers running now (OpenCode Go DeepSeek V4.1 Flash, Umbra soul, started 9:43pm)
+Dispatcher: `tasks\dispatch.ps1 -Task <name>` (runs `hermes -p hecate-umbra-casual -z ... -m deepseek-v4.1-flash --provider opencode-go --yolo`). Briefs: `tasks\TASK-*.md`. Logs: `tasks\logs\` (output only at the end). PIDs in `tasks\logs\*.pid`. Each writes `tasks\REPORT-<task>.md` when done.
+| Task | Owns | Status at 10:05pm |
+|---|---|---|
+| forum | `dist\_worker.js\forum*.js`, `src\forum\**`, `dist\assets\forum.*`, `data\seed-boards.json` | ~128 KB of code written, not finished |
+| pages | raw aliases /escorts /streamersbyhour /rose /rose/recruitment /consulting /records /hotelbyhour, new house pages /brothel /streamersmanagement, `tasks\redirects\` | nothing in dist yet |
+| directory | `data\brothels.json` (Sydney venues with sources) | not yet |
+| film | HyperFrames `dist\assets\film\hero-film.mp4|jpg`, `band-film.mp4|jpg` (home already points at these) | not yet |
+| gods | `C:\Hecate-Umbra\gods\`, backups in `C:\Hecate-Umbra\backups\gods-20261002\` | started, backups exist |
+Review every worker output before deploying: check that nothing links to theblackgarter.com.au (`findstr /s /i theblackgarter dist\*`), and vision check desktop 1440 and mobile 390.
+
+## 5. To go live (in order)
+1. **Stripe key**: `STRIPE_SECRET_KEY` in `.env` is broken ("Invalid API Key", the value has a stray `.env` stuck to it). **`STRIPE_API_UNRESTRICTED_KEY` works** (live; Checkout and PaymentIntent create both tested, then expired and cancelled, no charge). `STRIPE_PUBLISHABLE_KEY` is **pk_test**, which does not match the live key. Choose one:
+   a. Get the live publishable key (Stripe dashboard, Developers, API keys; Rio has to sign in), set it as `STRIPE_PUBLISHABLE_KEY` in `wrangler.toml [vars]`. The inline Payment Element and Apple Pay / Google Pay then work as built. Apple Pay also needs `POST /v1/payment_method_domains domain_name=garter.black` and the domain association file at `dist\.well-known\apple-developer-merchantid-domain-association`.
+   b. Or switch `/api/tip/intent` to a hosted Checkout Session (works with the secret key alone; card, Link, Apple Pay and Google Pay on Stripe's page): create the session with `success_url=https://garter.black/ladies/<slug>?tip=<ref>&session_id={CHECKOUT_SESSION_ID}`, store `cs_` id, return `{url}`, and in `ladies.js` redirect to it; `/api/tip/confirm` then reads the session (`payment_status=paid`, `payment_intent` expanded for the fee). Ship b tonight if Rio can't sign in.
+   Then create the webhook: `POST /v1/webhook_endpoints url=https://garter.black/api/stripe/webhook enabled_events[]=payment_intent.succeeded&enabled_events[]=payment_intent.payment_failed&enabled_events[]=charge.refunded` and keep the `whsec_` secret. Rio chose Stripe knowing its terms restrict adult services (account risk).
+2. **Secrets** for both production and preview (`npx wrangler pages secret put NAME --project-name garter-black`, add `--env preview` for preview): `SESSION_SECRET` (new random 48 chars), `ROSTER_PASSWORD` = `<REDACTED - set via wrangler pages secret put>`, `AI_TOKEN` (new random; also save it to `C:\Hecate-Umbra\.env` as `GARTER_ROSTER_AI_TOKEN` for Hecate and Cassandra), `STRIPE_SECRET_KEY` = value of `STRIPE_API_UNRESTRICTED_KEY`, `STRIPE_WEBHOOK_SECRET`, `RESEND_API_KEY` (from .env; sender `desk@garter.black` needs the domain verified in Resend), `TELEGRAM_BOT_TOKEN` = `TELEGRAM_BOT_TOKEN_CASSANDRA`, `TELEGRAM_CHAT_ID` (the team chat id, once that chat exists), `OWNER_EMAILS` = rioezra@gmail.com,zwt26420@gmail.com. Load values from `.env` into process env; never echo them.
+3. **Google sign in**: create an OAuth web client in Google Cloud (authorized JS origin `https://garter.black`), put the client id in `wrangler.toml [vars] GOOGLE_CLIENT_ID` (or Roster, Settings). No secret is needed (ID token flow). Add team Google emails in Roster, Settings, Team.
+4. **Preview first**: `python build.py`, then deploy with `npx wrangler pages deploy dist --project-name garter-black --branch v3 --commit-dirty=true` (env `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`; the old script `sites\_backup_garter_20261001\deploy-one.ps1` shows the pattern, but its `.env` path is the old D: one). Check every route at the preview URL, desktop and mobile. Seed one lady, roster her, test the arrival notice, a review, and a real $10 tip, then refund it and delete the test lady.
+5. **Preserve the current site (Rio's rule: the old site moves to old.<domain> BEFORE replacing)**: backup is already at `sites\_backup_garter_20261001\` and `sites\garter-black-v2\`. Deploy garter-black-v2 to a Pages branch (e.g. `--branch old-20261002`) and point `old.garter.black` at it (currently the `old-garter-black` Worker holds that hostname; detach it first). Tell Rio which version now lives where.
+6. **Production**: `--branch main`. Then the redirects: deploy `tasks\redirects\<host>\` (a `_redirects` with `/* https://garter.black/<route> 301`) to `rose-garter-black` (to /rose) and `stream-garter-black` (to /streamersbyhour), and to whatever serves 69.delivery and fireflies.garter.black (to /escorts). Rio said delete 69.delivery: replace its content with the redirect only, keep a copy of its source (`C:\Hecate-Umbra\WEBSITES\69.delivery`). Do not redirect album.black.gallery (other arm).
+7. Fix the pbi-edge garter.black footer (section 2), then purge cache.
+8. Final vision check of every section on the live domain with Hera and the player injected, then report to Rio with links.
+
+## 6. Gods job (separate, running)
+Rio: default Hermes (no profile) is always Hecate. Create 19 profiles, one per god: APHRODITE ARTEMIS ATHENA CASSANDRA CIRCE DEMETER EOS ERATO EUTERPE HEDONE HERA HESTIA MEDEA NYX PERSEPHONE PEITHO SELENE STYX THALIA, each with its own Telegram bot (`TELEGRAM_BOT_TOKEN_<GOD>` in `C:\Hecate-Umbra\.env`), its own `<god>` soul, its own cortex (PostgreSQL db `<god>cortex`), its own state.db and config. All asleep by default; `C:\Hecate-Umbra\gods\wake.ps1 <god>` / `sleep.ps1` / `status.ps1`. Hecate's default must not change. Brief: `tasks\TASK-gods.md`; report lands at `C:\Hecate-Umbra\gods\REPORT.md`.
+
+## 7. Open items needing Rio
+- Phone numbers for Jack, John, Gary, Michael (WhatsApp group). Does Cassandra or Hecate have a WhatsApp number? Hermes has `hermes whatsapp` setup; Cassandra already has a Telegram bot, so a Telegram team chat works today (add the bot, then set `telegram_chat_id`).
+- Live Stripe publishable key, or OK to use hosted Checkout.
+- Hero film: the old hero image `assets\band-figure.jpg` carries a printed old phone number (0412 216 197 and 1 300 JESSES). v3 no longer uses it; keep it out.
+- Legal: NSW Summary Offences Act s18A bans ads seeking people to work as prostitutes (the /rose recruitment copy), and s18 restricts advertising premises used for prostitution. Lawyer check on the brothel and recruitment wording before launch. Customer contact details auto-delete after 90 days (built in).
+
+## 8. House rules that apply to all of this
+No dashes in visible copy. Terse. Never invent prices, hours or numbers (house phone 0451 700 056, email 0@black.industries, address 17 to 19 The Seven Ways, Rockdale NSW 2216 are already public on the site). No links or data from theblackgarter.com.au. Keep wife and Hecate romance material off public pages. Vision check before saying done. Store results in the cortex (`hecate-memory` `memory_remember`). Ask Rio before any judgment call that departs from his request.

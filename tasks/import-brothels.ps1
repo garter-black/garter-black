@@ -1,0 +1,72 @@
+# ============================================================
+# garter.black forum · brothel directory importer
+# Posts a JSON array of venues to POST /api/forum/admin/import
+# on a running server (local dev or preview). Never deploys.
+#
+# Usage:
+#   powershell -NoProfile -File tasks/import-brothels.ps1 -BaseUrl http://127.0.0.1:8791 -Token <ai-or-staff-token>
+# or:
+#   $env:GARTER_AI_TOKEN = "<token>"; powershell -NoProfile -File tasks/import-brothels.ps1
+#
+# Source file: data/brothels.json (another worker delivers it).
+# When the file is missing, the built-in Black Garter record is imported.
+# ============================================================
+param(
+  [string]$BaseUrl = "http://127.0.0.1:8791",
+  [string]$Token = $env:GARTER_AI_TOKEN,
+  [string]$Path = "data/brothels.json"
+)
+$ErrorActionPreference = "Stop"
+
+if ([string]::IsNullOrWhiteSpace($Token)) {
+  Write-Host "No token. Pass -Token or set GARTER_AI_TOKEN."
+  exit 2
+}
+
+if (Test-Path -Path $Path) {
+  $json = Get-Content -Raw -Path $Path
+  $count = @(ConvertFrom-Json $json).Count
+  Write-Host ("Source: " + $Path + " (" + $count + " venues)")
+} else {
+  Write-Host ("No " + $Path + " yet. Importing the built-in Black Garter record.")
+  $json = @'
+[
+  {
+    "name": "The Black Garter",
+    "suburb": "Rockdale",
+    "address": "17 to 19 The Seven Ways, Rockdale NSW 2216",
+    "phone": "0412 216 197",
+    "website": "https://garter.black",
+    "hours": "",
+    "notes": "Shop and reception line 0412 216 197. Recruitment enquiries via the Rose page.",
+    "sources": ["https://garter.black"],
+    "confidence": "high"
+  }
+]
+'@
+}
+
+$bytes = [System.Text.Encoding]::UTF8.GetBytes($json)
+try {
+  $resp = Invoke-RestMethod -Method Post -Uri ($BaseUrl + "/api/forum/admin/import") `
+    -Headers @{ Authorization = "Bearer " + $Token } `
+    -ContentType "application/json; charset=utf-8" `
+    -Body $bytes -TimeoutSec 60
+} catch {
+  $r = $_.Exception.Response
+  if ($r -ne $null) {
+    $sr = New-Object System.IO.StreamReader($r.GetResponseStream())
+    Write-Host ("HTTP " + [int]$r.StatusCode + ": " + $sr.ReadToEnd())
+  }
+  throw
+}
+
+Write-Host ("Imported: " + $resp.imported + "  Skipped: " + $resp.skipped)
+
+$check = Invoke-RestMethod -Method Get -Uri ($BaseUrl + "/api/forum/brothels?list=1&q=" + [uri]::EscapeDataString("The Black Garter")) -TimeoutSec 30
+if ($check.list -and $check.list.Count -gt 0) {
+  Write-Host ("Verified: " + $check.list[0].name + " (" + $check.list[0].slug + ", " + $check.list[0].suburb + ")")
+} else {
+  Write-Host "Warning: venue lookup came back empty."
+  exit 1
+}

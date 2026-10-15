@@ -1,0 +1,16 @@
+{
+  "note": "Seed boards for garter.black/forum. Mirror of the INSERT OR IGNORE statements in dist/_worker.js/forum.js SCHEMA. pos orders the list.",
+  "boards": [
+    { "slug": "general", "name": "General discussion", "desc": "The floor. Anything on topic.", "pos": 0 },
+    { "slug": "reviews", "name": "Field reports and reviews", "desc": "Your own genuine experience only. Working names, never real ones.", "pos": 1 },
+    { "slug": "whos-working", "name": "Who's working", "desc": "Who is on tonight, and where.", "pos": 2 },
+    { "slug": "brothels", "name": "Brothel news and openings", "desc": "Openings, closings and changes across Sydney.", "pos": 3 },
+    { "slug": "escorts", "name": "Independent escorts", "desc": "Independents and their updates.", "pos": 4 },
+    { "slug": "massage", "name": "Massage parlours", "desc": "Shops, services and notes.", "pos": 5 },
+    { "slug": "newbies", "name": "New to it", "desc": "Ask the questions you were afraid to ask.", "pos": 6 },
+    { "slug": "lounge", "name": "The ladies' lounge", "desc": "For workers, by workers.", "pos": 7 },
+    { "slug": "offtopic", "name": "Off topic", "desc": "Everything else.", "pos": 8 },
+    { "slug": "meta", "name": "Site feedback", "desc": "Bugs, ideas and moderation notes.", "pos": 9 }
+  ],
+  "flairs": ["Review", "Question", "News", "Discussion", "Warning", "Meta"]
+}

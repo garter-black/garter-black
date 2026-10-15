@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Forum · The Black Garter</title>
+<meta name="description" content="Sydney's adult scene, discussed properly. Field reports, questions, and who is working tonight. Adults only.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#060606">
+<link rel="canonical" href="https://garter.black/forum">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Black Garter">
+<meta property="og:locale" content="en_AU">
+<meta property="og:title" content="Forum · The Black Garter">
+<meta property="og:description" content="Sydney's adult scene, discussed properly. Field reports, questions, and who is working tonight. Adults only.">
+<meta property="og:url" content="https://garter.black/forum">
+<meta property="og:image" content="https://garter.black/assets/black-room.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="geo.region" content="AU-NSW">
+<meta name="geo.placename" content="Rockdale, Sydney">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="/assets/garter.css?v=1a8cf4f4e3">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script>
+/* Hera reception mount - HOUSE PATHS ONLY.
+   Loaded on every built page, but no-ops unless the path is one of the Black Garter
+   house routes. It injects the reception stylesheet, a mount section just inside
+   <main> (above the footer), then the widget script. Voice is configured for the NEW
+   Black Garter Hera copy; while its credits are zero the widget shows an honest
+   "reception unavailable - call or WhatsApp" and never fakes a live call.
+   Corporate pages (e.g. /escorts) are untouched: their existing voice stays as is. */
+(function () {
+  try {
+    var p = (location.pathname || '/').replace(/\/+$/, '') || '/';
+    var house = (p === '/' || p === '/brothel' || p === '/ladies' || p === '/backentrance' || p === '/hotelbyhour')
+      || p.indexOf('/ladies/') === 0;
+    if (!house) return;
+    var d = document;
+    var css = d.createElement('link');
+    css.rel = 'stylesheet'; css.href = '/assets/garter-hera.css?v=1a8cf4f4e3';
+    d.head.appendChild(css);
+    function boot() {
+      var main = d.getElementById('main');
+      if (!main) return;
+      if (d.getElementById('gb-hera-mount')) return;
+      var sec = d.createElement('section');
+      sec.id = 'gb-hera-mount';
+      sec.className = 'wrap';
+      sec.style.cssText = 'padding:56px 16px 8px;';
+      main.appendChild(sec);
+      var s = d.createElement('script');
+      s.src = '/assets/garter-hera.js?v=1a8cf4f4e3';
+      s.onload = function () { try { window.GarterHera && window.GarterHera.mount('#gb-hera-mount'); } catch (e) {} };
+      d.head.appendChild(s);
+    }
+    if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', boot);
+    else boot();
+  } catch (e) {}
+})();
+</script>
+<link rel="stylesheet" href="/assets/forum.css?v=1"><noscript><style>#forum-root .fskel{display:none}#forum-root .fnoscript{display:block}</style></noscript>
+</head>
+
+<body>
+<canvas id="bg3d" aria-hidden="true"></canvas><div class="bg-veil" aria-hidden="true"></div>
+<div id="agegate" role="dialog" aria-modal="true" aria-label="Age verification">
+  <div class="ag-kick">Rockdale &middot; Sydney &middot; Licensed Premises</div>
+  <div class="ag-name">The Black Garter</div>
+  <div class="ag-rule"></div>
+  <div class="ag-warn">You must be <b>18 or over</b> to enter</div>
+  <div class="ag-fine">An adult venue. By entering you confirm you are at least 18 years of age and consent to viewing adult oriented content. No explicit imagery appears on this site.</div>
+  <fieldset class="ag-music">
+    <legend class="ag-music-h">Music <span class="ag-rec">On recommended</span></legend>
+    <div class="ag-music-row">
+      <label class="ag-opt"><input type="radio" name="ag-music" value="on" checked><span>On</span></label>
+      <label class="ag-opt"><input type="radio" name="ag-music" value="off"><span>Off</span></label>
+    </div>
+    <p class="ag-music-note">No audio plays until you enter.</p>
+  </fieldset>
+  <div class="ag-row">
+    <button class="btn solid" id="ag-yes" type="button">I am 18 or over</button>
+    <a class="btn ghost" href="https://www.google.com">Leave</a>
+  </div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<a class="sr" href="#main">Skip to content</a>
+<nav id="top" aria-label="Primary">
+  <a class="nv-mark" href="/"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect width="64" height="64" fill="#060606"/><circle cx="32" cy="32" r="15" stroke="#c8a558" stroke-width="3"/><circle cx="32" cy="32" r="3.5" fill="#7a1420"/></svg><span>Black Garter</span></a>
+  <div class="nv-links">
+    <a href="/#roster">Roster</a>
+    <a href="/ladies">Ladies</a>
+    <a href="/brothel">Brothel</a>
+    <a href="/escorts">Escorts</a>
+    <div class="nv-more"><button type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nd-hour">By the hour</button>
+      <div class="nv-drop" id="nd-hour">
+        <a href="/hotelbyhour">Hotel by the hour <small>from $80</small></a>
+        <a href="/streamersbyhour">Streamers by the hour <small>wired rooms</small></a>
+        <a href="/streamersmanagement">Viper Rose Streamers <small>management</small></a>
+      </div>
+    </div>
+    <div class="nv-more"><button type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nd-house">The house</button>
+      <div class="nv-drop" id="nd-house">
+        <a href="/records">Records <small>the album</small></a>
+        <a href="/consulting">Consulting <small>Fireflies</small></a>
+        <a href="/forum/brothels">Sydney brothels <small>directory</small></a>
+      </div>
+    </div>
+    <a href="/forum">Forum</a>
+    <a class="nv-rec" href="/rose">Work with us</a>
+  </div>
+  <div class="nv-right">
+    <a class="nv-call" href="tel:+61412216197">Call the house</a>
+    <button class="nv-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><i></i><i></i><i></i></button>
+  </div>
+</nav>
+<div id="mnav" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mn-grp">Tonight</div>
+  <a href="/#roster">Roster <small>today &middot; tomorrow</small></a>
+  <a href="/ladies">The ladies</a>
+  <a href="/brothel">Brothel</a>
+  <a href="/escorts">Escorts</a>
+  <div class="mn-grp">By the hour</div>
+  <a href="/hotelbyhour">Hotel by the hour</a>
+  <a href="/streamersbyhour">Streamers by the hour</a>
+  <a href="/streamersmanagement">Viper Rose Streamers</a>
+  <div class="mn-grp">The house</div>
+  <a href="/forum">Forum</a>
+  <a href="/forum/brothels">Sydney brothels</a>
+  <a href="/records">Records</a>
+  <a href="/consulting">Consulting</a>
+  <a href="/rose">Work with us</a>
+  <div class="mn-foot">
+    <a class="btn solid" href="tel:+61412216197" style="font:500 11px/1 var(--sans);opacity:1;transform:none">Call the house</a>
+    <a class="btn ghost" href="https://wa.me/61412216197" style="font:500 11px/1 var(--sans);opacity:1;transform:none">WhatsApp</a>
+  </div>
+</div>
+
+<main id="main">
+<div id="forum-root">
+  <div class="fw"><div class="fskel">Opening the room…</div></div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <div class="f-mark"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="15" stroke="#c8a558" stroke-width="3"/><circle cx="32" cy="32" r="3.5" fill="#7a1420"/></svg><span>The Black Garter</span></div>
+        <p>Licensed adult venue, Rockdale.<br>17 to 19 The Seven Ways, Rockdale NSW 2216.<br>Text or call <a href="tel:+61412216197">0412 216 197</a> &middot; <a href="mailto:0@black.industries">0@black.industries</a></p>
+        <p class="f-tel">Landline <a href="tel:+61253000019">02 5300 0019</a></p>
+      </div>
+      <div>
+        <h4>Tonight</h4>
+        <div class="f-nav">
+          <a href="/#roster">Today's roster</a>
+          <a href="/ladies">The ladies</a>
+          <a href="/brothel">Brothel</a>
+          <a href="/escorts">Escorts</a>
+          <a href="/hotelbyhour">Hotel by the hour</a>
+        </div>
+      </div>
+      <div>
+        <h4>The house</h4>
+        <div class="f-nav">
+          <a href="/backentrance">Back entrance</a>
+          <a href="/rose">Work with us</a>
+          <a href="/streamersbyhour">Streamers by the hour</a>
+          <a href="/streamersmanagement">Viper Rose Streamers</a>
+          <a href="/consulting">Consulting</a>
+          <a href="/records">Records</a>
+          <a href="/forum">Forum</a>
+          <a href="/forum/brothels">Sydney brothels</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-legal">
+      <span>Strictly 18+ <i>&middot;</i> Licensed premises <i>&middot;</i> No explicit imagery on this site</span>
+      <span>Rates correct at publication <i>&middot;</i> All work independent and lawful</span>
+      <span>&copy; <span data-year>2026</span> The Black Garter &middot; Rockdale, Sydney</span>
+    </div>
+    <p class="note" style="margin-top:18px;letter-spacing:.14em;text-transform:uppercase;font-size:10px">Seven Skies Consulting Services Pty Ltd ABN 24 691 297 284 &middot; trading as The Black Garter Gallery, Fireflies Business Consulting, Viper Rose Networks</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="/assets/garter.js?v=1a8cf4f4e3" defer></script>
+<script type="module" src="/assets/corridor.js?v=1a8cf4f4e3"></script>
+<script src="/assets/garter-playlist.js" defer></script>
+<script src="/assets/garter-player.js" defer></script>
+<script src="/assets/forum.js?v=1" defer></script>
+</body>
+</html>

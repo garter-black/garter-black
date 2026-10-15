@@ -1,0 +1,92 @@
+<!--page {"title":"The Black Garter, Rockdale","desc":"A lady on The Black Garter roster, Rockdale.","canonical":"/ladies","og":"/assets/black-room.jpg"} -->
+<!--head-->
+<link rel="stylesheet" href="/assets/ladies.css?v={{ver}}">
+<!--/head-->
+<section id="lady" class="lady" data-phone="{{phone}}" data-tel="{{tel}}" data-wa="{{wa}}">
+  <div class="wrap">
+    <div class="crumb"><a href="/">The Black Garter</a><i>&middot;</i><a href="/ladies">The ladies</a><i>&middot;</i><span id="cr-name"></span></div>
+    <div class="lady-g" id="lady-root">
+      <div class="lg-gal sk"><div class="lg-main"></div></div>
+      <div class="lg-info"><div class="lg-name" style="opacity:.25">&nbsp;</div></div>
+    </div>
+  </div>
+</section>
+<section id="ask" class="lsec" hidden>
+  <div class="wrap split">
+    <div class="panel rv" id="p-ask">
+      <div class="kick">Ask the desk</div>
+      <h3 id="ask-h">Ask, or be told when she's in.</h3>
+      <p class="p-sub">Leave a way to reach you. The desk replies, and the moment she arrives we let you know.</p>
+      <form class="form" id="f-ask" novalidate>
+        <div class="fld"><span>Reach me on</span>
+          <div class="seg" role="radiogroup" aria-label="Reach me on">
+            <label><input type="radio" name="channel" value="whatsapp" checked><span>WhatsApp</span></label>
+            <label><input type="radio" name="channel" value="telegram"><span>Telegram</span></label>
+            <label><input type="radio" name="channel" value="sms"><span>Text</span></label>
+            <label><input type="radio" name="channel" value="call"><span>Call me</span></label>
+            <label><input type="radio" name="channel" value="email"><span>Email</span></label>
+          </div>
+        </div>
+        <div class="row2">
+          <label class="fld"><span id="h-lab">Mobile</span><input name="handle" id="ask-handle" autocomplete="tel" inputmode="tel" placeholder="04xx xxx xxx" required></label>
+          <label class="fld"><span>Name <i style="font-style:normal;color:var(--faint)">optional</i></span><input name="name" autocomplete="nickname" maxlength="40" placeholder="First name or nickname"></label>
+        </div>
+        <label class="fld"><span>Message <i style="font-style:normal;color:var(--faint)">optional</i></span><textarea name="message" maxlength="800" placeholder="A question, a time, anything the desk should know"></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="chk"><input type="checkbox" name="notify" checked> <span>Tell me the next time she arrives at the house</span></label>
+        <label class="chk"><input type="checkbox" name="consent" required> <span>Contact me about this. Details stay with the desk and are deleted within 90 days.</span></label>
+        <div><button class="btn solid" type="submit">Send to the desk</button></div>
+      </form>
+      <div class="sent" id="ask-done" hidden><div class="sent-h">With the desk.</div><p class="p-sub" id="ask-done-p"></p><button class="btn ghost sm" type="button" id="ask-again">Send another</button></div>
+    </div>
+    <div class="panel rv" id="p-tip">
+      <div class="kick">Tip her</div>
+      <h3 id="tip-h">Tip, instantly.</h3>
+      <p class="p-sub">Paid on the spot by card, Apple Pay or Google Pay. <b class="gold">Eighty percent goes to her.</b> Card fees are paid by the house.</p>
+      <div class="tip-amts seg" id="tip-amts" role="radiogroup" aria-label="Tip amount"></div>
+      <label class="fld tip-custom" hidden id="tip-custom"><span>Your amount (AUD)</span><input id="tip-amt" type="number" inputmode="decimal" min="10" max="2000" step="1" placeholder="75"></label>
+      <div class="split-bar" id="split-bar" aria-hidden="true"></div>
+      <ul class="split-list" id="split-list"></ul>
+      <div class="row2 form" style="margin-top:22px">
+        <label class="fld"><span>From <i style="font-style:normal;color:var(--faint)">optional</i></span><input id="tip-from" maxlength="40" placeholder="Your name or leave blank"></label>
+        <label class="fld"><span>Note <i style="font-style:normal;color:var(--faint)">optional</i></span><input id="tip-note" maxlength="280" placeholder="A few words for her"></label>
+      </div>
+      <div id="tip-pay" class="tip-pay"></div>
+      <div class="tip-go"><button class="btn solid" type="button" id="tip-btn">Tip</button><span class="note" id="tip-msg"></span></div>
+      <div class="sent" id="tip-done" hidden><div class="sent-h">Thank you.</div><p class="p-sub" id="tip-done-p"></p></div>
+    </div>
+  </div>
+</section>
+<section id="feedback" class="lsec" hidden>
+  <div class="wrap split">
+    <div>
+      <div class="kick rv">Feedback</div>
+      <h2 class="rv" id="fb-h">What guests say.</h2>
+      <div id="fb-sum" class="fb-sum rv"></div>
+      <div id="fb-list" class="fb-list"></div>
+    </div>
+    <div class="panel rv">
+      <h3>Leave feedback</h3>
+      <p class="p-sub">Checked by the desk before it appears. Keep it kind and keep names, numbers and details private.</p>
+      <form class="form" id="f-fb" novalidate>
+        <div class="fld"><span>Your rating</span>
+          <div class="starpick" role="radiogroup" aria-label="Rating">
+            <input type="radio" id="s5" name="rating" value="5"><label for="s5" title="5 stars">&#9733;</label>
+            <input type="radio" id="s4" name="rating" value="4"><label for="s4" title="4 stars">&#9733;</label>
+            <input type="radio" id="s3" name="rating" value="3"><label for="s3" title="3 stars">&#9733;</label>
+            <input type="radio" id="s2" name="rating" value="2"><label for="s2" title="2 stars">&#9733;</label>
+            <input type="radio" id="s1" name="rating" value="1"><label for="s1" title="1 star">&#9733;</label>
+          </div>
+        </div>
+        <label class="fld"><span>A few words <i style="font-style:normal;color:var(--faint)">optional</i></span><textarea name="body" maxlength="1000" placeholder="How was your time?"></textarea></label>
+        <label class="fld"><span>Name <i style="font-style:normal;color:var(--faint)">optional</i></span><input name="name" maxlength="40" placeholder="Shown as Guest if blank"></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div><button class="btn ghost" type="submit">Send feedback</button></div>
+      </form>
+      <div class="sent" id="fb-done" hidden><div class="sent-h">Thank you.</div><p class="p-sub">The desk reads every word. It appears here once approved.</p></div>
+    </div>
+  </div>
+</section>
+<!--scripts-->
+<script src="/assets/ladies.js?v={{ver}}" defer></script>
+<!--/scripts-->

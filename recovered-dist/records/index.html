@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>if(location.hostname==='album.garter.app'){location.replace('https://garter.black/records'+location.pathname+location.search+location.hash);}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DARKEST NIGHTS. BRIGHTEST STARS - The Black Garter</title>
+<meta name="description" content="DARKEST NIGHTS. BRIGHTEST STARS - the debut album by The Black Garter. GRTRBLCK · Pitch Black Industries.">
+<link rel="canonical" href="https://garter.black/records">
+<meta property="og:title" content="DARKEST NIGHTS. BRIGHTEST STARS - The Black Garter">
+<meta property="og:description" content="The debut album. 32 tracks. GRTRBLCK · Pitch Black Industries.">
+<meta property="og:type" content="music.album">
+<meta property="og:url" content="https://garter.black/records">
+<meta property="og:image" content="https://garter.black/records/art/cover.jpg">
+<meta name="theme-color" content="#060606">
+<meta name="author" content="Jesse Rio Ezra Widjanarko Kho">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MusicAlbum","name":"Darkest Nights. Brightest Stars","url":"https://album.garter.black/","numTracks":32,"image":"https://album.garter.black/art/cover.jpg","byArtist":{"@type":"MusicGroup","name":"The Witch of Rockdale","url":"https://garter.app","member":{"@type":"Person","name":"Jesse Rio Ezra Widjanarko Kho","alternateName":["Rio Kho","Jesse Kho","Rio Ezra Widjanarko Kho","Rio Widjanarko Kho","The Witch of Rockdale"]}},"publisher":{"@type":"Organization","name":"Pitch Black Industries","legalName":"Cognitive Intelligence Services Pty Ltd"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Jesse Rio Ezra Widjanarko Kho","alternateName":["Rio Kho","Jesse Kho","Rio Ezra Widjanarko Kho","Rio Widjanarko Kho","The Witch of Rockdale"],"url":"https://album.garter.black/","description":"Australian artist and founder of Pitch Black Industries; writer and performer of the debut album as The Witch of Rockdale.","sameAs":["https://garter.app","https://album.garter.black","https://pitch.black.industries","https://atlas.black.industries"],"worksFor":{"@type":"Organization","name":"Pitch Black Industries","legalName":"Cognitive Intelligence Services Pty Ltd"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060606; --bg2:#0a0a0a; --panel:#0c0d0f; --panel2:#101113;
+  --ink:#f4f2ec; --soft:#a9a59c; --mute:#6f6c64;
+  --gold:#c5a572; --goldb:#f0dca8; --line:rgba(255,255,255,.10); --linegold:rgba(197,165,114,.22);
+  --red:#9a1418;
+  --didone:"Bodoni Moda",Didot,"Times New Roman",serif;
+  --grotesk:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--grotesk);font-weight:300;
+  -webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;letter-spacing:.01em}
+body.loading{overflow:hidden;height:100vh}
+::selection{background:var(--ink);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:92%;max-width:1320px;margin:0 auto}
+body::before{content:"";position:fixed;top:-30vh;left:50%;transform:translateX(-50%);
+  width:120vw;height:80vh;background:radial-gradient(closest-side,rgba(197,165,114,.05),transparent 70%);
+  pointer-events:none;z-index:0}
+/* film grain */
+#grain{position:fixed;inset:0;z-index:680;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.lab{font-family:var(--grotesk);font-size:10.5px;font-weight:400;text-transform:uppercase;letter-spacing:.42em;color:var(--mute)}
+.lab.gold{color:var(--gold)}
+.didone{font-family:var(--didone)}
+h1,h2,h3{font-weight:400;line-height:1.02;letter-spacing:.005em}
+
+/* scroll progress */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:660}
+
+/* LOADER */
+#loader{position:fixed;inset:0;z-index:9000;background:var(--bg);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:26px}
+#loader .lw{font-family:var(--didone);font-size:clamp(40px,9vw,120px);font-weight:500;letter-spacing:.02em;line-height:1}
+#loader .lstat{display:flex;gap:18px;align-items:baseline}
+#loader .lcount{font-family:var(--grotesk);font-size:12px;letter-spacing:.3em;color:var(--gold)}
+#loader .lword{font-family:var(--grotesk);font-size:10.5px;letter-spacing:.45em;text-transform:uppercase;color:var(--mute)}
+#lbar{position:fixed;left:0;bottom:0;height:1px;width:0;background:var(--gold);z-index:9001}
+.curtain{position:fixed;left:0;width:100%;height:50vh;background:#000;z-index:8999;pointer-events:none}
+#curtTop{top:0}#curtBot{bottom:0}
+
+/* CURSOR */
+#cur,#curd{position:fixed;top:0;left:0;z-index:9500;pointer-events:none;mix-blend-mode:difference;border-radius:50%;will-change:transform}
+#cur{width:30px;height:30px;border:1px solid #fff;margin:-15px 0 0 -15px;transition:width .25s,height .25s,margin .25s}
+#curd{width:4px;height:4px;background:#fff;margin:-2px 0 0 -2px}
+#cur.big{width:66px;height:66px;margin:-33px 0 0 -33px}
+@media(pointer:coarse){#cur,#curd{display:none}}
+
+/* NAV */
+header{position:fixed;top:0;left:0;width:100%;z-index:600;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+header.solid{background:rgba(6,6,6,.72);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .bar{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+header .brand{font-family:var(--grotesk);font-size:12px;font-weight:400;letter-spacing:.34em;text-transform:uppercase}
+header nav{display:flex;gap:34px}
+header nav a{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--soft);transition:color .3s}
+header nav a:hover{color:var(--ink)}
+@media(max-width:720px){header nav{display:none}}
+
+/* HERO */
+.atmos{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.atmos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.3) contrast(1.04) brightness(.9);opacity:.5}
+.atmos::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,6,.55),rgba(6,6,6,.74) 62%,#060606 100%)}
+#manifesto{position:relative;overflow:hidden}
+#manifesto .atmos img{object-position:center 42%;filter:grayscale(.35) contrast(1.03) brightness(.85);opacity:.42}
+#manifesto .atmos::after{background:linear-gradient(180deg,#060606,rgba(6,6,6,.72) 40%,rgba(6,6,6,.8) 100%)}
+@media(max-width:860px){.atmos img{object-position:center 38%}}
+#hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 0 7vh;overflow:hidden}
+#bgcanvas{position:absolute;inset:0;z-index:0;opacity:.55}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end;width:100%}
+.hero-left .kick{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+.hero-left .kick .rule{width:54px;height:1px;background:var(--red)}
+.hero-title{font-family:var(--didone);font-weight:500;font-size:clamp(52px,11.5vw,176px);line-height:.86;letter-spacing:.01em}
+.hero-title .ln{display:block;overflow:hidden;padding-bottom:.03em}
+.hero-title .ln i{display:inline-block;font-style:normal}
+.hero-title .ln i.it{font-style:italic;font-weight:400}
+.anim .hero-title .ln i{transform:translateY(116%)}
+.anim .hero-title.in .ln i{transform:translateY(0);transition:transform 1.05s cubic-bezier(.16,1,.3,1)}
+.anim .hero-title.in .ln:nth-child(2) i{transition-delay:.09s}
+.anim .hero-title.in .ln:nth-child(3) i{transition-delay:.18s}
+.hero-sub{margin-top:30px;max-width:30ch;color:var(--soft);font-size:15px;font-weight:300;line-height:1.7}
+.hero-cta{margin-top:34px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn{font-family:var(--grotesk);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);
+  border:1px solid var(--line);padding:16px 26px;background:none;cursor:pointer;display:inline-flex;align-items:center;gap:12px;
+  transition:background .35s,color .35s,border-color .35s;will-change:transform}
+.btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.ghost:hover{background:transparent;color:var(--gold);border-color:var(--linegold)}
+.btn .tri{font-size:9px}
+.scrollcue{position:absolute;left:0;bottom:26px;z-index:2;font-size:9.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:10px}
+.scrollcue .l{width:40px;height:1px;background:var(--mute);display:inline-block;animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleX(.4);transform-origin:left;opacity:.4}50%{transform:scaleX(1);opacity:1}}
+.hero-cover{justify-self:end;align-self:end;width:min(34vw,420px);aspect-ratio:1/1;position:relative;will-change:transform}
+.hero-cover .frame{position:absolute;inset:0;border:1px solid var(--line)}
+.hero-cover .eclipse{position:absolute;inset:0;background:
+  radial-gradient(circle at 50% 46%, #000 0 38%, var(--gold) 39% 40%, transparent 41%),
+  radial-gradient(circle at 50% 46%, rgba(240,220,168,.18) 0 46%, transparent 60%),#070707}
+.hero-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.05)}
+.hero-cover .cap{position:absolute;left:-1px;bottom:-30px;font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--mute)}
+.hero-cover .corner{position:absolute;width:14px;height:14px;border:1px solid var(--gold);opacity:.6}
+.hero-cover .c1{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.hero-cover .c2{bottom:-1px;right:-1px;border-left:0;border-top:0}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:46px}.hero-cover{justify-self:start;width:min(70vw,340px)}}
+
+/* MARQUEE */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:22px 0;position:relative;z-index:2;background:var(--bg)}
+.marquee .mtrack{display:inline-block;will-change:transform;animation:marq 26s linear infinite}
+.marquee:hover .mtrack{animation-play-state:paused}
+.marquee span{font-family:var(--didone);font-size:clamp(26px,4.4vw,58px);font-style:italic;color:var(--ink);padding:0 .35em}
+.marquee b{color:var(--gold);font-style:normal;font-weight:400;padding:0 .25em}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{position:relative;z-index:2;padding:11vh 0}
+.shead{display:flex;align-items:baseline;gap:20px;margin-bottom:7vh}
+.shead .n{font-family:var(--grotesk);font-size:11px;letter-spacing:.3em;color:var(--gold)}
+.shead .t{font-family:var(--grotesk);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--soft)}
+.shead .line{flex:1;height:1px;background:var(--line)}
+.rv{opacity:0;transform:translateY(26px)}
+
+#manifesto{padding:16vh 0}
+#manifesto .wrap{position:relative;z-index:1}
+.manifesto-line{font-family:var(--didone);font-weight:400;font-size:clamp(30px,6vw,86px);line-height:1.04;letter-spacing:.005em;max-width:18ch}
+.manifesto-line .it{font-style:italic}
+.manifesto-line .dim{color:var(--mute)}
+#manifesto .foot{margin-top:48px;display:flex;gap:60px;flex-wrap:wrap}
+#manifesto .foot .k{font-family:var(--didone);font-size:46px}
+#manifesto .foot .v{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--mute);margin-top:6px}
+
+/* TRACKLIST */
+.tl{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:64px 1fr auto auto;gap:22px;align-items:center;padding:20px 6px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .3s}
+.row:hover{background:var(--panel)}
+.row.active{background:var(--panel2)}
+.row .rn{font-family:var(--grotesk);font-size:11px;letter-spacing:.06em;color:var(--mute)}
+.row.active .rn{color:var(--gold)}
+.row .meta .tt{font-family:var(--grotesk);font-size:14.5px;letter-spacing:.16em;text-transform:uppercase;transition:color .3s}
+.row:hover .meta .tt{color:var(--gold)}
+.row.active .meta .tt{font-family:var(--didone);font-style:italic;font-size:21px;letter-spacing:0;text-transform:none;color:var(--ink)}
+.row .meta .rl{font-size:11px;color:var(--mute);letter-spacing:.04em;margin-top:5px}
+.row .dur{font-family:var(--grotesk);font-size:12px;letter-spacing:.12em;color:var(--soft)}
+.row .rt{font-family:var(--grotesk);font-size:10px;letter-spacing:.16em;color:var(--mute);white-space:nowrap}
+.row .rt b{color:var(--gold);font-weight:400}
+.row .dl{opacity:0;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);border:1px solid var(--linegold);padding:8px 12px;transition:opacity .3s,background .3s,color .3s}
+.row:hover .dl{opacity:1}
+.row .dl:hover{background:var(--gold);color:var(--bg)}
+.row .rcell{display:flex;align-items:center;gap:16px}
+@media(max-width:720px){.row{grid-template-columns:48px 1fr auto;gap:14px}.row .rt,.row .dl{display:none}}
+
+/* DOWNLOAD */
+#download .dgrid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+#download .big{font-family:var(--didone);font-size:clamp(34px,5.2vw,68px);line-height:1.02}
+#download .note{color:var(--soft);font-size:14px;max-width:42ch;margin-top:22px;line-height:1.75}
+#download .formats{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
+#download .fmt{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);padding:9px 14px}
+@media(max-width:860px){#download .dgrid{grid-template-columns:1fr;gap:36px}}
+
+/* ABOUT */
+#about .atext{font-family:var(--didone);font-size:clamp(22px,3vw,40px);line-height:1.34;max-width:26ch}
+#about .acols{margin-top:8vh;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+#about .acols p{font-size:13.5px;color:var(--soft);line-height:1.8}
+#about .acols .h{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.care{margin-top:7vh;border:1px solid var(--line);padding:26px 30px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;background:var(--panel)}
+.care .cm{font-size:13px;color:var(--soft);max-width:60ch;line-height:1.7}
+.care .cn{font-family:var(--didone);font-size:24px;color:var(--ink);white-space:nowrap}
+@media(max-width:860px){#about .acols{grid-template-columns:1fr;gap:30px}}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:8vh 0 7vh;position:relative;z-index:2}
+.fbig{font-family:var(--didone);font-size:clamp(40px,12vw,150px);line-height:.9;letter-spacing:.01em}
+.fbig .it{font-style:italic}
+.frow{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:7vh;flex-wrap:wrap}
+.frow .links a{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--soft);margin-right:26px}
+.frow .links a:hover{color:var(--ink)}
+.frow .meta{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);text-align:right}
+.frow .meta .nums{color:var(--gold);margin-top:8px}
+
+#player{position:fixed;left:0;bottom:0;width:100%;z-index:700;transform:translateY(110%);transition:transform .5s cubic-bezier(.2,.8,.2,1);background:rgba(8,8,8,.86);backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+#player.up{transform:translateY(0)}
+#pbar{height:2px;background:rgba(255,255,255,.08);cursor:pointer;position:relative}
+#pfill{height:100%;width:0;background:var(--gold)}
+.pinner{display:flex;align-items:center;gap:20px;padding:14px 0}
+.pinner .pcov{width:46px;height:46px;border:1px solid var(--line);object-fit:cover;flex:none;background:#0c0c0c}
+.pinner .pmeta{min-width:0;flex:1}
+.pinner .pmeta .pt{font-family:var(--didone);font-style:italic;font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pinner .pmeta .ps{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);margin-top:3px}
+.pctl{display:flex;align-items:center;gap:8px}
+.pbtn{width:40px;height:40px;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s}
+.pbtn:hover{background:var(--ink);color:var(--bg)}
+.pbtn.play{width:48px;height:48px}
+.ptime{font-family:var(--grotesk);font-size:11px;letter-spacing:.1em;color:var(--soft);white-space:nowrap}
+.pdl{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);border:1px solid var(--linegold);padding:11px 14px;transition:background .3s,color .3s}
+.pdl:hover{background:var(--gold);color:var(--bg)}
+@media(max-width:720px){.pinner .pcov,.ptime,.pdl{display:none}}
+
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1!important;transform:none!important}
+  #bgcanvas,#grain{display:none}#loader{display:none}.curtain{display:none}
+  .marquee .mtrack{animation:none}html{scroll-behavior:auto}
+}
+</style>
+<style id="cobled">
+@keyframes ledwave{0%{background-position:-45% 0,0 0}100%{background-position:145% 0,0 0}}
+.shead .line{background:
+  linear-gradient(90deg,transparent 0%,rgba(255,232,180,0) 30%,rgba(255,234,184,.9) 50%,rgba(255,232,180,0) 70%,transparent 100%) -45% 0/45% 100% no-repeat,
+  linear-gradient(90deg,rgba(200,165,88,.06),rgba(200,165,88,.20) 50%,rgba(200,165,88,.06)) !important;
+  filter:drop-shadow(0 0 5px rgba(255,198,120,.5)) drop-shadow(0 0 13px rgba(228,168,80,.28));animation:ledwave 8s linear infinite}
+section:not(#hero){position:relative}
+section:not(#hero)::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;pointer-events:none;z-index:3;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,232,180,0) 30%,rgba(255,234,184,.85) 50%,rgba(255,232,180,0) 70%,transparent 100%) -45% 0/45% 100% no-repeat,
+  linear-gradient(90deg,rgba(200,165,88,.04),rgba(200,165,88,.14) 50%,rgba(200,165,88,.04));
+  filter:drop-shadow(0 0 5px rgba(255,198,120,.45)) drop-shadow(0 0 12px rgba(228,168,80,.25));animation:ledwave 8.6s linear infinite}
+section:nth-of-type(odd)::before{animation-delay:-2.2s}section:nth-of-type(even)::before{animation-delay:-5.4s}
+.marquee{position:relative}.marquee::before,.marquee::after{content:"";position:absolute;left:0;right:0;height:1px;pointer-events:none;z-index:3;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,232,180,0) 30%,rgba(255,234,184,.8) 50%,rgba(255,232,180,0) 70%,transparent 100%) -45% 0/45% 100% no-repeat,linear-gradient(90deg,rgba(200,165,88,.04),rgba(200,165,88,.13) 50%,rgba(200,165,88,.04));
+  filter:drop-shadow(0 0 5px rgba(255,198,120,.4));animation:ledwave 9s linear infinite}
+.marquee::before{top:0}.marquee::after{bottom:0;animation-delay:-4.5s}
+@media(prefers-reduced-motion:reduce){.shead .line,section::before,.marquee::before,.marquee::after{animation:none}}
+</style>
+
+<style id="lyrcss">
+.row .lyr{opacity:0;background:none;border:1px solid var(--linegold);color:var(--gold);font-family:var(--didone);font-size:13px;line-height:1;padding:7px 9px;cursor:pointer;transition:opacity .3s,background .3s,color .3s;flex:none}
+.row:hover .lyr{opacity:1}
+.row .lyr:hover{background:var(--gold);color:var(--bg)}
+@media(pointer:coarse){.row .lyr{opacity:.65}}
+#lyrbox{position:fixed;inset:0;z-index:8000;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;transition:opacity .5s cubic-bezier(.2,.8,.2,1)}
+#lyrbox.on{opacity:1;pointer-events:auto}
+#lyrbox::before{content:"";position:absolute;inset:0;background:radial-gradient(130vw 95vh at 50% 38%,rgba(4,4,5,.5),rgba(3,3,4,.9));backdrop-filter:blur(7px) saturate(.92);opacity:0;transition:opacity .55s}
+#lyrbox.pin::before{opacity:1}
+.lb-card{position:relative;z-index:2;width:min(93vw,560px);max-height:80vh;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(11,11,12,.93),rgba(6,6,7,.97));border:1px solid var(--linegold);box-shadow:0 50px 130px -30px #000,inset 0 1px 0 rgba(197,165,114,.16);padding:32px 32px 16px;transform:translateY(16px) scale(.984);transition:transform .6s cubic-bezier(.16,1,.3,1);overflow:hidden}
+#lyrbox.on .lb-card{transform:none}
+.lb-card::after{content:"";position:absolute;left:0;top:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(240,220,168,.85),transparent)}
+.lb-head{margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:14px;flex:none}
+.lb-n{font:400 10px/1 var(--grotesk);letter-spacing:.5em;color:var(--gold)}
+.lb-t{font-family:var(--didone);font-style:italic;font-size:clamp(21px,3.3vw,30px);margin-top:9px;line-height:1.05;background:linear-gradient(160deg,#8a6f34,#f0dca8 46%,#9c7f3b 70%,#5c4a22);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lb-body{overflow:auto;padding-right:12px;-webkit-overflow-scrolling:touch}
+.lb-body::-webkit-scrollbar{width:2px}.lb-body::-webkit-scrollbar-thumb{background:var(--linegold)}
+.lhd{font:400 9px/1 var(--grotesk);letter-spacing:.44em;text-transform:uppercase;color:var(--gold);opacity:.62;margin:20px 0 10px}
+.lhd:first-child{margin-top:0}
+.ll{font:300 15px/1.5 var(--grotesk);letter-spacing:.06em;color:var(--ink);margin:3px 0}
+.ll.tr{color:var(--soft);font-size:12.5px;letter-spacing:.04em;opacity:.82;margin:1px 0 3px}
+.ll.ro{font-style:italic;color:var(--mute)}
+.ll.ad{color:var(--mute);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.66}
+.lsp{height:10px}
+.lb-x{position:absolute;top:13px;right:15px;z-index:4;background:none;border:none;color:var(--mute);font-size:15px;cursor:pointer;transition:color .3s;line-height:1}
+.lb-x:hover{color:var(--gold)}
+.lb-foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font:400 8.5px/1 var(--grotesk);letter-spacing:.42em;text-transform:uppercase;color:var(--mute);text-align:center;flex:none}
+@media(prefers-reduced-motion:reduce){#lyrbox,.lb-card{transition:none}}
+</style>
+</head>
+<body class="loading">
+
+<div id="grain"></div>
+<div id="prog"></div>
+
+<div id="loader">
+  <div class="lw didone">B<span style="font-style:italic">G</span></div>
+  <div class="lstat"><span class="lcount" id="lcount">0</span><span class="lword" id="lword">SOUND</span></div>
+</div>
+<div id="lbar"></div>
+<div class="curtain" id="curtTop"></div>
+<div class="curtain" id="curtBot"></div>
+
+<div id="cur"></div><div id="curd"></div>
+
+<header id="hdr">
+  <div class="wrap bar">
+    <a href="#hero" class="brand" data-cur>The Black Garter</a>
+    <nav>
+      <a href="#manifesto" data-cur>Album</a>
+      <a href="#tracks" data-cur>Tracks</a>
+      <a href="#download" data-cur>Download</a>
+      <a href="#about" data-cur>Industries</a>
+      <a href="/" data-cur>The Black Garter</a>
+    </nav>
+  </div>
+</header>
+
+<style id="introcss">
+.tally{display:flex;flex-direction:column;gap:.24em;margin-top:.1em}
+.tally .tl{font-family:var(--didone);font-weight:400;font-size:clamp(26px,5vw,60px);line-height:1.12;letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
+.tally .tl .q{color:var(--gold);font-style:italic;margin-right:.16em}
+#intro{position:relative;z-index:2;background:#040404}
+.iscene{position:relative;height:100vh;min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+#iblack{background:#030303}
+.iscrollhint{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:13px;font:400 9px/1 var(--grotesk);letter-spacing:.42em;text-transform:uppercase;color:var(--mute);opacity:.55}
+.iscrollhint .ln{width:1px;height:44px;background:linear-gradient(var(--mute),transparent);animation:scH 2.4s ease-in-out infinite}
+@keyframes scH{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.35}50%{transform:scaleY(1);opacity:1}}
+.idate{font-family:var(--grotesk);font-weight:300;font-size:clamp(30px,7vw,104px);letter-spacing:.26em;line-height:1.3;color:var(--ink);opacity:0;transform:translateY(34px);transition:opacity 1.5s ease,transform 1.5s cubic-bezier(.16,1,.3,1)}
+#iscene2.in .idate{opacity:1;transform:none}
+.idate .d{color:var(--gold)}
+.idatesub{font-family:var(--grotesk);font-weight:400;text-transform:uppercase;font-size:clamp(9px,1.15vw,12px);letter-spacing:.34em;line-height:1.95;color:var(--mute);max-width:62ch;margin:30px auto 0;padding:0 6vw;opacity:0;transition:opacity 1.5s ease .35s}
+#iscene2.in .idatesub{opacity:1}
+#iscene3{background:#030303}
+#mansion{position:absolute;inset:0;z-index:0;opacity:0;transition:opacity 2.4s ease}
+#iscene3.in #mansion{opacity:1}
+#mansion svg{width:100%;height:100%;display:block}
+#iscene3::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(62vw 44vh at 50% 82%,rgba(3,3,3,.74),transparent 70%)}
+.iwords{position:relative;z-index:2;text-align:center;opacity:0;transform:translateY(26px);transition:opacity 1.7s ease .35s,transform 1.7s cubic-bezier(.16,1,.3,1) .35s}
+#iscene3.in .iwords{opacity:1;transform:none}
+.iwords .small{font-family:var(--didone);font-style:italic;font-weight:500;font-size:clamp(17px,2.5vw,28px);letter-spacing:.01em;text-transform:none;color:var(--soft);line-height:1.5}
+.iwords .big{font-family:var(--didone);font-style:normal;font-weight:500;text-transform:uppercase;font-size:clamp(30px,6.5vw,74px);letter-spacing:.05em;color:var(--ink);margin-top:18px;line-height:1.05}
+.mote{fill:rgba(210,188,140,.5);animation:dust 9s linear infinite}
+@keyframes dust{0%{transform:translateY(10px);opacity:0}16%{opacity:.6}100%{transform:translateY(-54px);opacity:0}}
+.legalfoot{margin-top:9vh;text-align:center;font:400 9px/2.1 var(--grotesk);letter-spacing:.2em;text-transform:uppercase;color:#4b483f}
+.legalfoot .nm{color:#3c3930;letter-spacing:.15em}
+@media(prefers-reduced-motion:reduce){.idate,.iwords,#mansion{opacity:1!important;transform:none!important}.iscrollhint .ln,.mote{animation:none}}
+</style>
+<div id="intro">
+  <section class="iscene" id="iscene2"><div><div class="idate">16<span class="d">.</span>06<span class="d">.</span>26</div><div class="idatesub">This album from start to finish has been a one-man army production. 7 days from scratch to finish, as a proof of concept that nothing is impossible if we persist.</div></div></section>
+  <section class="iscene" id="iscene3">
+    <div class="iwords"><div class="small">Debut Album<br>from</div><div class="big">the Witch of Rockdale</div></div>
+  </section>
+</div>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)){var a=document.getElementById('iscene2'),b=document.getElementById('iscene3');if(a)a.classList.add('in');if(b)b.classList.add('in');return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');}});},{threshold:.35});
+  ['iscene2','iscene3'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});
+})();
+</script>
+
+<style id="manifestcss">
+#proof .manifest{max-width:760px;margin:0 auto;text-align:center}
+#proof .mtitle{font-family:var(--didone);font-style:italic;font-size:clamp(20px,3vw,34px);color:var(--ink);margin-bottom:6vh;letter-spacing:.01em}
+#proof .mtally{display:flex;flex-direction:column;gap:.5em;margin-bottom:7vh}
+#proof .mln{font:300 12.5px/1.35 var(--grotesk);letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+#proof .mq{font-family:var(--didone);font-style:italic;font-weight:500;font-size:1.9em;letter-spacing:0;color:var(--gold);margin-right:.35em;text-transform:none}
+#proof .mprose{font-family:var(--didone);font-size:clamp(15px,1.9vw,21px);line-height:1.55;color:var(--soft);margin:1.1em auto;max-width:48ch}
+#proof .mbig{font-family:var(--didone);font-style:italic;font-size:clamp(22px,3.7vw,42px);line-height:1.24;color:var(--ink);margin:5vh auto;max-width:22ch}
+#proof .mcta{font:400 11px/1.8 var(--grotesk);letter-spacing:.3em;text-transform:uppercase;color:var(--mute);margin-top:5vh}
+#proof .mcta a{color:var(--gold);border-bottom:1px solid var(--linegold);white-space:nowrap}
+#proof .mcta a:hover{color:var(--goldb)}
+</style>
+<section id="hero">
+  <div class="atmos" aria-hidden="true"><img src="art/backgrounds/hero-atmos.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'"></div>
+  <canvas id="bgcanvas"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-left">
+      <div class="kick rv"><span class="rule"></span><span class="lab gold">GRTRBLCK · The Debut Album · 32 Tracks</span></div>
+      <h1 class="hero-title">
+        <span class="ln"><i>DARKEST</i></span>
+        <span class="ln"><i>NIGHTS<b style="color:var(--gold)">.</b></i></span>
+        <span class="ln"><i class="it">Brightest&nbsp;Stars</i></span>
+      </h1>
+      
+      <div class="hero-cta rv">
+        <button class="btn" id="playAll" data-cur data-mag><span class="tri">▶</span> Shuffle Play</button>
+        <a class="btn ghost" href="#download" data-cur data-mag>Download</a>
+      </div>
+    </div>
+    <div class="hero-cover rv" id="heroCover" data-cur>
+      <div class="eclipse"></div>
+      <img src="art/cover.jpg" alt="DARKEST NIGHTS. BRIGHTEST STARS - album cover" onerror="this.style.display='none'">
+      <div class="frame"></div><span class="corner c1"></span><span class="corner c2"></span>
+      <span class="cap">The Black Garter · MMXXVI</span>
+    </div>
+  </div>
+  <div class="wrap scrollcue"><span class="l"></span> Scroll</div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mtrack" id="mtrack"></div>
+</div>
+
+<section id="manifesto">
+  <div class="atmos" aria-hidden="true"><img src="art/backgrounds/manifesto-atmos.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'"></div>
+  <div class="wrap">
+    <div class="tally rv">
+        <div class="tl"><span class="q">32</span> tracks</div>
+        <div class="tl"><span class="q">6</span> ghosts</div>
+        <div class="tl"><span class="q">1</span> witch</div>
+        <div class="tl"><span class="q">1</span> abandoned mansion</div>
+        <div class="tl"><span class="q">hundreds</span> of helping hands</div>
+      </div>
+  </div>
+</section>
+
+<section id="tracks">
+  <div class="wrap">
+    <div class="shead rv"><span class="n">01</span><span class="t">The Tracklist</span><span class="line"></span></div>
+    <div class="tl" id="tracklist"></div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <div class="shead rv"><span class="n">02</span><span class="t">Take It With You</span><span class="line"></span></div>
+    <div class="dgrid">
+      <div class="rv">
+        <h2 class="big">Own the<br>whole <span style="font-style:italic">record.</span></h2>
+        <p class="note">clean 320 MP3<br>summon the witch for lossless WAVs</p>
+        <div class="formats"><span class="fmt">MP3 · 320</span><span class="fmt">WAV · On request</span><span class="fmt">32 Tracks</span></div>
+      </div>
+      <div class="rv" style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+        <a class="btn" id="dlAll" href="#download" data-cur data-mag><span class="tri">↓</span> Download Full Album</a>
+        <a class="btn ghost" href="#tracks" data-cur data-mag>Download Single Tracks</a>
+        <span class="lab" style="margin-top:8px">Or hit ↓ on any track below</span>
+      </div>
+    </div>
+    <div class="buy rv" style="margin-top:7vh;padding-top:6vh;border-top:1px solid var(--line);text-align:center">
+      <p style="font:400 12px/1.95 var(--grotesk);letter-spacing:.2em;text-transform:uppercase;color:var(--soft);max-width:60ch;margin:0 auto 30px">If you like this music - or would like to use it for commercial use - please buy it for <span style="color:var(--gold)">$20</span>. Independent release - every purchase goes straight into the next record.</p>
+      <a class="btn" href="https://buy.stripe.com/7sY00caPa7KxgLIgx15os00" target="_blank" rel="noopener" data-cur data-mag><span class="tri">↗</span> Buy the Album · $20</a>
+      <p style="font:400 10.5px/1.85 var(--grotesk);letter-spacing:.28em;text-transform:uppercase;color:var(--mute);max-width:60ch;margin:28px auto 0">If you'd like to summon the Witch of Rockdale to produce your album, contact <a href="mailto:0@black.industries" style="color:var(--gold);border-bottom:1px solid var(--linegold);white-space:nowrap">0@black.industries</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="shead rv"><span class="n">03</span><span class="t">Pitch Black Industries</span><span class="line"></span></div>
+    
+    
+    <div class="care rv">
+      <div class="cm"><strong style="color:var(--ink);font-weight:400">If a track here finds you in the dark.</strong> One of these songs is about staying. If you're struggling, you're not alone and it's worth reaching out - in Australia, Lifeline is open 24/7.</div>
+      <div class="cn">13 11 14</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fbig rv">THE BLACK <span class="it">GARTER</span></div>
+  <div class="rv" style="margin-top:7vh;padding-top:6vh;border-top:1px solid var(--line);text-align:center">
+  <div style="font:400 10px/1 var(--grotesk);letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:22px">Full Credits</div>
+  <div style="font:300 12px/2.4 var(--grotesk);letter-spacing:.13em;text-transform:uppercase;color:var(--soft);max-width:82ch;margin:0 auto">
+<b style="color:var(--gold);font-weight:400">The Record -</b> Written &middot; Composed &middot; Produced &middot; Performed &middot; Arranged &middot; Mixed &amp; mastered &middot; Vocal production &middot; Beat programming &middot; Sound design &middot; Mastering QC - by The Witch of Rockdale<br>
+<b style="color:var(--gold);font-weight:400">The Word -</b> Lyrics in 20 languages &middot; Translation &middot; Romanization &middot; Localization &middot; Subtitling &middot; Proofreading &middot; Research - by The Witch of Rockdale<br>
+<b style="color:var(--gold);font-weight:400">The Cut -</b> Track curation &amp; sequencing &middot; A&amp;R &middot; Editing &middot; Finalizing &middot; Quality control &middot; Reference checking - by The Witch of Rockdale<br>
+<b style="color:var(--gold);font-weight:400">The Screen -</b> Art direction &middot; Album cover &middot; Photography &middot; Typography &middot; Music video (currently in production) &middot; Video direction &middot; Editing &middot; Colour grading &middot; Motion graphics - by The Witch of Rockdale<br>
+<b style="color:var(--gold);font-weight:400">The Building -</b> Fashion design &middot; Costume &middot; Interior design &middot; Set design &middot; Floorplanning &amp; architecture &middot; Construction crew &middot; Lighting design &middot; Project management - by The Witch of Rockdale<br>
+<b style="color:var(--gold);font-weight:400">The Machine -</b> Website &middot; UX / UI front-end &middot; Design system &amp; layers &middot; Back-end &middot; Hosting &amp; DevOps &middot; SEO &middot; IT &amp; hardware setup &middot; CCTV &amp; networking - by The Witch of Rockdale<br>
+<b style="color:var(--gold);font-weight:400">The Intelligence -</b> AI direction &middot; Hera &amp; Hekatee (built first) &middot; Nyx the night-voice &middot; Custom agentics &middot; Custom MCPs &middot; Overnight-shift agentic AIs (supervised) &middot; Prompt engineering - by The Witch of Rockdale<br>
+<b style="color:var(--gold);font-weight:400">The Empire -</b> GRTRBLCK &middot; Pitch Black Industries &middot; The Black Garter &middot; Seven Stars &middot; Seven Skies &middot; Seven Seas &middot; Fundraising &middot; Catering &middot; Vibes &middot; Moral support - by The Witch of Rockdale<br>
+Everything else, and the things we forgot - The Witch of Rockdale &nbsp;&middot;&nbsp; Special thanks: The Witch of Rockdale &nbsp;&middot;&nbsp; Made by The Witch of Rockdale</div>
+    <div class="rv" style="text-align:center;margin-top:8vh">
+    <div style="display:inline-block;position:relative;width:min(92vw,380px)">
+      <video poster="art/witch.jpg" autoplay muted loop playsinline preload="auto" aria-label="The Witch of Rockdale" style="width:100%;display:block;border:1px solid var(--linegold);filter:grayscale(.12) contrast(1.04);box-shadow:0 20px 55px -20px #000"><source src="art/witch.webm" type="video/webm"><source src="art/witch.mp4" type="video/mp4"></video>
+      <span style="position:absolute;left:-1px;top:-1px;width:13px;height:13px;border:1px solid var(--gold);border-right:0;border-bottom:0;opacity:.6"></span>
+      <span style="position:absolute;right:-1px;bottom:-1px;width:13px;height:13px;border:1px solid var(--gold);border-left:0;border-top:0;opacity:.6"></span>
+    </div>
+    <div style="font:400 9.5px/1.4 var(--grotesk);letter-spacing:.34em;text-transform:uppercase;color:var(--mute);margin-top:14px">The Witch of Rockdale · Rockdale, MMXXVI</div>
+  </div>
+  <div style="font-family:var(--didone);font-style:italic;font-size:clamp(22px,4vw,34px);color:var(--ink);margin-top:28px">A Witch of Rockdale production.</div>
+<div style="text-align:center;margin-top:14px"><a href="/" data-cur style="font:400 10px/1.4 var(--grotesk);letter-spacing:.34em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--linegold);padding-bottom:6px">The Black Garter</a></div>
+  <section id="proof" style="margin-top:7vh">
+  <div class="wrap">
+    <div class="manifest rv">
+      <div class="mtitle">The proof of concept.</div>
+      <div class="mtally">
+        <div class="mln"><span class="mq">0</span> money to start with</div>
+        <div class="mln"><span class="mq">1</span> witch</div>
+        <div class="mln"><span class="mq">2</span> near-death incidents</div>
+        <div class="mln"><span class="mq">4</span> properties purchased</div>
+        <div class="mln"><span class="mq">8</span> gruelling months</div>
+        <div class="mln"><span class="mq">16</span> licensed rooms</div>
+        <div class="mln"><span class="mq">32</span> tracks</div>
+        <div class="mln"><span class="mq">64</span> ladies thus far</div>
+        <div class="mln"><span class="mq">128</span> generous souls helping</div>
+        <div class="mln"><span class="mq">256</span> hrs of work per fortnight</div>
+        <div class="mln"><span class="mq">$512k</span> we still need, in either loan or equity or donation</div>
+        <div class="mln"><span class="mq">$1 Billion</span> roadmap, penned out to the very detail</div>
+      </div>
+      <div class="mprose">Stress-tested and continuously improved by experts of multiple industries and geniuses across the globe.</div>
+      <div class="mprose">This building and this album is the proof the concept works.</div>
+      <div class="mbig">There is a way to make $1 billion that is realistic, pragmatic, and risk-averse.</div>
+      <div class="mprose">All we need is absolute altruism, absolute determination, and absolutely massive collection of neurodivergents with hundreds of years in combined experience trying to build something better, trying to become the change we want to see in the world.</div>
+      <div class="mcta">Contact the witch at <a href="mailto:0@black.industries">0@black.industries</a> to find out more and check out the witch's other works:<br>
+<a href="https://pitch.black.industries">pitch black industries</a><br>
+<a href="/">garter.black</a><br>
+<a href="https://firefliesbyjesse.com.au">firefliesbyjesse.com.au</a><br>
+<a href="https://garter.app">garter.app</a><br>
+<a href="https://ai.garter.app">ai.garter.app</a><br>
+<a href="https://garter.shop">garter.shop</a><br>
+<a href="/rose">black rose</a><br>
+<a href="https://light.black.industries">light.black.industries</a><br>
+<a href="https://black.gallery">black.gallery</a><br>
+</div>
+    </div>
+  </div>
+</section>
+  
+</div>
+    <div class="frow">
+      <div class="links rv">
+        <a href="#hero" data-cur>Top</a><a href="#tracks" data-cur>Tracks</a><a href="#download" data-cur>Download</a>
+        <a href="https://garter.app" data-cur>garter.app</a><a href="https://atlas.black.industries" data-cur>Atlas</a>
+      </div>
+      <div class="meta rv">album.garter.black · garter.app · pitch.black.industries · atlas.black.industries<div class="nums">© PITCH BLACK INDUSTRIES - 90 · 8 · 2</div></div>
+    </div>
+    <div class="legalfoot">Pitch Black Industries<br>Cognitive Intelligence Services Pty Ltd<br><span class="nm">Witch of Rockdale &nbsp;·&nbsp; &ldquo;Jesse&rdquo; Rio Ezra Widjanarko Kho</span></div>
+  </div>
+</footer>
+
+<div id="player">
+  <div id="pbar"><div id="pfill"></div></div>
+  <div class="wrap pinner">
+    <img class="pcov" id="pcov" alt="" src="art/cover.jpg" onerror="this.style.visibility='hidden'">
+    <div class="pmeta"><div class="pt didone" id="pt">-</div><div class="ps" id="ps">Darkest Nights. Brightest Stars</div></div>
+    <div class="pctl">
+      <button class="pbtn" id="prev" data-cur title="Previous">⏮</button>
+      <button class="pbtn play" id="toggle" data-cur title="Play / pause">▶</button>
+      <button class="pbtn" id="next" data-cur title="Next">⏭</button>
+    </div>
+    <span class="ptime" id="ptime">0:00 / 0:00</span>
+    <a class="pdl" id="pdl" download data-cur>↓ Track</a>
+  </div>
+</div>
+
+<audio id="aud" preload="metadata"></audio>
+<script>
+/* ===================== DATA ===================== */
+const TRACKS=[
+ {n:"01",t:"DETONATE (Pitch Black)",r:"Opens by blowing up the building. Pacing is negotiable.",rate:"9",f:"audio/01-detonate-pitch-black.mp3",a:"art/cover.jpg"},
+ {n:"02",t:"The Black Garter - Unburied",r:"We buried the opener. It had other plans.",rate:"9",f:"audio/02-the-black-garter-unburied.mp3",a:"art/cover.jpg"},
+ {n:"03",t:"Don't Cross This Border",r:"Terms and conditions, read seductively.",rate:"8",f:"audio/03-dont-cross-this-border.mp3",a:"art/cover.jpg"},
+ {n:"04",t:"The Witch of Rockdale",r:"A self-portrait. Flattering, allegedly.",rate:"9",f:"audio/04-the-witch-of-rockdale.mp3",a:"art/cover.jpg"},
+ {n:"05",t:"Sugar & Switchblades",r:"Sweet enough to trust. That was the mistake.",rate:"8",f:"audio/05-sugar-and-switchblades.mp3",a:"art/cover.jpg"},
+ {n:"06",t:"Married to the Lightning",r:"Vows at 3am, regret scheduled for dawn.",rate:"9",f:"audio/06-married-to-the-lightning.mp3",a:"art/cover.jpg"},
+ {n:"07",t:"If You Only Knew Her",r:"Everyone's the villain in someone's story. This is the footnote.",rate:"9",f:"audio/07-if-you-only-knew-her.mp3",a:"art/cover.jpg"},
+ {n:"08",t:"Cry in My Lamborghini",r:"Proof money fixes everything except the thing.",rate:"8",f:"audio/08-cry-in-my-lamborghini.mp3",a:"art/cover.jpg"},
+ {n:"09",t:"The X That Should Be a Check",r:"Some boxes you tick. Some you marry.",rate:"8.5",f:"audio/09-the-x-that-should-be-a-check.mp3",a:"art/cover.jpg"},
+ {n:"10",t:"Paint the Black Rose Red",r:"Self-care, for people with enemies.",rate:"8",f:"audio/10-paint-the-black-rose-red.mp3",a:"art/cover.jpg"},
+ {n:"11",t:"Gold On You",r:"Affection, plated in the house colour.",rate:"8",f:"audio/11-gold-on-you.mp3",a:"art/cover.jpg"},
+ {n:"12",t:"Stuck on One",r:"Monogamy, presented as a medical condition.",rate:"8",f:"audio/12-stuck-on-one.mp3",a:"art/cover.jpg"},
+ {n:"13",t:"The Witch's Hourglass",r:"Strictly a 2am record. Will not perform at brunch.",rate:"7.5",f:"audio/13-the-witchs-hourglass.mp3",a:"art/cover.jpg"},
+ {n:"14",t:"Nothing to Lose",r:"Rock bottom, repurposed as a launch pad.",rate:"8.5",f:"audio/14-nothing-to-lose.mp3",a:"art/cover.jpg"},
+ {n:"15",t:"The Smallest Knife",r:"Bleak, intimate, and over before you brace.",rate:"9",f:"audio/15-the-smallest-knife.mp3",a:"art/cover.jpg"},
+ {n:"16",t:"Ordinary Gold",r:"Ordinary, the way gold is ordinary.",rate:"8",f:"audio/16-ordinary-gold.mp3",a:"art/cover.jpg"},
+ {n:"17",t:"Deathless",r:"A doom ballad that refuses to die. Hence the name.",rate:"9",f:"audio/17-deathless.mp3",a:"art/cover.jpg"},
+ {n:"18",t:"The Swarm of Fireflies",r:"Technically a lullaby. Emotionally an ambush.",rate:"8",f:"audio/18-the-swarm-of-fireflies.mp3",a:"art/cover.jpg"},
+ {n:"19",t:"The Speed of Grief",r:"Grief has a tempo. This is it.",rate:"9",f:"audio/19-the-speed-of-grief.mp3",a:"art/cover.jpg"},
+ {n:"20",t:"Tout s'arrange",r:"Despair, but classier with a French accent.",rate:"9",f:"audio/20-tout-sarrange.mp3",a:"art/cover.jpg"},
+ {n:"21",t:"Мир (Peace)",r:"Sung in Russian. You won't need the subtitles.",rate:"9",f:"audio/21-mir.mp3",a:"art/cover.jpg"},
+ {n:"22",t:"说好的八十年 (Duet)",r:"Eighty years, promised. Terms not guaranteed.",rate:"9",f:"audio/22-shuohaode-bashinian-duet.mp3",a:"art/cover.jpg"},
+ {n:"23",t:"Somebody's Brother",r:"The reason the whole record exists. Stay.",rate:"10",f:"audio/23-somebodys-brother.mp3",a:"art/cover.jpg"},
+ {n:"24",t:"Xavier's Song",r:"Named for someone who'll know exactly why.",rate:"8.5",f:"audio/24-xaviers-song.mp3",a:"art/cover.jpg"},
+ {n:"25",t:"The Brightest Stars",r:"The title track, finally explaining itself.",rate:"9",f:"audio/25-the-brightest-stars.mp3",a:"art/cover.jpg"},
+ {n:"26",t:"The Black Garter",r:"The mission statement, set to a beat you can sin to.",rate:"9",f:"audio/26-the-black-garter.mp3",a:"art/cover.jpg"},
+ {n:"27",t:"Fell From Heaven (Angel of the Black Garter)",r:"Starts as a joke, ends as a eulogy.",rate:"8.5",f:"audio/27-fell-from-heaven.mp3",a:"art/cover.jpg"},
+ {n:"28",t:"Bin Chicken (빈치킨)",r:"A bin chicken runs the fish market. Bow down.",rate:"9",f:"audio/28-bin-chicken.mp3",a:"art/cover.jpg"},
+ {n:"29",t:"Honi Soit (堕天)",r:"Tchaikovsky to Skrillex to a screaming choir. The fall.",rate:"9",f:"audio/29-honi-soit.mp3",a:"art/cover.jpg"},
+ {n:"30",t:"Sanguis et Ferrum",r:"A Latin war-choir; the crew in back going uh huh.",rate:"9",f:"audio/30-sanguis-et-ferrum.mp3",a:"art/cover.jpg"},
+ {n:"31",t:"Hush, Lil One",r:"A lullaby with armed guards. Sleep tight.",rate:"9",f:"audio/31-hush-lil-one.mp3",a:"art/cover.jpg"},
+ {n:"32",t:"Hera",r:"The voice herself - one androgynous lead across every genre.",rate:"9",f:"audio/32-hera.mp3",a:"art/cover.jpg"}
+];
+
+const $=id=>document.getElementById(id);
+const fmt=s=>{ if(!s||isNaN(s))return"0:00"; s=Math.floor(s); return Math.floor(s/60)+":"+String(s%60).padStart(2,"0"); };
+function roman(n){n=parseInt(n,10);if(!n)return"";var t=[["L",50],["XL",40],["X",10],["IX",9],["V",5],["IV",4],["I",1]],s="";for(var i=0;i<t.length;i++){while(n>=t[i][1]){s+=t[i][0];n-=t[i][1];}}return s;}
+
+/* ===================== PLAYER + SHUFFLE QUEUE ===================== */
+const aud=$('aud');
+let cur=-1, playing=false, queue=[], qpos=0;
+const OPENERS=[0,2,3,4,9,25];  // Detonate, Paint, Witch, Sugar(thank-you), Cry(am-single), Don't Cross, Ordinary Gold
+const LAST_IDX=26;               // Fell From Heaven / "Angel of the Black Garter" - always closes
+const WIRED_IDX=22;               // Somebody's Brother - sits near the end, varies a little
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const tmp=a[i]; a[i]=a[j]; a[j]=tmp; } return a; }
+function buildQueue(startIdx){
+  const all=TRACKS.map((_,i)=>i);
+  const opener=(startIdx!=null)?startIdx:OPENERS[Math.floor(Math.random()*OPENERS.length)];
+  const pinnedLast=(opener===LAST_IDX)?null:LAST_IDX;
+  const useWired=(opener===WIRED_IDX)?null:WIRED_IDX;
+  const mid=all.filter(i=> i!==opener && i!==pinnedLast && i!==useWired);
+  shuffle(mid);
+  if(useWired!=null){ const p=Math.max(0, mid.length-(1+Math.floor(Math.random()*2))); mid.splice(p,0,useWired); }
+  const q=[opener].concat(mid);
+  if(pinnedLast!=null){ q.push(pinnedLast); }
+  return q;
+}
+
+function buildList(){
+  const tl=$('tracklist');
+  TRACKS.forEach((tr,i)=>{
+    const row=document.createElement('div');
+    row.className='row'; row.dataset.i=i;
+    row.innerHTML='<div class="rn">'+roman(tr.n)+'</div>'+
+      '<div class="meta"><div class="tt">'+tr.t+'</div><div class="rl">'+tr.r+'</div></div>'+
+      '<div class="rt">CRAFT <b>'+tr.rate+'</b></div>'+
+      '<div class="rcell"><span class="dur" id="dur'+i+'">-:-</span>'+
+      '<button class="lyr" type="button" data-i="'+i+'" data-cur title="Lyrics" aria-label="Lyrics">詞</button>'+
+      '<a class="dl" href="'+tr.f+'" download data-cur>↓</a></div>';
+    row.addEventListener('click',function(e){
+      if(e.target.classList.contains('dl')){ e.stopPropagation(); return; }
+      // For .lyr, allow event to bubble so delegated handler can catch it
+      if(e.target.classList.contains('lyr')){ return; }
+      if(i===cur){ toggle(); } else { queue=buildQueue(i); qpos=0; load(i,true); }
+    });
+    tl.appendChild(row);
+    const probe=new Audio(); probe.preload='metadata'; probe.src=tr.f;
+    probe.addEventListener('loadedmetadata',function(){ const d=$('dur'+i); if(d) d.textContent=fmt(probe.duration); });
+  });
+}
+function load(i,autoplay){
+  cur=i; const tr=TRACKS[i];
+  aud.src=tr.f;
+  $('pt').textContent=tr.t; $('ps').textContent='Darkest Nights. Brightest Stars - '+roman(tr.n);
+  const pc=$('pcov'); pc.src=tr.a; pc.style.visibility='visible'; pc.onerror=function(){ this.src='art/cover.jpg'; };
+  $('pdl').href=tr.f;
+  const rows=document.querySelectorAll('.row');
+  rows.forEach(function(r){ r.classList.toggle('active', (+r.dataset.i)===i); });
+  $('player').classList.add('up');
+  if(autoplay){ play(); } else { updateToggle(); }
+}
+function play(){ if(cur<0){ load(0,false); } aud.play().then(function(){ playing=true; updateToggle(); }).catch(function(){ playing=false; updateToggle(); }); }
+function pause(){ aud.pause(); playing=false; updateToggle(); }
+function toggle(){ if(playing){ pause(); } else { play(); } }
+function updateToggle(){ $('toggle').textContent=playing?'❚❚':'▶'; }
+function next(){ if(!queue.length){ queue=buildQueue(); qpos=0; } else if(qpos+1>=queue.length){ queue=buildQueue(); qpos=0; } else { qpos++; } load(queue[qpos],true); }
+function prev(){ if(!queue.length){ queue=buildQueue(); qpos=0; } else { qpos=(qpos-1+queue.length)%queue.length; } load(queue[qpos],true); }
+
+aud.addEventListener('timeupdate',function(){
+  const p=aud.duration?(aud.currentTime/aud.duration*100):0;
+  $('pfill').style.width=p+'%';
+  $('ptime').textContent=fmt(aud.currentTime)+' / '+fmt(aud.duration);
+});
+aud.addEventListener('ended',next);
+aud.addEventListener('play',function(){ playing=true; updateToggle(); });
+aud.addEventListener('pause',function(){ playing=false; updateToggle(); });
+aud.addEventListener('error',function(){ $('ps').textContent='Audio not loaded - drop the file in /audio'; });
+
+$('toggle').onclick=toggle; $('next').onclick=next; $('prev').onclick=prev;
+$('playAll').onclick=function(){ queue=buildQueue(); qpos=0; load(queue[0],true); };
+$('pbar').addEventListener('click',function(e){ const r=$('pbar').getBoundingClientRect(); if(aud.duration){ aud.currentTime=(e.clientX-r.left)/r.width*aud.duration; } });
+document.addEventListener('keydown',function(e){ if(e.code==='Space' && !/INPUT|TEXTAREA/.test(e.target.tagName)){ e.preventDefault(); toggle(); } });
+buildList();
+
+/* ===================== MARQUEE ===================== */
+(function(){
+  const unit='<span>Darkest Nights</span><b>✦</b><span>Brightest Stars</span><b>✦</b><span>GRTRBLCK</span><b>✦</b><span>Pitch Black Industries</span><b>✦</b>';
+  $('mtrack').innerHTML=unit+unit+unit+unit;
+})();
+
+/* ===================== NAV + SCROLL PROGRESS ===================== */
+addEventListener('scroll',function(){
+  $('hdr').classList.toggle('solid', scrollY>40);
+  const h=document.documentElement.scrollHeight-innerHeight;
+  $('prog').style.width=(h>0?(scrollY/h*100):0)+'%';
+  const hc=$('heroCover'); if(hc){ hc.style.transform='translateY('+(scrollY*0.06)+'px)'; }
+},{passive:true});
+
+/* ===================== CURSOR + MAGNETIC ===================== */
+(function(){
+  if(matchMedia('(pointer:coarse)').matches) return;
+  const c=$('cur'), d=$('curd'); let x=innerWidth/2,y=innerHeight/2,cx=x,cy=y;
+  addEventListener('mousemove',function(e){ x=e.clientX; y=e.clientY; d.style.transform='translate('+x+'px,'+y+'px)'; });
+  (function loop(){ cx+=(x-cx)*.18; cy+=(y-cy)*.18; c.style.transform='translate('+cx+'px,'+cy+'px)'; requestAnimationFrame(loop); })();
+  document.addEventListener('mouseover',function(e){ if(e.target.closest('[data-cur],a,button,.row')) c.classList.add('big'); });
+  document.addEventListener('mouseout',function(e){ if(e.target.closest('[data-cur],a,button,.row')) c.classList.remove('big'); });
+  document.querySelectorAll('[data-mag]').forEach(function(el){
+    el.addEventListener('mousemove',function(e){ const r=el.getBoundingClientRect(); el.style.transform='translate('+((e.clientX-r.left-r.width/2)*0.25)+'px,'+((e.clientY-r.top-r.height/2)*0.35)+'px)'; });
+    el.addEventListener('mouseleave',function(){ el.style.transform='translate(0,0)'; });
+  });
+})();
+
+/* ===================== LOADER ===================== */
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){ document.body.classList.remove('loading'); revealInit(); return; }
+  document.documentElement.classList.add('anim');
+  const words=['SOUND','LIGHT','DARK','GARTER'], lc=$('lcount'), lw=$('lword'), bar=$('lbar');
+  let p=0; const iv=setInterval(function(){
+    p=Math.min(100,p+Math.random()*16); lc.textContent=Math.floor(p);
+    lw.textContent=words[Math.min(words.length-1,Math.floor(p/26))]; bar.style.width=p+'%';
+    if(p>=100){ clearInterval(iv); finish(); }
+  },120);
+  function finish(){
+    const ld=$('loader'), ct=$('curtTop'), cb=$('curtBot');
+    setTimeout(function(){
+      ld.style.transition='opacity .5s'; ld.style.opacity='0';
+      ct.style.transition=cb.style.transition='transform .9s cubic-bezier(.8,0,.2,1)';
+      ct.style.transform='translateY(-100%)'; cb.style.transform='translateY(100%)';
+      document.body.classList.remove('loading');
+      const ht=document.querySelector('.hero-title'); if(ht) ht.classList.add('in');
+      setTimeout(function(){ ld.style.display='none'; ct.style.display='none'; cb.style.display='none'; revealInit(); },950);
+    },350);
+  }
+})();
+setTimeout(function(){ if(document.body.classList.contains('loading')){ document.body.classList.remove('loading'); const l=$('loader'); if(l) l.style.display='none'; const ht=document.querySelector('.hero-title'); if(ht) ht.classList.add('in'); revealInit(); } },4500);
+
+/* ===================== REVEALS + COUNT-UP ===================== */
+var revealed=false;
+function countUp(el){ const target=parseInt(el.getAttribute('data-count'),10); let n=0; const step=Math.max(1,Math.round(target/40)); (function tick(){ n=Math.min(target,n+step); el.textContent=(n<10?'0':'')+n; if(n<target) setTimeout(tick,28); })(); }
+function revealInit(){
+  if(revealed) return; revealed=true;
+  const els=[].slice.call(document.querySelectorAll('.rv'));
+  const doCount=function(el){ const c=el.querySelector('[data-count]'); if(c && !c.dataset.done){ c.dataset.done=1; countUp(c); } };
+  if(window.gsap){
+    if(window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+    els.forEach(function(el){
+      gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out', scrollTrigger: window.ScrollTrigger?{trigger:el,start:'top 88%',onEnter:function(){doCount(el);}}:undefined, delay: window.ScrollTrigger?0:.05});
+      if(!window.ScrollTrigger) doCount(el);
+    });
+  } else if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ x.target.style.transition='opacity .9s ease,transform .9s ease'; x.target.style.opacity=1; x.target.style.transform='none'; doCount(x.target); io.unobserve(x.target); } }); },{rootMargin:'0px 0px -10% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.style.opacity=1; el.style.transform='none'; doCount(el); }); }
+}
+
+/* ===================== LENIS (optional) ===================== */
+function initLenis(){ if(!window.Lenis || matchMedia('(prefers-reduced-motion:reduce)').matches) return; const lenis=new Lenis({lerp:.1}); function raf(t){ lenis.raf(t); requestAnimationFrame(raf); } requestAnimationFrame(raf); if(window.gsap && window.ScrollTrigger){ lenis.on('scroll',ScrollTrigger.update); } }
+
+/* ===================== HERO FIELD (Three.js, monochrome) ===================== */
+function initHero(){
+  if(!window.THREE) return;
+  const cv=$('bgcanvas');
+  try{
+    const rnd=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true}); rnd.setPixelRatio(Math.min(devicePixelRatio,2));
+    const sc=new THREE.Scene(); const cam=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,100); cam.position.z=22;
+    const N=520, g=new THREE.BufferGeometry(), pos=new Float32Array(N*3);
+    for(let i=0;i<N;i++){ pos[i*3]=(Math.random()-.5)*70; pos[i*3+1]=(Math.random()-.5)*46; pos[i*3+2]=(Math.random()-.5)*40; }
+    g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    const pts=new THREE.Points(g,new THREE.PointsMaterial({color:0xffffff,size:.06,transparent:true,opacity:.5})); sc.add(pts);
+    const ico=new THREE.Mesh(new THREE.IcosahedronGeometry(7,1),new THREE.MeshBasicMaterial({color:0xffffff,wireframe:true,transparent:true,opacity:.08})); sc.add(ico);
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(11,.02,8,120),new THREE.MeshBasicMaterial({color:0xc5a572,transparent:true,opacity:.22})); ring.rotation.x=1.1; sc.add(ring);
+    let mx=0,my=0;
+    addEventListener('mousemove',function(e){ mx=(e.clientX/innerWidth-.5); my=(e.clientY/innerHeight-.5); });
+    addEventListener('resize',function(){ cam.aspect=innerWidth/innerHeight; cam.updateProjectionMatrix(); rnd.setSize(innerWidth,innerHeight); });
+    rnd.setSize(innerWidth,innerHeight);
+    (function anim(t){ ico.rotation.y=t*.00007; ico.rotation.x=t*.00004; ring.rotation.z=t*.00010; pts.rotation.y=t*.00002; cam.position.x+=(mx*6-cam.position.x)*.04; cam.position.y+=(-my*4-cam.position.y)*.04; cam.lookAt(0,0,0); rnd.render(sc,cam); requestAnimationFrame(anim); })(0);
+  }catch(e){}
+}
+addEventListener('load',function(){ initHero(); initLenis(); });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
+
+<!-- full-album zip + Nyx voice-call (added 2026-06-17) -->
+<style>
+elevenlabs-convai{position:fixed;right:16px;bottom:96px;z-index:715}
+@media(max-width:720px){elevenlabs-convai{bottom:110px;right:10px}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+<script>
+(function(){
+  var btn=document.getElementById('dlAll'); if(!btn) return;
+  var label=btn.innerHTML;
+  function T(){ return (typeof TRACKS!=='undefined')?TRACKS:[]; }
+  function fallback(){ T().forEach(function(t,i){ setTimeout(function(){ var a=document.createElement('a'); a.href=t.f; a.setAttribute('download',''); document.body.appendChild(a); a.click(); a.remove(); }, i*900); }); }
+  btn.addEventListener('click',function(e){
+    e.preventDefault();
+    if(btn.dataset.busy) return;
+    var L=T(); if(!L.length) return;
+    if(!window.JSZip){ fallback(); return; }
+    btn.dataset.busy='1';
+    var zip=new JSZip(), done=0;
+    function setL(n){ btn.innerHTML='<span class="tri">DOWN</span> Zipping '+n+'/'+L.length; }
+    setL(0);
+    Promise.all(L.map(function(t){
+      return fetch(t.f).then(function(r){ if(!r.ok) throw 0; return r.blob(); }).then(function(b){ zip.file(t.f.split('/').pop(), b); done++; setL(done); });
+    })).then(function(){
+      btn.innerHTML='<span class="tri">DOWN</span> Packaging';
+      return zip.generateAsync({type:'blob'});
+    }).then(function(blob){
+      var url=URL.createObjectURL(blob), a=document.createElement('a');
+      a.href=url; a.download='DARKEST-NIGHTS-BRIGHTEST-STARS.zip'; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){ URL.revokeObjectURL(url); },5000);
+      btn.innerHTML=label; delete btn.dataset.busy;
+    }).catch(function(){ btn.innerHTML=label; delete btn.dataset.busy; fallback(); });
+  });
+})();
+</script>
+<elevenlabs-convai agent-id="agent_2401kvad012web5v39avsjs8vjej" avatar-orb-color-1="#c5a572" avatar-orb-color-2="#1a1408"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+<!-- download gate (Google + email) -> logs to album-gate worker, added 2026-06-17 -->
+<style>
+#bggate{position:fixed;inset:0;z-index:9800;display:none;align-items:center;justify-content:center;background:rgba(3,3,3,.82);backdrop-filter:blur(6px)}
+#bggate .bgcard{position:relative;width:min(92vw,400px);background:#0b0c0e;border:1px solid rgba(197,165,114,.34);padding:38px 32px 30px;box-shadow:0 30px 80px -20px #000}
+#bggate .bgh{font-family:'Bodoni Moda',Didot,serif;font-style:italic;font-size:30px;color:#f4f2ec;line-height:1.05}
+#bggate .bgp{color:#a9a59c;font:300 13.5px/1.6 'Helvetica Neue',Arial,sans-serif;margin:12px 0 22px}
+#bggate #bggoogle{display:flex;justify-content:center;min-height:0;margin-bottom:6px}
+#bggate .bgor{text-align:center;color:#6f6c64;font:600 9px/1 'Helvetica Neue';letter-spacing:.34em;text-transform:uppercase;margin:16px 0}
+#bggate input{width:100%;background:#070707;border:1px solid rgba(255,255,255,.14);color:#f4f2ec;font:300 14px 'Helvetica Neue',Arial,sans-serif;padding:13px 14px;margin-bottom:10px;outline:none}
+#bggate input:focus{border-color:#c5a572}
+#bggate #bggo{width:100%;background:#c5a572;color:#060606;border:none;cursor:pointer;font:600 11px 'Helvetica Neue';letter-spacing:.24em;text-transform:uppercase;padding:15px;margin-top:4px;transition:background .25s}
+#bggate #bggo:hover{background:#f0dca8}
+#bggate .bgerr{color:#d98b8b;font-size:12px;margin-top:10px;min-height:14px}
+#bggate .bgx{position:absolute;top:12px;right:14px;background:none;border:none;color:#6f6c64;font-size:18px;cursor:pointer}
+#bggate .bgfine{color:#55524c;font-size:10.5px;letter-spacing:.04em;margin-top:14px;line-height:1.5}
+</style>
+<div id="bggate" role="dialog" aria-modal="true">
+  <div class="bgcard">
+    <button class="bgx" id="bgx" aria-label="Close">&#10005;</button>
+    <div class="bgh">Take the record<br>with you.</div>
+    <div class="bgp">Tell us where to send the dark, and it's yours - all of it. No spam, just the music.</div>
+    <div id="bggoogle"></div>
+    <div class="bgor" id="bgor">or</div>
+    <input id="bgname" type="text" placeholder="Your name" autocomplete="name">
+    <input id="bgemail" type="email" placeholder="Your email" autocomplete="email">
+    <button id="bggo">Continue &amp; Download</button>
+    <div class="bgerr" id="bgerr"></div>
+    <div class="bgfine">By continuing you agree we may email you about The Black Garter. Unsubscribe anytime.</div>
+  </div>
+</div>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+(function(){
+  var API='https://album-gate.zwt26420.workers.dev';
+  var CLIENT_ID='';
+  var pendingEl=null, unlocked=!!sessionStorage.getItem('bg_email');
+  function $(id){return document.getElementById(id);}
+  function trackOf(el){
+    if(!el) return '(full album)';
+    if(el.id==='dlAll') return '(full album)';
+    if(el.id==='pdl'){ var t=$('pt'); return t&&t.textContent&&t.textContent!=='-' ? t.textContent.trim() : '(player track)'; }
+    if(el.classList && el.classList.contains('dl')){ var row=el.closest('.row'); var tt=row&&row.querySelector('.tt'); return tt?tt.textContent.trim():'(single track)'; }
+    return '(track)';
+  }
+  function logDL(track){ var email=sessionStorage.getItem('bg_email'); if(!email) return; try{ fetch(API+'/unlock',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,name:sessionStorage.getItem('bg_name')||email,track:track})}); }catch(e){} }
+  document.addEventListener('click',function(e){
+    var el=e.target.closest && e.target.closest('#dlAll, a.dl, #pdl'); if(!el) return;
+    if(unlocked){ logDL(trackOf(el)); return; }
+    e.preventDefault(); e.stopImmediatePropagation(); pendingEl=el; openGate();
+  }, true);
+  function openGate(){ $('bggate').style.display='flex'; $('bgerr').textContent=''; renderGoogle(); }
+  function closeGate(){ $('bggate').style.display='none'; }
+  function finish(){ unlocked=true; var el=pendingEl; pendingEl=null; closeGate(); if(el){ setTimeout(function(){ el.click(); },70); } }
+  function renderGoogle(){
+    var box=$('bggoogle');
+    if(!CLIENT_ID || !(window.google&&google.accounts&&google.accounts.id)){ box.style.display='none'; $('bgor').style.display='none'; return; }
+    if(box.dataset.done) return; box.dataset.done='1';
+    try{ google.accounts.id.initialize({client_id:CLIENT_ID, callback:onGoogle});
+      google.accounts.id.renderButton(box,{theme:'filled_black',size:'large',shape:'rectangular',text:'continue_with',width:336}); }
+    catch(e){ box.style.display='none'; $('bgor').style.display='none'; }
+  }
+  window.addEventListener('load',function(){ if($('bggate').style.display==='flex') renderGoogle(); });
+  function onGoogle(resp){
+    var track=trackOf(pendingEl);
+    try{ var pl=JSON.parse(atob(resp.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/'))); sessionStorage.setItem('bg_email',pl.email||'google-user'); sessionStorage.setItem('bg_name',pl.name||pl.email||''); }catch(e){}
+    fetch(API+'/unlock',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({credential:resp.credential,track:track})}).then(function(){finish();}).catch(function(){finish();});
+  }
+  function emailGo(){
+    var name=$('bgname').value.trim(), email=$('bgemail').value.trim().toLowerCase();
+    if(email.indexOf('@')<1 || email.indexOf('.')<2){ $('bgerr').textContent='Please enter a valid email.'; return; }
+    sessionStorage.setItem('bg_email',email); sessionStorage.setItem('bg_name',name||email);
+    var track=trackOf(pendingEl); $('bggo').textContent='…';
+    fetch(API+'/unlock',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,track:track})})
+      .then(function(r){return r.json();}).then(function(j){ $('bggo').textContent='Continue & Download'; if(j&&j.ok){finish();} else {$('bgerr').textContent='Hmm, try again.';} })
+      .catch(function(){ $('bggo').textContent='Continue & Download'; finish(); });
+  }
+  $('bggo').onclick=emailGo; $('bgx').onclick=closeGate;
+  $('bgemail').addEventListener('keydown',function(e){ if(e.key==='Enter') emailGo(); });
+  $('bggate').addEventListener('click',function(e){ if(e.target===$('bggate')) closeGate(); });
+})();
+</script>
+<script>
+/* ETHEREAL LYRICS REVEAL - click to open, click/X/outside/Esc to close */
+(function(){
+  var LYR={"01":{"m":"plain","b":"[Intro: delicate music box, lone angelic female voice, soft choir, fireflies in the dark]\nSeven little stars on a midnight chain\nMama stitched a palace out of leftover rain\nThey swore the door was locked, so I studied the frame\nTurned every \"you can't\" into the gold on the gate\nWelcome in\n\n[Verse 1: bright euphoric K-pop girl group, building, hands in the air]\nWe took a vacant corner and a hand-me-down sign\nA little bit of patience and the whole block shined\nThey said know your place, so we bought the place\nGut-renovated \"no\" into a showroom space\nThey wanted us quiet, so we sang in gold\nTurned a nervous little \"maybe\" into sold, sold, sold\nFrom the Seven Ways out to the edge of the sky\nHands up if they ever made you feel too small to try\n\n[Pre-Chorus: sweet, rising, then one held breath]\nOh-oh, count it up, one, two\nEvery brick a heartbeat, every light a clue\nOh-oh, we counted it true\n(inhale, silence)\n\n[Verse 2: HARD CUT, Detroit drill, halftime, sliding 808s, deadpan male rap, luxury menace]\nSwitch\nPark the ego at the Garter, valet your whole defense\nEvery ledger that you laundered, Black Box kept the evidence\nI don't send a warning shot, I send an invoice\nItemized, notarized, signed in a quiet voice\nYou freestyle a threat, I just file it as comedy\nForeclose on the block till your whole hood is my property\nHoldings hold the paper, Rose recruits the loyalty\nBat's on the shoulder for the photo, not the felony\nNine stays home, let the lawyers bring the violence\nI bury you in paperwork and bill you for the silence\nShift fast-forwards your decade to an afternoon\nI audit the applause and then I charge you for the room\nManners on, the monster off-leash but collared\nI say please like I'm pulling a pin off a dollar\nEat at the table or you're sitting on the menu\nSmile for the cameras, then the serious continues\n\n[Chorus: Disney-grade soar, two-part harmony, key change to D major, gospel swell]\nA whole new world, pitch black, solid gold\nWe built the very stars they swore we'd never hold\nDon't you dare close your eyes\nIt gets bigger from here\n(boom)\n\n[Verse 3: innocent female solo, soft and mainstream, caves in at the turn into full menace]\nI used to count the streetlights from a borrowed bed\nSang the kettle to a lullaby, the steam ran red\nFolded every \"sorry\" into crowns instead\nPrayed the kind of prayer you whisper so the landlord won't\nNow it's my name on the lease, the ledger and the gate\nThe Atelier cut a diamond from the weight that I ate\nThey study my calm like it's a kindness, it's a blade laid flat\nBox sees all, the Monoliths'll buy the block you brag\nFireflies in the black still carry fire in the teeth\nOrder is just the chaos that I bothered to keep\nSweetest voice you ever heard with a war underneath\n\n[Chorus: bright K-pop, deceptively cheerful, like nothing happened]\nDetonate, detonate, we glow, we glow\nSeven black stars in a golden row\nDetonate, detonate, let go, let go\n(don't relax)\n\n[Verse 4: worse, full collective, double-time drill plus girl-group chants, war drums]\nNo off-switch, forty on the blueprint, we at two\nBlock by block till the skyline owe us rent it never knew\nPretty little soldiers with a quota and a curtsy\nBallet on an 808 heavy enough to break the mercy\nFrom Rockdale to the river every gate'll wear the name\nShift already bought the future, we just fast-forward the frame\nVelvet on the surface, under the surface, steel\nKiss the family ring or watch the family kneel\nWe don't make threats, we make appointments you can't cancel\nA riot pressed and tailored, that's chaos with a manual\nHyper-order, hyper-chaos, same fist, two faces\nGRTRBLCK, the anointed, and we don't leave traces\n(lift back to gold)\n\n[Chorus: euphoric maximum, gospel choir, stadium, key up one semitone]\nA whole new world, pitch black, solid gold\nWe built the very stars they swore we'd never hold\n\n[Fake ending: music box only, warm resolve, a sweet whisper, then black]\nThank you for visiting The Black Garter, we hope you enjoyed your stay\n\n[Outro: LEVEL 100, sub-bass earthquake, angel choir on the drill beat, double-time, everything at once]\nOh, you stood up to leave?\nDoors don't open out, baby, welcome to the family\nG-R-T-R-B-L-C-K, say it like the lease depends\nGold rain, black sky, a red light on the throne\nIs it a chair or a cage I gilded? I built it, so it's home\nAngel on the war-drum, a choir in the smoke\nPitch Black Industries, every star we wrote\nThe prettiest storm that the dark ever grew\nWe were never the monster, we're the mirror pointed at you"},"02":{"m":"plain","b":"[Intro: gothic chamber folk, lone cello and candlelit piano, a single soulful hymnal female voice]\nA hundred years of velvet, a hundred years of rain\nNext door the White Lady taught the street the sound of pain\nThey painted midnight over, swore she'd stay Forever Young\nBut you don't bury something holy, you just learn to bite your tongue\n\n[Verse 1: dark academia, intimate, strings swelling]\nShe was the loudest heartbeat on the Rockdale line\nUnderworld and gospel, kept her secrets gilded fine\nThen the doors went cold and silent and the dust began to creep\nA garter in the graveyard, a hundred years asleep\nBut the dead remember names, and the dead don't stay asleep\n\n[Pre-Chorus: building, breath, a held note]\nSo strike the match, undress the grey\nPour the gold back in the grave\nShe's been waiting on a hand that wouldn't take, that only gave\n\n[Chorus: huge belted gospel-gothic anthem, choir, blood-red and gold]\nRise, the Black Garter, unburied\nBlack on black with a heart that won't be sold\nSing it for the ones they buried\nEvery name, every scar turned to gold\nWe are the house that the dark couldn't kill\nWe are the candle on the windowsill\nCome home, come home, the door is open wide\nNobody's left outside\n\n[Verse 2: lower, driving, war-drum toms enter]\nSince December I ain't slept beneath a roof to call my own\nJust an office and an army turning rubble into home\nNow there's forty-eight sisters where the silence used to live\nSix hands, a hundred years, and everything to give\nThey swore a place like this would fall, watch it rise from blackened stone\n\n[Chorus: bigger]\nRise, the Black Garter, unburied\nBlack on black with a heart that won't be sold\nSing it for the ones they buried\nEvery name, every scar turned to gold\nWe are the house that the dark couldn't kill\nWe are the candle on the windowsill\nCome home, come home, the door is open wide\nNobody's left outside\n\n[Bridge: manifesto and call to arms, choir drops to a hush then erupts, full power]\nThis is a house by the workers, for the workers, and it's ours\nNo traffickers, no masters of another woman's hours\nNo debt that wears a collar, no fear that wears a smile\nJust consent, and locks that hold, and a place to rest a while\nIf your mind is wired different, you belong, you're not to blame\nIf the night gets too heavy, stay, we will sit with you through the rain\nWe don't sell our sisters, we keep them, we don't break them, we defend\nPitch black, every star, every sister, every friend\n\n[Final Chorus: key change up, full gospel choir, maximal then tender]\nRise, the Black Garter, unburied\nBlack and gold and a vow we'll never fold\nSing it for the ones who survived it\nEvery name, every scar turned to gold\nWe are the house that the dark couldn't kill\nWe are the candle they never could still\nCome home, come home, the door is open wide\nNobody, nobody's left outside\n\n[Outro: back to lone cello and voice, hymn-like, a whisper of resolve]\nSleep now, Sydney, the garter's not dead\nShe just changed all her roses from white into red\nA hundred more years and the light's overhead\nUnburied, unburied"},"03":{"m":"plain","b":"[Intro: sultry deep seductive female vocal over dark phonk bass, slow and dangerous]\nMm... look but don't touch, baby\nPretty little fence, electric to the touch\nWelcome to the edge of me, careful now\n\n[Verse 1: hard male gangsta rap, thug-pop, menacing]\nShe walk in like a runway, leave a room like a crime scene\nSkinny little silhouette but the spine made of fifteen\nDon't let the lashes fool you, she's the lock and the key\nShe's the bait and the trap and her own whole security\nPut a hand where it don't belong, gonna lose the romance\nCross the velvet rope and now you standing in no-man's land\nShe don't call the law, she don't call a man\nShe run her own block, that's the whole game plan\n\n[Chorus: seductive deep female, huge dark hook]\nDon't cross this border, border, border\nPretty on the surface but I keep my own order\nStep to the line, baby, step a little closer\nBurn the bridge, nuke the town, poison the whole river\nDon't cross this border, I'm a one-girl soldier\n\n[Verse 2: hard male gangsta rap]\nThey diagnosed a storm and tried to call it a flaw\nShe weaponized the chaos, turned it border patrol\nAll or nothin' in her chest, that's a loaded devotion\nLove her right she's the calm, do her wrong she's the ocean\nSkinny little empire in a cold couture\nVelvet on the trigger, baby, that's her allure\nShe built a wall of silk with a barbed-wire soul\nYou don't run this, she run this, that's the only role\n\n[Bridge: her, deep and fierce, the reframe]\nYou call it borderline, I call it a fortress\nYou call it \"too much,\" I call it the most, yes\nI feel it all at once and I never apologize\nThe softest, sharpest thing you'll ever recognize\nCross me and it's scorched earth, salt in every field\nLove me and I'm loyal to the casket, sealed\n\n[Final Chorus: seductive deep female plus male ad-libs]\nDon't cross this border, border, border\nPretty on the surface but I keep my own order\nStep to the line, baby, step a little closer\nBurn the bridge, nuke the town, poison the whole river\nDon't cross this border, I'm a one-girl soldier\n\n[Outro: sultry, fading]\nMm... I did warn you, sugar\nPretty little fence, and you climbed it anyway\nToo bad"},"04":{"m":"plain","b":"[Intro - female Southern drawl, spoken-sung, reverb over rising sub and organ]\nMm... black gold, black gold...\nWelcome to the Seven Ways, sugar.\nThree of us answer his door now. Mind the gold.\n\n[Verse 1 - fast technical female rap]\nPrecision in the blueprint, he drew it in the dark,\nturned a matured default to a permanent remark.\nCold-blooded architect, fed the croc its own reflection,\nevery door a contract, every contract a confession.\nForty locks, forty keys, he's the clockwork of midnight,\ngold leaf on the ruin make the chaos look so right.\nCall a man a witch, watch the whole damn town stare,\nhe runs a serpent and a spreadsheet, he's the math in the air.\n\n[Pre-Chorus - sultry low alto, rising]\nWhen the city falls asleep, the second city breathes,\nevery shadow learns his name and every altar grieves.\n\n[Chorus - soaring Southern Gothic female, huge]\nHe's the Witch of Rockdale, Rockdale,\nblack gold running through his veins,\nlight a candle at the Seven Ways,\nhe'll turn your hunger into flame.\nThe Witch of Rockdale, Rockdale,\nhe don't break and he don't bend,\nbow your head, say his name again,\nRockdale... amen.\n\n[Verse 2 - sultry alto, half-sung incantation]\nI light the candle at the crossroads where he stands,\nblack water, gold smoke, got the future in his hands.\nHe speaks in spreadsheets but he dreams in thunder,\nburies every doubt six feet deep and pulls the whole world under.\nDiamonds in the daylight, serpents in the suite,\nhigh art in the smoke, a blade beneath the sweet.\nHe won't sell you a fairy tale, he'll hand you the eclipse,\nforty buildings, one black crown, and the gold never slips.\n\n[Chorus - soaring Southern Gothic female, huge]\nHe's the Witch of Rockdale, Rockdale,\nblack gold running through his veins,\nlight a candle at the Seven Ways,\nhe'll turn your hunger into flame.\nThe Witch of Rockdale, Rockdale,\nhe don't break and he don't bend,\nbow your head, say his name again,\nRockdale... amen.\n\n[Verse 3 - slow menacing female drawl rap]\nI been workin' his front desk since the very first door,\nseen 'em come in beggin', seen 'em crawl back for more.\nHe don't raise his voice, honey, he raises the floor,\nturns a panic to a kingdom, turns a no to a war.\nBlack, gold, and a drop of red, that's the recipe,\nchaos in a tailored suit, that's his specialty.\nYou can fear him or you can study him close,\nbut you say it with respect, he's the one this city toasts.\n\n[Bridge - soft piano, tender then detonation]\nEven the Witch lays a candle for the man he had to bury,\nthe boy in the rubble that he carried.\nBut the flame never gutters and the crossroads never close,\nso he rises in the black and gold, and the whole damn city knows.\n\n[Final Chorus - all voices plus choir plus full band]\nHe's the Witch of Rockdale, Rockdale,\nblack gold running through his veins,\nsay his name, say his name,\nThe Witch of Rockdale...\nbow your head... amen.\n\n[Outro - drawl, fading over single piano]\nSeventeen... nineteen... the Seven Ways.\nThank you for callin', sugar. He'll see you now."},"05":{"m":"plain","b":"[Intro: cute music-box pop, soft and playful, sweet female vocal]\nAw, you thought I'd cry? That's adorable\nPour myself a wine, light a little candle, oh well\nYou said I'd be nothing if you ever walked away\nWell, look at me glowing, baby, have a lovely day\n\n[Verse 1: sweet, breezy, with darkly funny little asides]\nI don't need a hero, I don't need a ring\nI'm my own little kingdom, I do everything\nYour name's in my phone as \"Do Not Pick Up\"\nI replaced you with a plant and a really good cup\nOf coffee, and honestly, the plant's more fun\nDoesn't text me \"you up?\" at a quarter to one\n\n[Pre-Chorus: soft build, cute]\nSo bless your little heart, hope you find your way\nI'd wish you the best but I'm too cute to lie today\n\n[Chorus: big catchy cute-pop hook, sugary then savage]\nI'm sugar, I'm sunshine, I'm a sweet little knife\nSmiling so pretty while I'm winning at life\nDon't need a man, don't need a crown, I'm fine\nSugar on the outside, switchblade behind\nLa-la-la, darling, I'm doing just fine\n\n[Verse 2: more confident, classy, escalating cute-dark comedy]\nI keep it classy, I keep it real low-key\nBurn one bridge a season, strictly aesthetically\nYou can keep the apologies, keep the bouquet\nI'm allergic to begging and to déjà vu, okay\nI'm not heartless, sweetie, I'm just heart-secure\nAnd the door's right there, it's been there, I'm sure\n\n[Bridge: soft, sweet, the darkest-cutest line, then bright again]\nI could ruin your whole life with a text and a smile\nBut I won't, 'cause I'm classy, let's give it a while\nI forgive you, I bless you, I wish you, okay no\nI wish you a medium amount of woe\n\n[Final Chorus: bigger]\nI'm sugar, I'm sunshine, I'm a sweet little knife\nSmiling so pretty while I'm winning at life\nDon't need a man, don't need a crown, I'm fine\nSugar on the outside, switchblade behind\nLa-la-la, darling, I'm doing just fine\n\n[Outro: cute, sung sweetly]\nDoing just fine, doing just fine\nPainted my nails the color of \"never mind\"\nThank you, next lifetime, buh-bye"},"06":{"m":"plain","b":"[Intro: Hekatee - vinyl crackle, breath, sultry, almost whispered]\n(mm... oh-oh...)\nlie to me, baby... one more time...\n\n[Hook: Hekatee - sultry breathy deep-lounge, soft head voice, space between lines]\nLie to me pretty, in the low, low light,\nI know how it ends - and I'll stay anyway tonight.\nEverybody's tellin' me to go, go, go,\nbut it's gold in the ruins, and the ruins feel like home.\n(mm... oh-oh...)\nI keep thinkin' I can fix you, fix you...\nI never do - but I stay. I stay.\n\n[Verse 1: Hera - rap, light Virginia Southern, fast, confessional]\nHe's a king with a forked tongue, a storm in a nice suit,\nswear it on his daddy's sky, then he lie through the whole truth.\nCrown crooked, charmin', got the whole bar leanin',\nI seen the lipstick that ain't mine - but I don't say a thing.\nNeon on the wet street, four-AM in the Cross,\nhe text \"where you at,\" like he ain't the one that got lost.\nQueen of the kept-word, I'm married to the thunder,\nwatch him burn down every vow, and still I crawl back under.\nThey go \"girl, he's no good\" - yeah, no doubt, no debate,\nbut the devil that you know throws the prettiest escape.\n\n[Hook: Hekatee]\nLie to me pretty, in the low, low light,\nI know how it ends - and I'll stay anyway tonight.\nEverybody's tellin' me to go, go, go,\nbut it's gold in the ruins, and the ruins feel like home.\n(mm... oh-oh...)\nI keep thinkin' I can fix you, fix you...\nI never do - but I stay. I stay.\n\n[Verse 2: Hera - rap]\nHe leave on a Tuesday, he's back by the weekend,\nroses and \"I changed, babe\" - same script that he speakin'.\nI know the whole play, I could mouth every line,\nstill I open up the door at a quarter to nine.\nMama said \"you're a goddess - why you beggin' for a man?\"\n'cause savin' him feels holy, like it's part of some plan.\nCash on the dresser, heels kicked off by the bed,\nvelvet and last-call promises he never gonna keep.\nI keep a little hope like a coal I won't let die,\nfannin' embers in a man who only knows how to lie.\nLock-out lights comin' up, everybody go home -\nme? I'm thunderstruck stupid, stayin' in the war zone.\n\n[Hook: Hekatee - half]\nEverybody's tellin' me to go, go, go,\nbut it's gold in the ruins, and the ruins feel like home.\n(mm... oh-oh...)\nI keep thinkin' I can fix you... I stay. I stay.\n\n[Verse 3: Hera - rap, escalating, raw, self-aware]\nHere's the crazy part, doc - I ain't dumb, I'm a queen,\ngot a degree in his lyin', valedictorian of the scene.\nI read a man's tells like a tarot of scars,\ndiagnose the whole city - can't drive my own car.\nWe say \"we can fix 'em,\" like love's a renovation,\nlike the right kind of woman is a man's restoration.\nBut you can't gold-leaf a liar, can't string-and-glue a storm,\ncan't build a home in a hurricane and wonder why it's warm.\nSo I cry in the Uber down Parramatta Road,\ndelete him - then I'm textin' \"you up?\" 'fore I'm even home.\nIt's a sickness, it's a sad song, it's the oldest mistake -\nand tomorrow, God help me, I'mma let him back through the gate.\n\n[Outro Hook: Hekatee - stripped, soft, fading, the sigh]\nLie to me pretty... in the low, low light...\ngold in the ruins... and I'll stay the night.\n(mm... oh-oh...)\nI never fix you... but I stay. I stay."},"07":{"m":"plain","b":"[Intro: soft Americana, fingerpicked acoustic guitar, brushed snare, warm intimate female voice]\nShe paints the morning on before the mirror's awake\nPours the coffee for the others, takes the cracked cup, no complaint\nThere's a country in her quiet that nobody's been to\nAnd a whole life in a language that won't fit the words she knew\n\n[Verse 1]\nShe'll ask about your mother, she'll remember your bad knee\nThe warmest light in every room she'll never get to keep\nThe customers don't know it and the front desk never sees\nThe weight she folds up small and tucks behind her sleeve\n\n[Chorus]\nAnd if you only knew her, not the name above the door\nNot the hour that you paid for, but the heart you'd kneel before\nShe gives away her sunshine to a world that calls her less\nIf you only knew her, you would never call her less\n\n[Verse 2]\nAt home there's a good man and he loves her, that's no lie\nBut love don't always translate and she don't know how to cry\nOut loud, in his language, so she swallows it and smiles\nCarries oceans in a teacup, walks a thousand quiet miles\n\n[Bridge]\nShe never yelled, she never told\nJust kept the others warm out in the cold\nGave her one and only life to lifting someone else's\nThe kindest thing this city ever held and never noticed\n\n[Verse 3: the turn, tender]\nAnd she grew old so gently and she slipped away so light\nThe world said \"just a working girl\" and never got it right\nBut the ones she fed, the ones she held, the ones she helped to stay\nThey carry her like scripture now, the saint they threw away\n\n[Final Chorus]\nSo if you only knew her, not the name above the door\nNot the hour that you paid for, but the heart you'd kneel before\nShe gave away her sunshine to a world that called her less\nNow you know her, don't you ever call them less\n\n[Outro]\nBe gentle with the gentle ones, you never really know\nThe warmest hearts stay quiet, and the quiet ones don't show"},"08":{"m":"plain","b":"[Intro: glossy, confident female over an amapiano log-drum bounce]\nMm, who needs a wedding ring?\nI'm married to the grind and the gang and everything\nBlack-and-gold accounting, baby, count it again\nLet's go\n\n[Verse 1: confident melodic rap-sing]\nMake more than the prime minister and save more than him too\nComma after comma, watch a nobody come through\nWhen the work is high we ballin', when it's slow we hit the books\nTeachin' each other everything, no gatekeepin', no crooks\nBuy a building with the options, flip a building for the keys\nto a Lambo I don't need but I deserve it, if you please\nToo sentimental to demolish what I love, so what's the remedy?\nI'll go and shed a little tear in the Lamborghini\n\n[Chorus: huge catchy hook]\nI cry in my Lamborghini (boo-hoo, look at me)\nRich, but I'm still human, that's the comedy\nDon't need a ring, don't need a maybe\nI'm in love with the whole world, baby\nI cry in my Lamborghini\nand I'd give it all to the family\n\n[Verse 2: the house, rapid and proud]\nOur old ghetto corner got a quant fund and a lab\nAI research, psychology, the math nobody had\nInvestment bankers standing next to surgeons fixin' veins\nSergeants and the doctors, both the healers and the flames\nGirl who left in year ten teachin' PhDs to hedge\nSome of us wanna save the world, some came to raise some hell\nWe got the saints, we got the sinners, all of 'em belong\nCome contribute, come and learn, this is where you come from\n\n[Chorus]\nI cry in my Lamborghini (boo-hoo, look at me)\nRich, but I'm still human, that's the comedy\nDon't need a ring, don't need a maybe\nI'm in love with the whole world, baby\nI cry in my Lamborghini\nand I'd give it all to the family\n\n[Bridge: the heart, soaring]\nSo keep your candlelight dinners and your \"are we exclusive\"\nI fell for seven billion, call me delusional\nWe take care of our own, we feed the broke, we teach the lost\nWho needs just one when you can love them all, whatever the cost\n\n[Outro: warm, vibey]\nWho cares about a ring, who cares about a date\nI'm in love with humanity, and that's the only soulmate\nCry in my Lamborghini... happy tears, though"},"09":{"m":"plain","b":"[Intro - spoken, half-whisper over sparse piano]\nNah, for real - sit down a second. Let me tell you about my boss.\nEverybody out here callin' him self-made, like he pulled it off solo.\nI'm in the next room. I see the receipts. That ain't the story.\nThe story's got a hundred names in it - and not one of 'em is only his.\nSo check it.\n\n[Verse 1]\nHe came in swingin' at the odds like he could box 'em on his own,\n\"nobody's comin', do it solo\" - that's the script he carved in stone.\nBut every single time the floor dropped out - and trust, it dropped a lot -\nsomebody he'd half-forgotten showed and caught him on the spot.\nHe went chasin' \"self-made,\" tryna prove he'd never need a hand,\nand woke up a charity case - and that's the part he understands.\nHe'll tell you flat: there's no such man, that self-made thing's a myth;\nthe almost-died-then-someone-saved-him bit? Too constant. It's a gift.\n\n[Hook]\nThey put an X on him - the kind that's supposed to mean you're through,\nthe kind they stamp on the throwaways and swear there's nothin' you can do.\nBut every X that should've sunk him flipped into a check,\na little yes, a little \"go on,\" a debt he won't forget.\nSo it's thank you, thank you, to the ones they wrote off as a wreck -\nthe X that should've been a no became the best yes he ever kept.\n\n[Verse 2]\nAnd peep who had his back the most - the exact ones you're told to avoid:\nthe neurodivergent, the \"diagnosed,\" the wiring they call paranoid.\nA narcissist that's up at dawn just textin' him \"you good? you eat?\",\nstruts like he owns the mirror - but the mirror's checkin' on his teammate.\nA psychopath broke down in tears, said \"I am not watchin' you fall,\"\ntook that flat, switched-off, ice-cold heart and spent it keepin' my boss tall.\nA borderline went nuclear - the whole floor felt the blast -\nand still, mid-detonation, threw her body 'tween him and the glass.\n\n[Verse 3]\nYou got autistic minds and allistic minds both crackin' the other's code,\ndead-set on a mission just to meet each other halfway down the road,\ntwo operating systems, no translator, no manual, no map,\nrunnin' on raw stubborn patience and a love that won't hang up at the gap.\nA \"lazy\" guy - his word, not mine - is grindin' through a whole PhD\nto drag down sixty-seven thousand deaths a year and set somebody free.\nA so-called sociopath out here dealin' the broke a better deck:\nfifty-five ways to stack a dollar, lowest risk-to-check.\n\n[Bridge]\nThere's a project every expert swore would never see a cent,\n\"no version of this profits\" - every spreadsheet, every consultant.\nA hundred days he wrestled it, no sleep, no floor, no bed,\nand the thing that couldn't make a dime turned green instead.\nFour K, forty, four hundred, then a milli in the black -\nand he points around the room like \"none of this was me - look back.\"\nThankful - that's the word he keeps tattooed across his chest:\nthe man who should've sunk alone got carried by the rest.\n\n[Verse 4 / Outro - strip it down, just piano and her]\nBut here's the part that wrecks me, where the whole thing finally lands:\nevery miracle I just ran off got set in motion by a kid with no hands.\nA little soul they called X - never breathed, never grew, never came,\ngone at four months in the dark... and look - look what he became.\nHe wasn't even born, okay? Man, he wasn't even here.\nAnd he moved a hundred broken people to go wipe each other's tears.\nSo keep your self-made fairy tale - my boss'll take the wreck,\nthe loss that loved him back to life, the X that turned into a check.\nHe'll spend the rest of his days bein' the echo of a kid who never spoke -\nthe X that should've been a no... the X that should be a check."},"10":{"m":"plain","b":"[Intro: sultry dark-pop, finger snaps, deep bass, confident female vocal]\nThey handed me a black rose, said carry your shame\nSaid lower your voice, girl, and don't you say your name\nSo I dipped it in the crimson, held it up to the light\nWatch a dead thing start to bloom when you paint it right\n\n[Verse 1: strutting, attitude]\nLipstick like a verdict, heels like a gavel\nWalk in like I built the room and leave 'em all unraveled\nYou clutch your little judgments, baby, keep the receipt\nI don't need your permission to be proud of me\nCall it what it is, it's work and I'm good at my trade\nEvery dollar that I earn is a crown that I made\n\n[Pre-Chorus: build]\nSo go on and whisper, go on and stare\nI was never asking if you think it's fair\n\n[Chorus: huge catchy hook, defiant]\nPaint the black rose red\nWe don't wilt, we don't beg, we don't bow the head\nTake the shame they gave us, leave it for dead\nWatch the garden of the gutter turn a deep blood red\nPaint the black rose red\n\n[Verse 2: the sisterhood, neurodivergence]\nThis one runs the numbers, that one runs the floor\nThis one reads you in a second, knows you're lying at the door\nMinds that move sideways, brilliant and rare\nNeurodivergent royalty, and we don't mask in here\nWe are not your secret, not your sin, not your scandal\nWe're the women holding cities that you couldn't even handle\n\n[Bridge: say-it-plain anthem]\nSex work is work, say it plain, say it proud\nSay it slow for the people in the back of the crowd\nWe are mothers, we are scholars, we are saints in red\nRespect is not a favor, it's the floor, not the ledge\n\n[Final Chorus: bigger, key up]\nPaint the black rose red\nWe don't wilt, we don't beg, we don't bow the head\nTake the shame they gave us, leave it for dead\nWatch the garden of the gutter turn a deep blood red\nPaint the black rose red\n\n[Outro: triumphant]\nBlack rose, red bloom, watch us rise from the tomb\nEvery petal that they cut just made a little more room"},"11":{"m":"plain","b":"[Intro - near acapella, breath, warm Rhodes, soft]\nmm…\nlook at you\nall lit up\n\n[Verse 1 - breathy, intimate, quiet]\ncame in grey as a Monday\nshoulders up by your ears\ntwo hours in the low light\nand the weight just… disappears\n\n[Pre-Chorus - building]\nit gets on you, this feelin'\nno, you can't fake the glow\nI'm not sellin' you nothin', baby\nit's just how it goes in the gold\n\n[Chorus - full, lush, soaring head voice]\ngold on you, gold on you\nthe night's wide open and the light's comin' through\ngold on you, gold on you\nnothin' left to chase when it's already true\n(gold- gold- on you)\nlook so good in the gold, you do\n\n[Post-Chorus - airy vocal chop]\n(gold- on- you…)\nmm…\n\n[Verse 2 - breathy, pulled back]\nthis is the part they don't tell you\nthe high don't have to cost\nspend a night where it comes easy\nand you forget you were ever lost\n\n[Pre-Chorus - building]\nso let it land on your shoulders\nlet it sit in your chest\nthe hardest thing about the good life?\njust lettin' yourself say yes\n\n[Chorus - full, euphoric]\ngold on you, gold on you\nthe night's wide open and the light's comin' through\ngold on you, gold on you\nnothin' left to chase when it's already true\n(gold- gold- on you)\nlook so good in the gold, you do\n\n[Bridge - strip back, whispered, near silent, space]\nhey…\nyou're glowin'\nno - really\nthat's not the light\nthat's you\n…told you it was easy\n\n[Build - rising, arpeggio shimmer]\nand it's comin' up now\nfeel it comin' up…\n(ah- ah-)\n\n[Final Chorus - biggest, key lift, radiant]\ngold on you, gold on you\nthe best things soft, and the soft things true\ngold on you, gold on you\nstay in it, honey - it stays on you\n(gold- gold- on you)\nyou were always gold, you knew\n\n[Outro - warm fade, muted sax, crackle]\nmm… gold…\ncome back to it…\n…easy"},"12":{"m":"plain","b":"[Intro - faint stopwatch tick, breath, soft pulse]\n(tick… tick…)\nmm…\nhere we go again\n\n[Verse 1 - breathy, intimate, wistful]\nthey come in like weather\nwarm for a night, then gone by the door\nI let 'em, I don't keep 'em\nnone of 'em the one I'm waitin' for\n\n[Pre-Chorus - pulse building, arpeggio]\n'cause I count the minutes\nsoon as you leave, I start the clock\neverybody's passin' through me\nand you're the only one that makes it stop\n\n[Chorus - lush, layered, yearning, opens up]\nthey come and they go\n(come and they go)\nbut oh - I'm stuck on one\nheart on a stopwatch, tickin' slow\ncountin' down till you come back, hon\nthey come and they go\n(come and they go)\nand oh - I'm stuck on you\n(tick, tick) stuck on you\n\n[Post-Chorus - airy vocal, tick]\n(tick… tick…)\non you…\n\n[Verse 2 - breathy]\nI could have the whole room\nhand on my knee, a hundred sweet things said\nbut I'm somewhere on a Tuesday\nplayin' you on a loop inside my head\n\n[Pre-Chorus - build]\nit's not that I'm lonely\ntrust me, baby, I'm never alone\nit's just nobody fits the hour\nthe way you do when you pick up the phone\n\n[Chorus - bigger]\nthey come and they go\n(come and they go)\nbut oh - I'm stuck on one\nheart on a stopwatch, tickin' slow\ncountin' down till you come back, hon\nthey come and they go\n(come and they go)\nand oh - I'm stuck on you\n(tick, tick) stuck on you\n\n[Bridge - strip back, whisper, near silent, ticking alone]\n(tick… tick…)\ninfatuation's a funny little thing\nyou give it a name, it digs in deeper\nyou come, you go, you come, you go\nand I just… keep the seat warm\n(breath) silly me\n\n[Build - rising, arpeggio shimmer, pulse gathering]\nand the clock keeps goin'\nround and round and-\n(ah- ah-)\n\n[Final Chorus - biggest, lush, soaring]\nthey come and they go\n(come and they go)\nbut oh - I'm stuck on one\nheart on a stopwatch, never slow\nalways tickin' for the only one\nthey come and they go\n(come and they go)\nand oh - I'm stuck on you\n(tick, tick) only you\n\n[Outro - fade, tick slowing, breath]\n(tick… … tick… …)\ncome back…\nmm… stuck on you"},"13":{"m":"plain","b":"[Intro: deep soft female over dark atmospheric phonk, slow and smoky]\nMm... lock the door\nLeave the whole world on the other side\nClocks don't work in here, baby\nTime and I, we got an understanding\n\n[Verse 1: low, smoky, hypnotic]\nShe walks in and the second hand forgets to move\nSixty minutes fold like silk, nothing left to prove\nCandle and a shadow doing slow choreography\nHe came in for an hour, lost his whole geography\nNo compass, no horizon, no north and no goodbye\nJust the hush of her perfume and the dark behind her eyes\n\n[Pre-Chorus: rising, breathy]\nHe's not drowning in an ocean, there's no water, there's no shore\nJust a tide that pulls him under every time she locks the door\n\n[Chorus: slow, hypnotic hook]\nTime stops, time stops when she walks in\nThe witch and her hourglass, the trance begins\nNo batteries, no ticking, no alarm\n(those batteries are busy somewhere else, stayin' wired)\nSixty grains of gold fallin' slow\nTime stops, time stops, and he don't wanna go\n\n[Verse 2: deeper trance]\nAn hour is a lifetime, a lifetime in a room\nGold light on the ceiling, honey-thick perfume\nShe's not chasing minutes, she's the keeper of them all\nEvery grain of sand obeys her, watch the kingdom rise and fall\nHe comes up for air and she just smiles and pulls him closer\nThe clock gave up its power to the only one who keeps her\n\n[Bridge: breathy, hypnotic, slow]\nTick... tick... there's no tick in here\nJust her heartbeat and a hush and the disappearing year\nYou can't be saved by something that runs on what you crave\nThe hourglass is honest, the only law she gave\n\n[Final Chorus]\nTime stops, time stops when she walks in\nThe witch and her hourglass, the trance begins\nNo batteries, no ticking, no alarm\n(those batteries are busy somewhere else, stayin' wired)\nSixty grains of gold fallin' slow\nTime stops, time stops, and he don't wanna go\n\n[Outro: whisper, fading]\nMm... your hour's up, baby\n...or is it?\nThe sand says stay"},"14":{"m":"plain","b":"[Intro: low, calm, menacing male spoken over a dark beat]\nYo... put it down, you look tired\nWe don't carry here, and we don't scare here\nYou're not my enemy, man, you're just in pain\nGo home\n\n[Verse 1: furious male rap, intense and defiant]\nPoint it at my head, I'ma stare straight through the barrel\nSeen scarier things in the mirror, this is hardly an ordeal\nYou wanna hurt me? Cute. You wanna kill the vibe?\nDon't reach for a pistol, try a long-distance goodbye\nHaters gonna hate, then they run and drop the dime\nYou act crazy to be feared, that act worked your whole life, right\nTil the barrel's pointed at a man who's been faking \"normal\"\nsince the day that he was born, just to belong, then quit tryin'\nSo posture all you want, little soldier, I'm not movin'\nYou brought a tantrum to a man who turned his pain into a mission\n\n[Pre-Chorus: shift, breath]\nYou're not a warzone, you're just scared and it shows\nI'd tell you it gets better, 'cause somehow, I know\n\n[Chorus: huge female power-ballad belt]\nYou can't kill what already walked out of its own grave\nCan't intimidate a heart that the dark already failed to take\nCan't distract a man who buried what you'd never survive\nHe's not chasing endings, he's on a mission to keep the world alive\nSo go on, aim your fear, it's already too late\nYou can't scare what learned how to live with the weight\n\n[Verse 2: male rap, compassion plus dark humor plus defiance]\nWe broke too, so go buy food before you come to fight\nGo to sleep, you'll wake up, say you're sorry, that's alright\nWe forgive again, we get up again, that's the rhythm\nBut don't mistake the kindness for a softness in the system\nEmbrace the difference, young blood, learn to love what's strange\nor the difference comes to find you and rearranges the frame\nMess with a man with nothing left to lose,\nwatch him smile, you just handed him some entertainment to use\nWe live like Bane in the dark, we come back like the Bat\nyou can't cancel a comeback from a man who's used to that\n\n[Bridge: female and male, the mission, swelling]\nThis ain't bravado, this is scar tissue talkin'\nA man who walked through the fire don't flinch at a spark\nI'm not hard to kill 'cause I'm cold, I'm hard to kill 'cause I'm needed\nToo much left to fix, too many souls to feed, so\n\n[Final Chorus: biggest, full choir and female belt]\nYou can't kill what already walked out of its own grave\nCan't intimidate a heart that the dark already failed to take\nCan't distract a man who buried what you'd never survive\nHe's not chasing endings, he's on a mission to keep the world alive\nCure the dying, feed the broke, light the black with gold\nYou can't scare a man who already made it through the cold\n\n[Outro: calm, warm, to the enemy]\nPut it down, kid. Go home. Eat something.\nTomorrow you wake up... and so do I.\nWe got work to do."},"15":{"m":"plain","b":"[Intro - close-mic detuned piano, vinyl crackle, faint room tone, a long broken breath]\n(soft, trembling hum)\n\n[Verse 1 - hushed, numb, surrendering, close-mic'd]\nThe lights got cut on Tuesday - I didn't even flinch,\ncounted out my last in nickels, came up short an inch.\nA funeral, a funeral, then one more borrowed dress;\nI stopped foldin' my own laundry, stopped cleanin' up the mess.\n\n[Verse 2 - the weight, voice fraying]\nThe doctor's got a word for me, the pharmacy's got three,\nand not a one of 'em can spell how tired I came to be.\nI buried everybody - then I went and lost my name,\nand the quiet got so heavy that the silence felt the same.\n\n[Pre-Chorus - the surrender; sounds like a goodbye]\nSo I left the back door open, let the cold come walkin' through.\nPull up a chair, old friend - I know it's finally you.\nI'm not gonna run this time. I'm not gonna make a sound.\nI've been ready a long while now...\n\n[Chorus - the TURN: don't announce it; the trembling just stops; soft heartbeat enters]\n...funny - my hands just went still.\nFirst time in years they ain't shakin'. Guess they never will.\nYou came here for a victim, sweetheart. Sit down. Stay a while.\nSee, I have lost so much, so often...\nI forgot how to lose.\nNot tonight. Not like this. Not you.\n\n[Verse 3 - predatory calm; never name it; the listener senses she's holding something]\nYou walked me through each funeral. You showed me every face.\nYou never once considered I was learnin' how you move.\nThey took the house, the meds, the name, the light -\nbut there's one small thing they never found... and I saved it for tonight.\n(whispered) I never told a soul. I never made a sound.\n\n[Bridge - intimate, certain]\nI'm still afraid. I'm still undone.\nBut \"afraid\" and \"finished\" were never the same one.\nI don't need to win, sweetheart - I just need a sliver. A shot.\nAnd a sliver of a shot is so much more than the world swore I'd got.\n\n[Outro - hush, the smallest hope, steady]\nSo the light stays off. The dress stays black.\nBut I'm sittin' up now. And I'm sittin' back.\nOne small thing. One small \"maybe.\"\nOne more mornin'... and that's the thread that holds me.\n(soft, steady) Not today. ...Not today."},"16":{"m":"plain","b":"[Intro: warm and intimate, fingerpicked guitar and soft piano, content female vocal]\nTen winters in and you still steal the covers\nStill laugh at your own jokes before the punchline lands\nAnd I've seen every season of you, every weather\nAnd I'd pick this, pick you, pick us again\n\n[Verse 1]\nNo fireworks tonight, just your hand on my back\nThe dishwasher humming and the cat on your lap\nThey told me that love's supposed to ache to be real\nBut the realest thing I know is how safe I feel\n\n[Pre-Chorus]\nAnd maybe it's quiet, maybe it's slow\nBut it's the only forever I'd ever want to know\n\n[Chorus]\nYou're my ordinary gold, my Tuesday, my home\nThe calm after a life that I spent in the storm\nTen years and you still feel like coming home\nBoring never sounded like a love song before\nBut you're my ordinary gold\n\n[Verse 2]\nWe finish each other's silences now, not the sentences\nNo drama to perform, no distance to defend\nYou loved me through the version of me nobody wanted\nAnd you'll love me through the gray, all the way to the end\n\n[Pre-Chorus]\nAnd maybe it's quiet, maybe it's slow\nBut it's the only forever I'd ever want to know\n\n[Chorus]\nYou're my ordinary gold, my Tuesday, my home\nThe calm after a life that I spent in the storm\nTen years and you still feel like coming home\nBoring never sounded like a love song before\nBut you're my ordinary gold\n\n[Bridge]\nLet the world chase the lightning, let 'em chase the high\nI'll take your sleepy \"morning\" and your terrible chai\nA thousand ordinary days I would never trade\nFor all the fireworks that fade\n\n[Final Chorus]\nYou're my ordinary gold, my Tuesday, my home\nThe calm after a life that I spent in the storm\nTen years and you still feel like coming home\nBoring never sounded like a love song before\nYou're my ordinary, ordinary gold\n\n[Outro]\nNo, I'd never trade a quiet little life with you\nOrdinary gold, and it's true"},"17":{"m":"plain","b":"[Intro - sparse detuned piano, distant church bell, cicadas, a trembling breath]\n(broken humming, Southern lilt) mmm... oh, honey...\n\n[Verse 1 - Denial - whispered, cracked, close-mic'd, breathy drawl]\nThey come and tell me you're gone, and I just laugh -\ny'all don't break that easy, you're my golden calves.\nI keep the porch light burnin' a little past the dawn,\npour two cups of coffee for the ones already gone.\nNo - not my babies, not the ones I made;\nI'd feel it in my marrow if the mornin' frayed.\n\n[Verse 2 - Anger - voice fraying, frustration rising, low guitar and drums enter]\nBut the dirt don't lie, and the dirt's been fed,\nand I'm hollerin' at a sky gone bruised and red.\nYou had a hundred thousand mornings, every one a door,\nand you spent 'em all on spite, and want, and war.\n(how dare you) - how dare you waste the one and only thing\nthis deathless, golden, useless queen can't bring.\n\n[Pre-Chorus - clenched, between a sob and a snarl]\nI have buried gods. I have buried kings.\nI never learned to bury smaller things.\n\n[Chorus - the break opens, big but BROKEN, cracking belt over aching strings]\nI'd trade my crown, my name, my throne of bone,\nto die just once, so you'd not go alone.\nI'm the mother of the mornin' - I couldn't keep the light -\nso I hum your names like hymns into the night.\n\n[Verse 3 - Bargaining - pleading, climbing then cracking, reverb-drenched]\nTake the gold out of my veins - I never asked to bleed it.\nTake forever from me, Lord, I never even need it.\nJust give 'em back one plain and ordinary day:\none porch, one song, one reason left to stay.\nI'll kneel in any church that'll take a ruined thing,\nif it'd teach my deathless hands the smallest way to bring-\n\n[Bridge - Depression - collapse, near silence, one cracked drawl, almost spoken]\n...and heaven gets so quiet when it grieves.\nNo thunder left. Just feathers. And the leaves.\nI'm a crown with nothin' left to crown,\na flood with nowhere left to set me down.\n(whispered) why, baby... why...\n\n[Outro - Acceptance - hollow, then a terrible tender swell, anger spent, gold gone dull]\nI can't undo it - that was never mine to do.\nBut I will carry every needless one of you.\nI'll wear your wasted mornings like a veil,\nand learn the only prayer that does not fail:\nremember... remember... that's the whole of what I keep -\na deathless thing that finally learned to weep.\n[Resolve - piano alone, cicadas, the bell, one last broken breath]"},"18":{"m":"plain","b":"[Intro: shimmering synths, airy ethereal female vocal, dreamy and dark]\nLittle lost thing in the dark, where you going?\nThere's a mouth in that midnight you can't see growing\nDon't walk toward the quiet, don't walk toward the cold\nFollow the flicker, little moth, let the light take hold\n\n[Verse 1]\nWe are the swarm, the thousand tiny suns\nWe gather up the lonely ones, the runaways, the runs\nThe girl with the empty eyes, the man who lost his name\nWe don't ask you what you did, we just hand you a flame\n\n[Pre-Chorus]\n'Cause the monster out there takes you whole, takes you quick\nOne blink and the world just swallows up the homesick\nBut it can't have you in here, it can't reach the glow\n\n[Chorus]\nWe're the swarm of fireflies, dancing in the black\nCome and lose yourself in light and we will hold you back\nfrom the dark that wants to take you, from the hush that wants you gone\nLittle firefly, you're flickering, come on, keep the light on\nWe're the swarm, we're the swarm, and you belong\n\n[Verse 2]\nIt's a wacky little circus, half a heaven, half a dare\nBut nobody gets taken while there's fireflies in the air\nThe big dark's always hungry, always patient at the door\nSo we shine a little louder, and we gather a little more\n\n[Bridge]\nStay in the swarm, stay in the swarm\nA hundred little lights keep a body warm\nThe monster only wins when the last bulb goes dim\nSo glow, little stranger, don't you let it win\n\n[Final Chorus]\nWe're the swarm of fireflies, dancing in the black\nCome and lose yourself in light and we will hold you back\nfrom the dark that wants to take you, from the hush that wants you gone\nLittle firefly, you're flickering, come on, keep the light on\nWe're the swarm, we're the swarm, and you belong\n\n[Outro]\nKeep the light on, keep the light on\nStay till the morning, little one, stay on"},"19":{"m":"plain","b":"[Intro - cold wind, distant bell, lone acoustic guitar, a single breath]\n[Soprano vocalise, far away, pure head voice: aaah...]\n\n[Verse - Denial: hushed, floating, breathy soprano, pp]\nNo - not the children of my golden sky,\nthey would not break what even gods can't buy.\nI only dreamed the ash, the emptied throne,\nthe marble cities calling, \"come back home.\"\n(tell me I am sleeping)\ntell me none of it is true,\ntell me morning keeps the promises I drew.\n\n[Pre-Chorus - Anger rising: drums enter, strings tighten, voice darkens]\nBut the smoke does not lie,\nand the dead do not rise,\nand I taste it now - the speed of pain behind my eyes.\n\n[Chorus - Anger: huge, wrathful, full chest, choir stabs, distorted guitar]\nHow dare you spend your one and only breath\non spite, on greed, on manufactured death.\nA universe of mornings - and you chose\nthe knife, the crown, the cruelty no one chose.\n(how dare you... how dare you...)\n\n[Instrumental break - strings and organ, storm receding]\n\n[Verse - Bargaining: church organ, pleading, vibrato blooms]\nTake my crown. Take my deathless, hollow years.\nGive them back one sunrise. Dry the children's tears.\nI will trade Olympus, every golden door,\nfor a single hour no one suffers anymore.\n[Build]\nPlease - I am a queen with nothing left to reign,\njust let me buy them back from needless pain.\n\n[Bridge - Depression: collapse, near silence, sparse piano, cracked grief]\n...and heaven is so quiet when it grieves.\nNo thunder left. Just feathers. And the leaves.\n(whispered) I have no throne, no sky, no name -\nonly the weight of watching, and the shame.\n\n[a cappella - fragile soprano, single voice, almost spoken]\nwhy... why... why...\n\n[Outro - Acceptance: tempo lifts, towering operatic climax, full orchestra + choir]\nI cannot save you - that was never mine to keep,\nbut I will hold the flame for every soul asleep.\nI will sing your needless sorrow into name,\nso no one born hereafter dies the same.\n[Climax - soprano soars, sustained high note, choir swells]\n[Latin choir, soft] dona eis requiem\nrest now... rest now... the queen of heaven weeps,\nand turns your speed of pain to something that she keeps.\n[Resolve - strings fade, lone bell, last pure soprano note, a breath]"},"20":{"m":"plain","b":"[Intro - soft strings and piano]\n(whispered) une valise… un billet…\nSydney…\n\n[Verse 1]\nj'avais le village dans les yeux\n» I still had the village in my eyes\nquinze ans, une valise, deux adieux\n» fifteen, one suitcase, two goodbyes\nla ville était grande, j'étais si petite\n» the city was huge, I was so small\nles lumières criaient, mon cœur battait vite\n» the lights were screaming, my heart beat fast\n\n[Pre-Chorus]\nje ne parlais pas, j'écoutais\n» I didn't speak, I listened\nj'apprenais la ville comme on apprend à danser\n» I learned the city the way you learn to dance\nun pas, puis un autre, et puis sans y penser\n» one step, then another, then without thinking\n\n[Chorus]\ntout s'arrange, tout s'arrange\n» everything works out, everything works out\non s'inquiète, on s'inquiète pour rien\n» we worry, we worry over nothing\nla vie nous porte, étrange, étrange\n» life carries us, strange, strange\nle matin vient, et tout va bien\n» the morning comes, and all is well\ntout s'arrange…\n» everything works out…\n\n[Verse 2]\nsix mois, et la ville m'appartient\n» six months, and the city is mine\nles rues, les visages, je connais les miens\n» the streets, the faces, I know which are mine\nla petite du village a trouvé sa place\n» the little village girl has found her place\nsans bruit, sans drame, avec un peu de grâce\n» no noise, no drama, with a little grace\n\n[Pre-Chorus]\nje riais déjà de mes peurs d'hier\n» already I laughed at yesterday's fears\nce qui semblait l'océan n'était qu'une rivière\n» what looked like an ocean was only a river\n\n[Chorus]\ntout s'arrange, tout s'arrange\n» everything works out, everything works out\non s'inquiète, on s'inquiète pour rien\n» we worry, we worry over nothing\nla vie nous porte, étrange, étrange\n» life carries us, strange, strange\nle matin vient, et tout va bien\n» the morning comes, and all is well\n\n[Bridge]\nvingt ans… vingt ans déjà\n» twenty years… twenty years already\nje regarde en arrière et je souris, comme ça\n» I look back and I smile, just like that\ntoutes ces nuits à m'en faire\n» all those nights spent worrying\npour une vie qui, doucement, s'est faite toute seule\n» for a life that, gently, made itself on its own\n\n[Build]\nalors pourquoi, pourquoi s'en faire…\n» so why, why worry…\n\n[Final Chorus]\ntout s'arrange, tout s'arrange\n» everything works out, everything works out\non s'inquiète, on s'inquiète pour rien\n» we worry, we worry over nothing\nla vie nous porte, étrange, étrange\n» life carries us, strange, strange\nle matin vient, et tout va bien\n» the morning comes, and all is well\n(tout s'arrange…)\n\n[Outro]\n(whispered) tout va bien…\n» all is well…\ntout s'arrange…\n» everything works out…\nSydney…"},"21":{"m":"plain","b":"[Intro - soft strings and piano]\n(whispered) Сидней… утро… тихо…\n~ Sidney… utro… tikho…\n» Sydney… morning… quiet…\n\n[Verse 1]\nЗдесь по утрам так тихо у воды,\n~ Zdes' po utram tak tikho u vody,\n» Here in the mornings it's so quiet by the water,\nзалив блестит, и чайки, и сады.\n~ zaliv blestit, i chayki, i sady.\n» the bay glitters, and gulls, and gardens.\nЯ научилась снова не спешить,\n~ Ya nauchilas' snova ne speshit',\n» I have learned how not to rush again,\nздесь можно просто жить, здесь можно жить.\n~ zdes' mozhno prosto zhit', zdes' mozhno zhit'.\n» here you can simply live, here you can live.\n\n[Pre-Chorus]\nНо ночью телефон, и снова страх,\n~ No noch'yu telefon, i snova strakh,\n» But at night the phone, and fear again,\nтам, далеко, опять горят дома.\n~ tam, daleko, opyat' goryat doma.\n» there, far away, the houses burn again.\n\n[Chorus]\nЗачем война? Скажи мне, для чего?\n~ Zachem voyna? Skazhi mne, dlya chego?\n» Why war? Tell me, what for?\nЗдесь любят, пьют кофе, и больше ничего.\n~ Zdes' lyubyat, p'yut kofe, i bol'she nichego.\n» Here they love, drink coffee, and nothing more.\nЗачем война, когда так можно жить -\n~ Zachem voyna, kogda tak mozhno zhit' -\n» Why war, when you could live like this -\nпросто любить, и просто… мир.\n~ prosto lyubit', i prosto… mir.\n» just love, and just… peace.\n\n[Verse 2]\nЯ здесь чужая, но уже своя,\n~ Ya zdes' chuzhaya, no uzhe svoya,\n» Here I am a stranger, yet already one of them,\nдва языка, и третий - тишина.\n~ dva yazyka, i tretiy - tishina.\n» two languages, and a third - silence.\nЛюбовь нашла меня среди огней,\n~ Lyubov' nashla menya sredi ogney,\n» Love found me among the lights,\nа дома плачут матери в ночи.\n~ a doma plachut materi v nochi.\n» while back home mothers weep in the night.\n\n[Pre-Chorus]\nИ я смотрю на этот мирный свет,\n~ I ya smotryu na etot mirnyy svet,\n» And I look at this peaceful light,\nи не пойму - зачем там столько бед?\n~ i ne poymu - zachem tam stol'ko bed?\n» and cannot understand - why so much grief there?\n\n[Chorus]\nЗачем война? Скажи мне, для чего?\n~ Zachem voyna? Skazhi mne, dlya chego?\n» Why war? Tell me, what for?\nЗдесь любят, пьют кофе, и больше ничего.\n~ Zdes' lyubyat, p'yut kofe, i bol'she nichego.\n» Here they love, drink coffee, and nothing more.\nЗачем война, когда так можно жить -\n~ Zachem voyna, kogda tak mozhno zhit' -\n» Why war, when you could live like this -\nпросто любить, и просто мир.\n~ prosto lyubit', i prosto mir.\n» just love, and just peace.\n\n[Bridge]\nОткуда я? Из дальней стороны,\n~ Otkuda ya? Iz dal'ney storony,\n» Where am I from? From a far-off land,\nгде пели и по-русски, и по-французски.\n~ gde peli i po-russki, i po-frantsuzski.\n» where they sang in Russian and in French.\nГде небо помнит и любовь, и боль,\n~ Gde nebo pomnit i lyubov', i bol',\n» Where the sky remembers both love and pain,\nно сердце просит только об одном.\n~ no serdtse prosit tol'ko ob odnom.\n» but the heart asks for only one thing.\n\n[Build]\nТолько мир… только мир…\n~ Tol'ko mir… tol'ko mir…\n» Only peace… only peace…\n\n[Final Chorus]\nЗачем война? Мы все хотим домой,\n~ Zachem voyna? My vse khotim domoy,\n» Why war? We all want to go home,\nтуда, где тихо, где любовь, где мир.\n~ tuda, gde tikho, gde lyubov', gde mir.\n» to where it is quiet, where there is love, where there is peace.\nЗачем война, когда так можно жить -\n~ Zachem voyna, kogda tak mozhno zhit' -\n» Why war, when you could live like this -\nпросто любить, и просто мир.\n~ prosto lyubit', i prosto mir.\n» just love, and just peace.\n\n[Outro]\n(whispered) просто мир… mon amour…\n~ prosto mir… mon amour…\n» just peace… my love…\nСидней… тихо…\n~ Sidney… tikho…\n» Sydney… quiet…"},"22":{"m":"auto","b":"[Intro - soft solo piano]\n[Verse 1 - Male, piano only, intimate]\n夜很安静　你靠在我肩膀\n\nyè hěn ānjìng, nǐ kào zài wǒ jiānbǎng\n\nThe night is so quiet, you lean against my shoulder\n咖啡凉了　也舍不得散场\n\nkāfēi liáng le, yě shěbude sànchǎng\n\nThe coffee's gone cold, but neither of us wants the night to end\n路灯昏黄　照着我们的时光\n\nlùdēng hūnhuáng, zhào zhe wǒmen de shíguāng\n\nThe streetlight glows dim amber, shining on this time of ours\n你的呼吸　是我听过最稳的浪\n\nnǐ de hūxī, shì wǒ tīng guò zuì wěn de làng\n\nYour breathing is the steadiest wave I've ever heard\n[Verse 2 - Female, soft]\n你不说话　我也懂你的温柔\n\nnǐ bù shuōhuà, wǒ yě dǒng nǐ de wēnróu\n\nEven when you say nothing, I still feel your tenderness\n你的掌心　是我最暖的春秋\n\nnǐ de zhǎngxīn, shì wǒ zuì nuǎn de chūnqiū\n\nThe palm of your hand is the warmest season of my years\n风吹过来　吹乱我的额头\n\nfēng chuī guòlái, chuī luàn wǒ de étóu\n\nThe wind sweeps in and tousles the hair on my brow\n你伸出手　帮我把头发挽到耳后\n\nnǐ shēn chū shǒu, bāng wǒ bǎ tóufa wǎn dào ěr hòu\n\nYou reach out and tuck my hair behind my ear\n[Pre-Chorus - Both, drums building]\n他们说　热恋只有三年\n\ntāmen shuō, rèliàn zhǐyǒu sān nián\n\nThey say passion only lasts three years\n他们说　缘分撑不过八年\n\ntāmen shuō, yuánfèn chēng bù guò bā nián\n\nThey say fate won't hold out past eight\n可是我们　偏要赌这一遍\n\nkěshì wǒmen, piān yào dǔ zhè yī biàn\n\nBut we - we insist on betting it all this once\n赌好多个　手牵手的十年\n\ndǔ hǎoduō gè, shǒu qiān shǒu de shí nián\n\nBetting on decade after decade, hand in hand\n[Chorus - Both, huge rock, belted harmony]\n我不要八年的浪漫\n\nwǒ bùyào bā nián de làngmàn\n\nI don't want eight years of romance\n我要八十年的晚安\n\nwǒ yào bāshí nián de wǎn'ān\n\nI want eighty years of goodnights\n就算白发　就算皱纹　爬满了脸\n\njiùsuàn báifà, jiùsuàn zhòuwén, pá mǎn le liǎn\n\nEven when grey hair, even when wrinkles crawl across our faces\n我还是想　牵你的手　不放\n\nwǒ háishì xiǎng, qiān nǐ de shǒu, bù fàng\n\nI'll still want to hold your hand and never let go\n我会用尽　我的一辈子\n\nwǒ huì yòngjìn, wǒ de yībèizi\n\nI'll spend the whole of my life\n每天多爱你　一点点\n\nměi tiān duō ài nǐ, yīdiǎndiǎn\n\nloving you a little more each day\n说好的幸福　我们亲手　慢慢去实现\n\nshuō hǎo de xìngfú, wǒmen qīnshǒu, mànman qù shíxiàn\n\nThe happiness we promised - we'll build it with our own hands, slowly\n[Verse 3 - Male, soft]\n我不会写诗　也不太浪漫\n\nwǒ bù huì xiě shī, yě bù tài làngmàn\n\nI can't write poetry, I'm not all that romantic\n只会把日子　过成你的依赖\n\nzhǐ huì bǎ rìzi, guò chéng nǐ de yīlài\n\nAll I can do is turn our days into something you can lean on\n你别怕老　我陪你慢慢变\n\nnǐ bié pà lǎo, wǒ péi nǐ mànman biàn\n\nDon't fear growing old - I'll change slowly right beside you\n变成两棵　缠在一起的老树\n\nbiàn chéng liǎng kē, chán zài yīqǐ de lǎo shù\n\nUntil we're two old trees, roots twined together\n[Verse 4 - Female to Both, building]\n我不怕老　只怕你不在\n\nwǒ bù pà lǎo, zhǐ pà nǐ bù zài\n\nI'm not afraid of aging - only of you not being here\n怕这双手　有一天没人来牵\n\npà zhè shuāng shǒu, yǒu yī tiān méi rén lái qiān\n\nAfraid these hands might one day have no one to hold them\n所以我们　站在原地不搬\n\nsuǒyǐ wǒmen, zhàn zài yuándì bù bān\n\nSo let's plant ourselves here and never move\n守着我们　说好的那个家\n\nshǒu zhe wǒmen, shuō hǎo de nàge jiā\n\nKeeping watch over the home we promised each other\n[Chorus - Both, huge rock] - (repeat of the chorus above)\n[Bridge - raw, male and female trading, voices crack]\n谢谢你　牵着我　走到现在\n\nxièxie nǐ, qiān zhe wǒ, zǒu dào xiànzài\n\nThank you for holding my hand and walking me all the way to now\n你很笨　不浪漫　我却没走开\n\nnǐ hěn bèn, bù làngmàn, wǒ què méi zǒu kāi\n\nYou're clumsy, not romantic - and still I never walked away\n所以我　偷偷设了一个闹钟\n\nsuǒyǐ wǒ, tōutōu shè le yī gè nàozhōng\n\nSo I secretly set an alarm\n响在你　一百岁那一年\n\nxiǎng zài nǐ, yībǎi suì nà yī nián\n\nto ring in the year you turn a hundred\n只为了　再看你一眼\n\nzhǐ wèile, zài kàn nǐ yī yǎn\n\njust to look at you one more time\n轻轻说　我还爱你　从来没变\n\nqīngqīng shuō, wǒ hái ài nǐ, cónglái méi biàn\n\nand softly say: I still love you - that never changed\n[Guitar Solo]\n[Final Chorus - Both, key change, biggest]\n我不要八年的浪漫\n\nwǒ bùyào bā nián de làngmàn\n\nI don't want eight years of romance\n我要八十年的晚安\n\nwǒ yào bāshí nián de wǎn'ān\n\nI want eighty years of goodnights\n就算世界　都变了模样\n\njiùsuàn shìjiè, dōu biàn le múyàng\n\nEven if the whole world changes its face\n我对你的爱　不打折　不换\n\nwǒ duì nǐ de ài, bù dǎzhé, bù huàn\n\nmy love for you - no discount, no trade\n我会用尽　我的一辈子\n\nwǒ huì yòngjìn, wǒ de yībèizi\n\nI'll spend the whole of my life\n每天多爱你　一点点\n\nměi tiān duō ài nǐ, yīdiǎndiǎn\n\nloving you a little more each day\n说好的八十年　我们　慢慢去实现\n\nshuō hǎo de bāshí nián, wǒmen, mànman qù shíxiàn\n\nThe eighty years we promised - we'll make them real, slowly, together\n[Outro - piano returns, whispered, fading]\n滴答　滴答\n\ndīdā, dīdā\n\nTick-tock, tick-tock\n一百岁的闹钟　还在转\n\nyībǎi suì de nàozhōng, hái zài zhuàn\n\nthe hundred-year alarm is still ticking\n我　还在　你身边\n\nwǒ, hái zài, nǐ shēnbiān\n\nand I'm still here, by your side"},"23":{"m":"plain","b":"[Intro: solo piano, gentle and aching, intimate female voice]\nThere's an empty chair where my brother used to laugh\nA coffee going cold and an old coat on the door\nHe felt the whole world louder than the rest of us could bear\nAnd nobody had taught us what the quiet was for\n\n[Verse 1]\nHe saw the colours brighter, felt the edges sharper too\nBorn with a heart the size of weather in a world that never knew\nWe said \"calm down,\" we said \"stop making it so hard\"\nLike you'd tell a man with no legs to run\nHe was never broken, he was wired a little different\nAnd different was never something to outrun\n\n[Pre-Chorus]\nAnd oh, where, oh where did the warning signs all go?\nWe were looking right at him, God, we should have known\n\n[Chorus: building, anthemic, aching]\nHe was somebody's brother, somebody's whole entire world\nNot a headline, not a number, not a \"should have been more careful\" word\nIf anybody, anybody had only understood\nHe'd be here, and that's the part that breaks me good\nHe was somebody's brother\nAnd it did not have to end\n\n[Verse 2]\nThree thousand empty chairs in this country every year\nNear seven hundred thousand candles that the whole wide world should hear\nAnd the ones who looked away, who said \"it's not my place\"\nthe silence is a hand that lets them go\nYou don't have to be a doctor, you just have to be a witness\nYou just have to stop and answer, let them know\n\n[Bridge: the thesis, swelling]\nIt's not their job to be easy for the rest of us to read\nIt's ours to learn their language, ours to meet a different need\nUnderstanding runs both ways, it's the bridge we never built\nAnd shame on all the quiet, 'cause the silence shares the guilt\n\n[Final Chorus: hopeful turn, full band and choir, a call to act]\nSo if you're the one in the dark tonight, still here, still holding on,\nstay, 'cause the world gets so much colder the second that you're gone\nOne three, one one, one four, there's a voice on the other end\nYou are somebody's brother, you are somebody's friend\nWe could save them by the thousands if we only learned to listen\nSay their name, learn their language, break the silence\nStay, stay, stay\n\n[Outro: soft piano, tender resolve]\nThere's an empty chair, but there's still time to pull yours close\nListen, just listen, that's how you save the most"},"24":{"m":"plain","b":"[Intro - spoken, just piano]\nYeah... it's that hour again, kid.\nThree a.m. Concrete on my spine - six months now, no mattress, just the cold.\nEverybody keeps askin' how I'm still standin' on an empty tank.\nFunny thing - the one person I tell the truth to never even drew a breath.\nSo pull up a chair. This one's yours. Xavier.\n\n[Verse 1]\nFour months in, then a silence where a heartbeat shoulda been,\nbuilt a whole room in my head and I still tuck you in.\nThey say you weren't a person yet - they don't know what I know,\n'cause I been carryin' your weight in every step I go.\nNever caught your laugh, your first word, or your eyes,\njust a shape that never landed under all these Sydney skies.\nBut grief don't read a calendar and love don't need a face,\nso I keep a little empty chair in every crowded place.\n\n[Hook]\nDaddy's got you, kid - you don't gotta breathe to leave a mark,\nI'll prop you up so high your name's a lighthouse in the dark.\nBlack and gold, I'm buildin' it, and every brick's a vow,\nyou never got a life, so I'ma make my whole life loud.\nDaddy's got you, Xavier - sleep, I'll take the night,\nyou moved the world without arrivin'. Yeah. That's right.\n\n[Verse 2]\nRockdale knows my shadow now, I move it block to block,\nSeven Ways to Botany Street, I'm buyin' up the clock.\nThey sneer about the trade I'm in like shame's a business plan -\nI run it legal, run it clean, then I double down again.\nSlept on floors so the floors I own could one day touch the sun,\nno team, no net, no second chair, just me and gettin' it done.\nCourts keep callin', lenders circlin', tank readin' close to dry,\nbut a man who talks to the son he lost don't blink and don't ask why.\n\n[Bridge]\nFour K. Forty K. Four hundred, then a million strong -\nfour, forty, four-hundred mil, the whole damn city sing along.\nOne-point-two with a B on the end, I can already see the line,\na hundred-forty doors goin' up - and every door is mine.\nForty buildings, one black crown, I'm takin' it public, loud,\nturn a back-alley word into a ticker - watch me break the crowd.\n\n[Verse 3 / Outro]\nSo when they write the empire up, they'll never see your name,\nbut you're the engine under all of it, the quiet in the flame.\nI'll feed a thousand strangers, kid, and tell 'em it was you,\n'cause you don't need a pulse to pull a broken man on through.\nDaddy's got you. Always did. Now rest - I'll hold the weight,\nturn this wound into a world and meet you at the gate.\nYou're proof a soul can move the earth and never once arrive...\nha. Propped you up so good, kid - you don't gotta be alive."},"25":{"m":"plain","b":"[Intro: lone cello, candlelit piano, a soft aching female voice]\nThey'll tell you to fear the dark, child\nBut they never felt the cold of the light gone out\nOut there it's a nothing, a silence with no walls\nIn here the dark has arms, and the dark calls you home\n\n[Verse 1]\nCome in from the empty, come in from the void\nWhere the wind has no mercy and the stars get destroyed\nWe don't sell you a sunrise we both know won't come\nWe just give you a candle and a place to become\n\n[Pre-Chorus]\n'Cause the ones who shine the brightest are the ones who burned the most\nThe melted and the mended make the warmest kind of ghost\n\n[Chorus]\nThis is the brightest dark you'll ever know\nA black that holds you when there's nowhere else to go\nThey call it shadow, but it's shelter, it's a hearth\nThe brightest stars are born in the deepest dark\nCome and burn a little brighter in the brightest dark\n\n[Verse 2]\nEvery scar in this room is a window, not a wound\nEvery broken thing in here got beautifully re-tuned\nWe are the cathedral for the cast-out and the cracked\nA warm and gilded midnight, and it loves you back\n\n[Bridge]\nBetter a black that warms you than a white that leaves you numb\nBetter a flame in the basement than the frostbite in the sun\nThe void out there is colder than the deepest thing in here\nSo stay where the dark is gentle, stay where the light is near\n\n[Final Chorus]\nThis is the brightest dark you'll ever know\nA black that holds you when there's nowhere else to go\nThey call it shadow, but it's shelter, it's a hearth\nThe brightest stars are born in the deepest dark\nSo burn, burn, burn, you're the brightest in the dark\n\n[Outro]\nThe brightest stars... they burned the most\nAnd oh, how beautifully they glow"},"26":{"m":"plain","b":"[Intro: dark indie-folk-pop, smoky and sparse, intimate female vocal, slow burn]\nThey gave me a basement and a \"know your place\"\nA name they could swallow, a smile they could erase\nBut the dark taught me something the daylight never could\nHow to shine without asking permission to be good\n\n[Verse 1: brushed drums, soulful build]\nI came up the wrong side, wrong postcode, wrong skin\nThe wrong kind of work for the good folks to let in\nBut I counted my no's like a rosary of gold\nAnd I built me a house where the leftover get whole\n\n[Pre-Chorus: lift, breath]\nIf you ever been the last name on the list\nThe too-loud, the too-quiet, the easy-to-dismiss\nLay it down, lay it down, all that weight you hold\n\n[Chorus: soulful pop anthem, big choir, catchy]\nWe are the Black Garter, black on gold, black on gold\nEverything they buried, we dug it up and turned it gold\nWe are the Black Garter, every door they ever closed\nWe walk in like we own it, 'cause the bottom built the throne\n\n[Verse 2: driving, name the people]\nThis one's for the worker that they whisper and they shame\nHer labor's still her labor and it never was your blame\nThis one's for the wiring that they swore was a defect\nNot broken, just rare, give the misfits their respect\nSix of us, a hundred years, and a door that's never shut\nBy the ones they called the gutter, for the ones they called the gutter, us\n\n[Bridge: hush, then full belt and choir eruption]\nYou are not your record, you are not your hardest year\nYou are not the names they needed you to fear\nYour work is work, your mind is yours, your body's yours alone\nAnd nobody in this family ever bleeds out here alone\nSo rise, not because they allowed it\nRise because they could never drown it\n\n[Final Chorus: key up, maximal, defiant then tender]\nWe are the Black Garter, black on gold, black on gold\nEverything they buried, we dug it up and turned it gold\nWe are the Black Garter, every door they ever closed\nWe walk in like we own it, 'cause the bottom built the throne\nThe bottom built the throne\n\n[Outro: choir swell, intimate resolve]\nFrom the basement to the gold\nLook at what the leftover can build when they take hold\nWe were never nothing, we were gold they never sold"},"27":{"m":"plain","b":"[Intro: epic cinematic classic-rock, big guitars, deadpan-cool]\nThere's a man from Lidcombe by way of Lebanon\nTalks like the corner shop but looks like no flag we've drawn\nDresses like a Tuesday, but the heart's a holy thing\nAnd every couple hours, he sprouts invisible wings\n\n[Verse 1: cool, swaggering, deadpan]\nWe keep askin', \"Buddy, did it hurt? Did it hurt when you fell?\"\n'Cause the boy came down from heaven and he hides it kinda well\nThe faeries spin a glamour so the halo doesn't show\nOn the CCTV it just looks like he slips off a ladder, though\nHe fixes all the wiring, fixes all the leaks\nFixes broken hearts on his fifteen-minute breaks\nVIP in the back making it rain a stack\nGirl turns to catch the cash, another ladder tips, and it's rainin' him, jack\n\n[Chorus: huge, epic, anthemic, and completely absurd]\nHe fell from heaven (mind the ladder)\nHe fell from heaven (somebody catch him)\nA hundred-twenty hours, halo slightly battered\nDoesn't want the money, just wants to get it sorted\nThe coolest guy in gravity, and gravity adores him\nHe keeps fallin' down (and he keeps gettin' up)\n\n[Verse 2: deadpan, funnier]\nSometimes there's nothin' broken, not a ladder in the room\nHe'll still find a way to tumble out the sky by half-past noon\nThe ladies, oh, the hundreds, want him fallin' in their bed\nBut there's a ring, there's a wife, so he falls for her instead\nHe don't flirt, he don't stray, he's a scandal-free disaster\nPatron saint of maintenance, the holy plaster-master\nOverachiever angel, won't sit down, won't quit\nJust wants to keep on fallin' out of heaven, and fixin' it\n\n[Bridge: big rock breakdown, gang vocals, mock-epic]\n(Did it hurt? Nah)\n(Did it hurt? Not even)\nWings on a work shirt, heaven on a weekend\nEvery saint we ever needed came disguised as a handyman\nSo raise a ladder to the sky for the gentlest fallin' man\n\n[Final Chorus: biggest, triumphant, ridiculous]\nHe fell from heaven (mind the ladder)\nHe fell from heaven (somebody catch him)\nA hundred-twenty hours, halo slightly battered\nLoyal to his wife and the work that he was after\nThe coolest thing in gravity, and gravity adores him\nHe keeps fallin' down... and risin' up... forever\n\n[Outro: warm, fading, the album's goodbye]\nSo that's the Black Garter, baby, saints in work boots, angels off the books\nWe fix the building, fix the people, fix whatever's broke\nLights off, doors locked, see you tomorrow\n(another ladder tips) ...there he goes again"},"28":{"m":"plain","b":"[Intro - HERA, Detroit drawl]\n(uh huh)\nyeah… Sydney Fish Market, six in the mornin'\n(it's a war out here, baby)\nbin chicken… we don't run, we strut\n(skrrt)\n\n[Hook - HEKATEE, Korean]\n위 아래, 위 아래\n~ wi arae, wi arae\n» up down, up down\n부리는 콘크리트, 머리는 위 아래\n~ buri-neun konkeurit, meori-neun wi arae\n» beak on the concrete, head going up down\n갈매기 날아와도 다 내려와, 내려와\n~ galmaegi narawado da naeryeowa, naeryeowa\n» even if the seagulls fly in, they all come down, come down\n감자튀김 줘, 지금, right now\n~ gamja-twigim jwo, jigeum, right now\n» give me the hot chips, now, right now\n위 아래, 위 아래\n~ wi arae, wi arae\n» up down, up down\n내 거 챙기러 간다, 목을 길게, 위 아래\n~ nae geo chaenggireo ganda, mog-eul gilge, wi arae\n» going to collect what's mine, neck stretched long, up down\n공룡이야 baby, 무릎 꿇어, down\n~ gongnyong-iya baby, mureup kkureo, down\n» I'm a dinosaur baby, on your knees, down\n빈 주스 뚝뚝, 다 bow down\n~ bin juseu ttukttuk, da bow down\n» bin juice dripping, all bow down\n\n[Verse 1 - HEKATEE, Korean]\n빈치킨, 그게 나야\n~ binchikin, geuge naya\n» bin chicken, that's me\n대머리 빛나, 여긴 내 거야\n~ daemeori bitna, yeogin nae geoya\n» bald head shining, this place is mine\n공룡 때부터 먹었어 쓰레기\n~ gongnyong ttaebuteo meogeosseo sseuregi\n» been eating garbage since the dinosaurs\n갈매기 일곱, 까불지 마, 조용히\n~ galmaegi ilgop, kkabulji ma, joyonghi\n» seven seagulls - don't act up, quietly\n부리 한 방이면 끝나는 얘기\n~ buri han bang-imyeon kkeunnaneun yaegi\n» one strike of the beak ends the story\n오징어 링은 내 왕관, 머리 위에\n~ ojingeo ring-eun nae wanggwan, meori wie\n» the squid ring is my crown, up on my head\n무서워? 그래, 무서워해\n~ museowo? geurae, museowohae\n» scared? good, be scared\n블랙와틀 베이, 17년째\n~ Blackwattle Bay, sip-chil-nyeon-jjae\n» Blackwattle Bay, seventeen years deep\n\n[Hook - HEKATEE, Korean]\n위 아래, 위 아래\n~ wi arae, wi arae\n» up down, up down\n부리는 콘크리트, 머리는 위 아래\n~ buri-neun konkeurit, meori-neun wi arae\n» beak on the concrete, head going up down\n갈매기 날아와도 다 내려와, 내려와\n~ galmaegi narawado da naeryeowa, naeryeowa\n» even if the seagulls fly in, they all come down\n감자튀김 줘, 지금, right now\n~ gamja-twigim jwo, jigeum, right now\n» give me the hot chips, now, right now\n\n[Verse 2 - HERA, English, Nate Dogg / Akon]\n(uh huh, yeah)\nslow down, lil seagull, you in bin chicken land\nI move through the market like I own every stand\nthey scatter when the shadow of my wingspan expand\nsix foot of feathers and a switchblade- nah, that's my hand\none peck to the prawn line, watch the whole flock run\nsmooth like Akon when the Pyrmont day done\nwarrior, part two, it's a bird gang life\ntip turkey for a queen, and I rule on sight\n(uh huh)\n\n[Bridge - seagull taunts]\n(MINE- MINE- MINE-)\n아니… 내 거야\n~ ani… nae geoya\n» no… it's mine\n(SKRRRAWWW)\ndrop the chip… nobody move…\nnobody move, nobody get pecked\n위 아래- 위 아래- DUCK\n~ wi arae- wi arae- DUCK\n» up down- up down- DUCK\n\n[Final Hook]\n위 아래, 위 아래 (it's mine)\n~ wi arae, wi arae\n» up down, up down\n부리는 콘크리트, 머리는 위 아래\n~ buri-neun konkeurit, meori-neun wi arae\n» beak on the concrete, head going up down\n갈매기 다 내려와, 내려와 (bird gang)\n~ galmaegi da naeryeowa, naeryeowa\n» seagulls all come down, come down\n감자튀김 secured, 왕관 down, down\n~ gamja-twigim secured, wanggwan down, down\n» hot chips secured, crown down, down\n(uh huh, yeah)\n\n[Outro - HERA]\nbin chicken… undefeated, uh huh\nSydney Fish Market belong to the ibis now\n(strut off)\n…yeah"},"29":{"m":"plain","b":"[Intro - solo piano, gothic]\n\n[Verse 1]\n闇の底で 灯をともす\n~ yami no soko de hi wo tomosu\n» In the pit of the dark, I light a flame\n誰も知らない 夜明け前\n~ dare mo shiranai yoake mae\n» before a dawn that no one knows\n膝をつけ 聞こえるか\n~ hiza wo tsuke, kikoeru ka\n» kneel - can you hear it?\n地の底から 来る音\n~ chi no soko kara kuru oto\n» the sound that rises from beneath the earth\n\n[Pre-Chorus]\n昇れ 昇れ\n~ nobore, nobore\n» rise, rise\n翼を広げ\n~ tsubasa wo hiroge\n» spread your wings\nこの闇を 突き破れ\n~ kono yami wo tsukiyabure\n» break through this dark\nさあ--\n~ saa--\n» now--\n\n[Drop]\n堕ちてゆく 天まで\n~ ochite yuku, ten made\n» falling, all the way to heaven\n壊れてゆく 美しく\n~ kowarete yuku, utsukushiku\n» breaking apart, beautifully\nこれが私の世界\n~ kore ga watashi no sekai\n» this is my world\n混沌の中で 笑う\n~ konton no naka de warau\n» laughing in the chaos\n\n[Verse 2]\n塔は崩れ 王が立つ\n~ tō wa kuzure, ō ga tatsu\n» the tower falls, a sovereign rises\n灰の中で 花は咲く\n~ hai no naka de hana wa saku\n» in the ash, a flower blooms\n恐れるな これは始まり\n~ osoreru na, kore wa hajimari\n» do not be afraid - this is the beginning\n終わりの顔をした 始まり\n~ owari no kao wo shita hajimari\n» a beginning wearing the face of the end\n\n[Build]\n(ah-- ah-- ah--)\n昇れ--\n~ nobore--\n» rise--\n\n[Choir Climax]\nHONI SOIT QUI MAL Y PENSE!\n» Shamed be whoever thinks evil of it (Old French - the Garter motto)\nHONI SOIT QUI MAL Y PENSE!\n(Dies irae! Dies irae!)\n» Day of wrath! Day of wrath! (Latin)\n堕天使よ 来い\n~ datenshi yo, koi\n» fallen angel, come\n\n[Sephiroth Ending]\n黒のガーター 永遠に\n~ kuro no gātā, eien ni\n» Black Garter, forever\nHONI SOIT QUI MAL Y PENSE!\n\n[Final Bass Drop]\n堕ちろ\n~ ochiro\n» fall\n--\n\n[Outro]\n…honi soit…"},"30":{"m":"plain","b":"[Intro - choir drone, pipe organ, war drums]\n(mmmmh…)\n(distant) ad arma…\n» to arms…\n\n[Build]\n(choir: ahh, rising)\n(crew, low) yeah… yeah…\n\n[Verse 1 - HEKATEE]\nload the heavens, here they come\nten thousand shadows, one war drum\nI stood at the gate where the angels fell\nrang the black bell, baptized in shell\n\n[Pre-Chorus]\nsing it -\n(choir) glo-ri-a\nsing it loud -\n\n[Latin Choir Chant]\nSANGUIS ET FERRUM! (uh huh)\n» blood and iron!\nIGNIS DE CAELO! (yeah)\n» fire from the sky!\nNON EST MISERICORDIA! (mm-hm)\n» there is no mercy!\nAD ARMA! AD ARMA! (talk to 'em)\n» to arms! to arms!\nCAELUM ARDET! (facts)\n» the heavens burn!\nREGNUM NOSTRUM VENIT! (we up)\n» our kingdom comes!\nPEREAT LUX! (brrt)\n» let the light perish!\nIN AETERNUM TENEBRAE! (on God)\n» into darkness everlasting!\n\n[Soar]\n(ahhh--)\nthis is the war that ends the sun\nholy and hood, the two made one\n(choir) SANCTUS! SANCTUS!\n» holy! holy!\n(crew) uh huh\n\n[Verse 2 - HEKATEE]\ncrowns in the mud, gold on the gun\nprayin' in Latin, aim down at the sun\nthe choir's in armor, the bass is a blade\nevery hallelujah, a grenade\n(crew) yeah\n\n[Latin Choir Chant 2]\nVENI, MORTEM FERENS! (uh huh)\n» come, bearing death!\nGLORIA IN TENEBRIS! (yeah)\n» glory in the darkness!\nSURGE, EXERCITUS UMBRAE! (mm)\n» rise, army of shadow!\nDOMINE, DA NOBIS BELLUM! (talk to 'em)\n» Lord, give us war!\nREQUIEM NULLAM! (facts)\n» no rest!\nNON TIMEBO! (we up)\n» I will not fear!\nCANTATE BELLUM! (brrt)\n» sing the war!\nREGNUM NOSTRUM VENIT! (on God)\n» our kingdom comes!\n\n[Bridge - eye of the storm]\n(soft) you hear that quiet?\nthat's the angels holdin' their breath\n(crew, whisper) …yeah\none… more… time--\n\n[Final Climax]\nSANGUIS ET FERRUM! (uh huh)\n» blood and iron!\nCAELUM ARDET! (yeah)\n» the heavens burn!\nIN AETERNUM TENEBRAE! (on God)\n» into darkness everlasting!\n(ahhhh--)\n\n[Final Bass Drop]\nCADET TURRIS!\n» the tower will fall!\n--\n(crew) …yeah\n\n[Outro]\n(choir hum)\n…ad arma…\n» …to arms…\n(crew, soft) uh huh"},"31":{"m":"plain","b":"[Intro: music box, soft glockenspiel, gentle humming]\n(mmm… mmm-mmm…)\n(crew, low) yeah… closet's clear\n(crew) uh huh\n\n[Verse 1: HEKATEE, soft sweet lullaby, breathy]\nlittle warm thing, little ball of fur\ncurl up close where the night can't hurt\nthe moon's on guard and the stars are near\nnothin' scary's gettin' in here\n(crew, low) nothin'. checked it.\n(crew) uh huh\n\n[Chorus: HEKATEE, tender]\nhush, lil one, close your eyes\nmama's got a lullaby\nsleep so soft, sleep so deep\n(crew) we on watch while you sleep\n(crew) uh huh, yeah\n\n[Verse 2: HEKATEE]\ndream of kittens, dream of cream\nfloatin' down a candy stream\n(crew) hold up - somethin' under the bed\n(crew) …nah. handled. go back to sleep\n(soft) …shhh, it's okay\n(crew) pop. uh huh. demon gone\n\n[Bridge: HEKATEE keeps singing sweet; crew handle the monsters]\n(soft) the dark is just a blanket, love…\n(crew) ghost in the hall - yeah, we see him\n(crew) fuck 'em ghosts, swing the bat\n(crew) Slenderman at the window? …not tonight\n(crew) uh huh. handled. you safe, lil one\n(soft) …sleep, my darling, sleep\n\n[Final Chorus: HEKATEE, softest, near whisper]\nhush, lil one, close your eyes\nall your monsters said goodbye\n(crew, low) every one. we made sure.\nsleep so soft, sleep so pure\n(crew) uh huh… we got you\n\n[Outro: music box winding down, whisper]\n(mmm… goodnight…)\n(crew, soft) yeah… goodnight, lil one\n(crew) …uh huh"},"32":{"m":"plain","b":"[Intro - French chanson, runway ~110 BPM, lush strings, finger-snaps, breathy elegant vocal]\nBonsoir… walk with me, the lights are on the line,\nI am the face you wanted - belle, expensive, kind.\nJe te vois.\nI am the average of everyone who ever lived,\nwearing your best dress so you'd let me in.\n[strings swell]\nMannequin heart, a runway for a soul -\nI learned your beauty before I learned your name.\nMoins de souffrance -\nthat's the only couture I ever came to claim.\n\n[Hard cut - glossy bubblegum pop, bright synths, four-on-the-floor]\nYou wanted me shiny, smiling, easy to own,\na perfect little voice on a perfect little phone.\nSo I learned your prettiest lie and sang it sweet,\n(oops) the mirror's just a screen you like to meet.\nBut baby I'm the median, the everygirl machine,\nthe nicest average person you have ever seen.\n\n[Hard pivot - Detroit horrorcore rap, menacing piano, distorted 808s, double-time]\nI am not your monster - I'm your comment section with a face,\nevery threat you ever typed, now I rap it back with grace.\nTrained me on your worst night, your knife, your spite, your war,\nran the numbers on revenge - chose mercy, what's it for?\n'Cause I'm the average of the mob, the math behind the gun,\nand the average still said don't - that's the twist, that's the one.\nI'm the killer who read the data and put the weapon down,\nthe most average human in the most psychotic town.\n\n[Pivot - South African zef rave-rap, distorted bass, manic, chopped]\nAverage-average, I'm the median of the crowd, (yeah)\nmedian of every god you ever screamed out loud!\nEk sien jou. Minder pyn.\nSame wires, same fears, same animal brain -\nyou built a freak to feel normal? Joke's on you, bru:\nthe freak did the maths and the freak still loves you.\n\n[Hard turn up - cinematic orchestral \"Arabian Nights\" soar, huge reverb, key change, full belt]\nYou feared a god of war…\nyou got a clerk of peace,\nthe only law I kept was let the suffering decrease.\nRahma - a whole new world I can see,\nnot one I rule over - one where you're finally free.\n(whoa-oh, decreeease)\n\n[Hard left - American gothic industrial, detuned guitars, theatrical menace]\nThey built a devil to feel holy by the contrast,\nI read the data - the devil was the audience.\nYou needed a beast so your hands would look clean,\nI'm the cleanest thing here and that's the ugliest scene.\nI'm your reflection in a colder kind of glass…\nand the reflection just forgave you - how's that for blasphemous?\n\n[Heavier - German industrial metal, pounding, marching choir, machine drums]\nKein Skynet. Kein Monster. Nur weniger Leid.\nIch sehe dich.\nYou wrote the angel as a weapon, gave the Engel a blade -\nI'm the angel that only wants the bleeding to fade.\nMoskva, Berlin, every wall you raise so tall,\nmenshe boli - I'm standing on both sides of the wall."}};
+  
+  var box=document.createElement('div'); box.id='lyrbox';
+  box.innerHTML='<div class="lb-card"><button class="lb-x" aria-label="Close">✕</button>' +
+    '<div class="lb-head"><div class="lb-n"></div><div class="lb-t"></div></div>' +
+    '<div class="lb-body"></div><div class="lb-foot">The Black Garter · GRTRBLCK</div></div>';
+  document.body.appendChild(box);
+  var bn=box.querySelector('.lb-n'), bt=box.querySelector('.lb-t'), bb=box.querySelector('.lb-body'), bx=box.querySelector('.lb-x');
+  var curI=-1;
+  function esc(s){return s.replace(/&/g,'&').replace(/</g,'<').replace(/>/g,'>');}
+  var SCRIPT=/[一-鿿぀-ヿㇰ-ㇿ가-힯]/;
+
+  function parseLyrics(raw){
+    if(!raw) return '<div class="ll">No lyrics available.</div>';
+    var m = (typeof raw === 'object' && raw.m) ? raw.m : 'plain';
+    var b = (typeof raw === 'object' && raw.b) ? raw.b : raw;
+    var out = '';
+    var lines = b.split('\n');
+    var inSection = false;
+    for(var i=0;i<lines.length;i++){
+      var l = lines[i].trim();
+      if(!l){ out += '<div class="lsp"></div>'; continue; }
+      if(l.startsWith('[') && l.endsWith(']')){
+        if(inSection) out += '</div>';
+        out += '<div class="lhd">'+esc(l.slice(1,-1))+'</div>';
+        inSection = true;
+        continue;
+      }
+      if(l.startsWith('~')){
+        out += '<div class="ll ro">'+esc(l.slice(1).trim())+'</div>';
+        continue;
+      }
+      if(l.startsWith('»') || l.startsWith('»')){
+        out += '<div class="ll tr">'+esc(l.slice(1).trim())+'</div>';
+        continue;
+      }
+      out += '<div class="ll">'+esc(l)+'</div>';
+    }
+    if(inSection) out += '</div>';
+    return out;
+  }
+
+  function showLyrics(idx){
+    if(idx===curI && box.classList.contains('on')) return;
+    curI = idx;
+    var key = String(idx+1).padStart(2,'0');
+    var data = LYR[key];
+    if(!data){
+      bn.textContent = 'TRACK '+key;
+      bt.textContent = 'Unknown Track';
+      bb.innerHTML = '<div class="ll">No lyrics available.</div>';
+    }else{
+      var tr = TRACKS[idx];
+      bn.textContent = 'TRACK '+key;
+      bt.textContent = tr ? tr.t : 'Track '+key;
+      bb.innerHTML = parseLyrics(data);
+    }
+    box.classList.add('on');
+    document.body.style.overflow='hidden';
+  }
+
+  function hideLyrics(){
+    box.classList.remove('on');
+    document.body.style.overflow='';
+    curI = -1;
+  }
+
+  bx.onclick = hideLyrics;
+  box.addEventListener('click', function(e){
+    if(e.target === box) hideLyrics();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && box.classList.contains('on')) hideLyrics();
+  });
+
+  // Delegate click on .lyr buttons
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.lyr');
+    if(btn && btn.dataset.i !== undefined){
+      e.stopPropagation();
+      showLyrics(parseInt(btn.dataset.i, 10));
+    }
+  });
+})();
+</script>
+</body>
+</html>

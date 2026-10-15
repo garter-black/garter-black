@@ -1,0 +1,20 @@
+# garter.black · Cloudflare Pages (advanced mode worker in dist/_worker.js/)
+name = "garter-black"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "garter-black"
+database_id = "fa9dcc8e-ecbb-4e32-85c7-65d714602455"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "garter-black-media"
+
+[vars]
+STRIPE_PUBLISHABLE_KEY = ""
+GOOGLE_CLIENT_ID = ""
+# Secrets (wrangler pages secret put NAME --project-name garter-black):
+#   SESSION_SECRET  ROSTER_PASSWORD  AI_TOKEN  STRIPE_SECRET_KEY  STRIPE_WEBHOOK_SECRET
+#   RESEND_API_KEY  TELEGRAM_BOT_TOKEN  TELEGRAM_CHAT_ID

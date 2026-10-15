@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 800px; overflow: hidden; background: #050505; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #050505; }
+
+      #bg { position: absolute; inset: 0; background: #050505; }
+
+      #root > .clip {
+        position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden;
+      }
+      .inner { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .px {
+        display: block; width: 100%; height: 100%;
+        object-fit: cover; object-position: 50% 45%;
+        filter: contrast(1.08) saturate(.8) sepia(.28) brightness(.88);
+      }
+
+      #fx { position: absolute; inset: 0; pointer-events: none; }
+
+      #vig {
+        position: absolute; inset: 0;
+        background: radial-gradient(130% 115% at 50% 48%,
+          rgba(0,0,0,0) 45%, rgba(0,0,0,.32) 75%, rgba(0,0,0,.62) 100%);
+      }
+
+      .cob {
+        position: absolute; left: 0; top: 0; width: 540px; height: 2px;
+        transform-origin: 0% 50%;
+        filter: drop-shadow(0 0 6px rgba(226,199,135,.6)) drop-shadow(0 0 18px rgba(200,165,88,.26));
+      }
+      .cob .hot {
+        position: absolute; left: 0; top: -3px; width: 150px; height: 8px;
+        background: linear-gradient(90deg,
+          rgba(226,199,135,0), rgba(255,232,180,.9) 50%, rgba(226,199,135,0));
+        filter: drop-shadow(0 0 6px rgba(226,199,135,.6));
+      }
+      #lineL { background: linear-gradient(90deg,
+        rgba(226,199,135,0) 0%, rgba(226,199,135,.4) 14%,
+        rgba(255,232,180,.75) 50%, rgba(226,199,135,.4) 86%, rgba(226,199,135,0) 100%); }
+      #lineR { width: 560px; background: linear-gradient(90deg,
+        rgba(226,199,135,0) 0%, rgba(226,199,135,.4) 12%,
+        rgba(255,232,180,.72) 42%, rgba(226,199,135,.28) 72%, rgba(226,199,135,0) 100%); }
+
+      .mote {
+        position: absolute; border-radius: 50%;
+        background: radial-gradient(circle,
+          rgba(232,206,150,1) 0%, rgba(232,206,150,.4) 45%, rgba(232,206,150,0) 72%);
+        box-shadow: 0 0 5px rgba(232,206,150,.45);
+      }
+
+      #grain {
+        position: absolute; left: 0; top: 0; width: 2280px; height: 1000px;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIj48ZmlsdGVyIGlkPSJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC44NSIgbnVtT2N0YXZlcz0iMiIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjxmZUNvbG9yTWF0cml4IHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAuODYgIDAgMCAwIDAgMC43MiAgMCAwIDAgMCAwLjUwICAxIDAgMCAwIDAiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgZmlsdGVyPSJ1cmwoI24pIi8+PC9zdmc+");
+        background-size: 180px 180px; background-repeat: repeat;
+        opacity: .09;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="band-film"
+      data-start="0"
+      data-duration="10"
+      data-fps="30"
+      data-width="1920"
+      data-height="800"
+    >
+      <div id="bg"></div>
+
+      <div id="b1" class="clip" data-start="0" data-duration="10" data-track-index="1">
+        <div class="inner" id="bi">
+          <img class="px" src="assets/corridor.jpg" alt="" />
+          <div class="cob" id="lineL"><span class="hot"></span></div>
+          <div class="cob" id="lineR"><span class="hot"></span></div>
+          <div id="motes">
+          <span class="mote" id="m1" data-dx="-43.3" data-dy="-41.1" data-tw="2.38" data-len="3.91" data-a="0.343" style="left:93.56%;top:60.22%;width:2.74px;height:2.74px"></span>
+          <span class="mote" id="m2" data-dx="58.0" data-dy="-50.5" data-tw="4.27" data-len="4.21" data-a="0.438" style="left:72.27%;top:62.65%;width:5.5px;height:5.5px"></span>
+          <span class="mote" id="m3" data-dx="41.2" data-dy="-85.7" data-tw="3.2" data-len="4.33" data-a="0.224" style="left:35.36%;top:16.84%;width:3.31px;height:3.31px"></span>
+          <span class="mote" id="m4" data-dx="45.6" data-dy="-74.7" data-tw="4.5" data-len="3.48" data-a="0.42" style="left:54.88%;top:44.54%;width:3.44px;height:3.44px"></span>
+          <span class="mote" id="m5" data-dx="-22.8" data-dy="-59.5" data-tw="4.36" data-len="4.16" data-a="0.185" style="left:27.12%;top:41.56%;width:5.5px;height:5.5px"></span>
+          <span class="mote" id="m6" data-dx="-55.5" data-dy="-85.8" data-tw="1.77" data-len="3.54" data-a="0.381" style="left:12.64%;top:35.62%;width:3.53px;height:3.53px"></span>
+          <span class="mote" id="m7" data-dx="-5.3" data-dy="-46.8" data-tw="0.46" data-len="3.79" data-a="0.183" style="left:91.56%;top:29.78%;width:3.53px;height:3.53px"></span>
+          <span class="mote" id="m8" data-dx="5.8" data-dy="-76.3" data-tw="3.3" data-len="4.07" data-a="0.297" style="left:44.17%;top:51.74%;width:4.27px;height:4.27px"></span>
+          <span class="mote" id="m9" data-dx="-10.0" data-dy="-56.1" data-tw="4.34" data-len="4.51" data-a="0.312" style="left:90.27%;top:78.4%;width:2.85px;height:2.85px"></span>
+          <span class="mote" id="m10" data-dx="-35.3" data-dy="-91.2" data-tw="4.23" data-len="4.1" data-a="0.326" style="left:78.02%;top:51.88%;width:5.5px;height:5.5px"></span>
+          <span class="mote" id="m11" data-dx="44.5" data-dy="-36.2" data-tw="2.24" data-len="3.74" data-a="0.447" style="left:15.3%;top:42.54%;width:4.41px;height:4.41px"></span>
+          <span class="mote" id="m12" data-dx="-35.6" data-dy="-84.2" data-tw="3.02" data-len="3.85" data-a="0.51" style="left:25.3%;top:16.8%;width:2.96px;height:2.96px"></span>
+          <span class="mote" id="m13" data-dx="-20.7" data-dy="-55.1" data-tw="0.55" data-len="3.8" data-a="0.477" style="left:38.54%;top:63.58%;width:4.64px;height:4.64px"></span>
+          <span class="mote" id="m14" data-dx="69.3" data-dy="-77.9" data-tw="1.52" data-len="3.87" data-a="0.187" style="left:94.33%;top:51.33%;width:4.79px;height:4.79px"></span>
+          </div>
+        </div>
+      </div>
+
+      <div id="fx" data-layout-allow-overflow>
+        <div id="vig"></div>
+
+        <div id="grain"></div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      /* corridor, slow forward drift; settles back on the first-frame state */
+      tl.fromTo("#bi", { scale: 1.015, xPercent: 0, yPercent: 0 },
+        { scale: 1.07, xPercent: -0.5, yPercent: -0.25, duration: 7.0, ease: "sine.inOut" }, 0);
+      tl.fromTo("#bi", { scale: 1.07, xPercent: -0.5, yPercent: -0.25 },
+        { scale: 1.015, xPercent: 0, yPercent: 0, duration: 2.6, ease: "sine.inOut", immediateRender: false }, 7.0);
+
+      /* two gold COB lines receding to the corridor's vanishing point */
+      tl.set("#lineL", { x: 170, y: 120, rotation: 16.0, opacity: 0.6 }, 0);
+      tl.to("#lineL", { opacity: 0.78, duration: 5.0, ease: "sine.inOut" }, 0);
+      tl.to("#lineL", { opacity: 0.6, duration: 4.9, ease: "sine.inOut" }, 5.0);
+      tl.set("#lineR", { x: 1748, y: 84, rotation: 160.7, opacity: 0.55 }, 0);
+      tl.to("#lineR", { opacity: 0.7, duration: 4.9, ease: "sine.inOut" }, 0.3);
+      tl.to("#lineR", { opacity: 0.55, duration: 4.7, ease: "sine.inOut" }, 5.2);
+
+      /* travelling hotspots: drift toward the vanishing point, gone by loop ends */
+      tl.set("#lineL .hot", { x: 30, opacity: 0 }, 0);
+      tl.fromTo("#lineL .hot", { x: 30 }, { x: 390, duration: 4.1, ease: "sine.inOut" }, 0.7);
+      tl.to("#lineL .hot", { opacity: 0.9, duration: 0.4, ease: "sine.out" }, 0.7);
+      tl.to("#lineL .hot", { opacity: 0, duration: 0.4, ease: "sine.in" }, 4.6);
+      tl.set("#lineL .hot", { x: 30 }, 9.9);
+      tl.set("#lineR .hot", { x: 410, opacity: 0 }, 0);
+      tl.fromTo("#lineR .hot", { x: 410 }, { x: 30, duration: 4.1, ease: "sine.inOut" }, 5.2);
+      tl.to("#lineR .hot", { opacity: 0.9, duration: 0.4, ease: "sine.out" }, 5.2);
+      tl.to("#lineR .hot", { opacity: 0, duration: 0.4, ease: "sine.in" }, 9.1);
+      tl.set("#lineR .hot", { x: 410 }, 9.9);
+
+      /* drifting dust motes */
+      document.querySelectorAll(".mote").forEach(function (el) {
+        const d = el.dataset;
+        tl.set(el, { opacity: 0 }, 0);
+        tl.fromTo(el, { x: 0, y: 0 }, { x: +d.dx, y: +d.dy, duration: +d.len, ease: "none" }, +d.tw);
+        tl.to(el, { opacity: +d.a, duration: 1.2, ease: "sine.out" }, +d.tw);
+        tl.to(el, { opacity: 0, duration: 1.3, ease: "sine.in" }, +d.tw + +d.len - 1.3);
+      });
+
+      /* fine film grain: one tile of drift per loop, invisible seam */
+      tl.fromTo("#grain", { x: 0, y: 0 }, { x: -360, y: -180, duration: 10, ease: "none" }, 0);
+
+      window.__timelines["band-film"] = tl;
+    </script>
+  </body>
+</html>

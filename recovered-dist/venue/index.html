@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Garter · Venue Gallery</title>
+<meta name="description" content="An atmosphere gallery of Black Garter: bar, decor and adults socialising. AI-generated visual concepts of fictional people and spaces.">
+<link rel="canonical" href="https://garter.black/venue/">
+<script type="text/plain" src="/_pbi/player.js"></script>
+<style>
+  :root{
+    --paper:#FBF9F1;
+    --ink:#0a0a0a;
+    --muted:#9a958b;
+    --line:#26241f;
+    --accent:#c9a15f;
+    --max:1180px;
+    --pad:clamp(20px,5vw,72px);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:Helvetica,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.55;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;}
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad);}
+  header.site{
+    border-bottom:1px solid var(--line);
+    padding:24px 0;
+  }
+  header.site .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;}
+  .brand{
+    display:flex;flex-direction:column;gap:6px;
+    letter-spacing:0.34em;
+    text-transform:uppercase;
+    font-size:12px;
+    font-weight:700;
+  }
+  .brand .sub{color:var(--muted);letter-spacing:0.42em;font-weight:400;}
+  nav.anchors{
+    margin-top:0;
+    display:flex;flex-wrap:wrap;gap:10px 28px;
+    font-size:12px;letter-spacing:0.28em;text-transform:uppercase;
+  }
+  nav.anchors a{
+    text-decoration:none;color:var(--muted);padding-bottom:3px;
+    border-bottom:1px solid transparent;
+  }
+  nav.anchors a:hover{color:var(--paper);border-bottom-color:var(--accent);}
+  main{padding:clamp(32px,4vw,56px) 0 10px;}
+  .kicker{
+    font-size:11px;letter-spacing:0.5em;text-transform:uppercase;color:var(--muted);
+    margin:0 0 20px;
+  }
+  h1{
+    font-size:clamp(38px,7vw,90px);text-transform:uppercase;
+    line-height:1.02;
+    letter-spacing:0.02em;
+    margin:0 0 22px;
+    font-weight:700;
+  }
+  .lede{
+    max-width:56ch;color:#d9d5cc;font-size:clamp(15px,1.6vw,18px);margin:0 0 14px;
+  }
+  .disclosure{
+    max-width:64ch;
+    border:1px solid var(--line);
+    border-left:2px solid var(--accent);
+    padding:14px 18px;
+    margin:30px 0 0;
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:0.02em;
+  }
+  section{padding:clamp(40px,7vw,88px) 0;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:0;padding-top:28px;}
+  h2{
+    font-size:clamp(20px,3.4vw,30px);
+    letter-spacing:0.16em;text-transform:uppercase;font-weight:700;
+    margin:0 0 8px;
+  }
+  .eyebrow{
+    font-size:11px;letter-spacing:0.42em;text-transform:uppercase;color:var(--accent);
+    margin:0 0 14px;
+  }
+  figure{margin:0;}
+  figure img{
+    display:block;width:100%;height:auto;max-width:100%;
+    background:#131313;
+  }
+  figcaption{
+    margin-top:14px;
+    color:var(--muted);
+    font-size:13px;
+    letter-spacing:0.03em;
+    max-width:62ch;
+  }
+  footer.site{
+    border-top:1px solid var(--line);
+    padding:34px 0 60px;
+    color:var(--muted);
+    font-size:12px;
+    letter-spacing:0.06em;
+  }
+  footer.site a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);}
+  footer.site a:hover{color:var(--paper);border-bottom-color:var(--accent);}
+  .foot-row{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;}
+
+  /* Age gate */
+  .gate{
+    position:fixed;inset:0;z-index:50;
+    background:rgba(6,6,6,0.96);
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;
+  }
+  .gate[hidden]{display:none;}
+  .gate-panel{
+    max-width:440px;width:100%;
+    border:1px solid var(--line);
+    background:#0d0d0d;
+    padding:clamp(24px,5vw,40px);
+  }
+  .gate-panel h2{font-size:16px;letter-spacing:0.3em;margin-bottom:16px;}
+  .gate-panel p{color:var(--muted);font-size:14px;margin:0 0 22px;}
+  .gate-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .btn{
+    appearance:none;border:1px solid var(--accent);
+    background:transparent;color:var(--paper);
+    font:inherit;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;
+    padding:13px 22px;cursor:pointer;
+  }
+  .btn:hover{background:var(--accent);color:var(--ink);}
+  .gate-exit{
+    font-size:12px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);
+  }
+  .gate-exit:hover{color:var(--paper);}
+  body.gated{overflow:hidden;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
+  }
+  @media (max-width:520px){
+    header.site .wrap{display:block;}
+    nav.anchors{margin-top:16px;}
+    .brand{letter-spacing:0.26em;}
+    nav.anchors{gap:8px 18px;letter-spacing:0.2em;}
+  }
+</style>
+</head>
+<body class="gated">
+
+<div class="gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" aria-describedby="gateDesc">
+  <div class="gate-panel">
+    <h2 id="gateTitle">Age Confirmation</h2>
+    <p id="gateDesc">This gallery is intended for adults 18 and over. Confirm you are 18 or older to continue.</p>
+    <div class="gate-actions">
+      <button class="btn" id="gateEnter" type="button">I am 18 or older</button>
+      <a class="gate-exit" id="gateExit" href="https://www.google.com/">Exit</a>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <span>Black Garter</span>
+      <span class="sub">Venue Gallery</span>
+    </div>
+    <nav class="anchors" aria-label="Gallery sections">
+      <a href="#lounge">Lounge</a>
+      <a href="#studio">Studio</a>
+    </nav>
+  </div>
+</header>
+
+<main id="galleryMain" tabindex="-1">
+  <div class="wrap">
+    <p class="kicker">Atmosphere</p>
+    <h1>After Hours</h1>
+    <p class="lede">A quiet look at the room · the bar, the decor and the easy conversation that fills the space once the evening settles in.</p>
+  </div>
+
+  <section id="lounge" aria-labelledby="loungeTitle">
+    <div class="wrap">
+      <p class="eyebrow">Section 01</p>
+      <h2 id="loungeTitle">Lounge</h2>
+      <figure>
+        <img src="/assets/venue-lounge-conversation-20261005.png"
+             width="1672" height="941" loading="eager" decoding="async" fetchpriority="high"
+             alt="Fictional adults in black cocktail dresses conversing over drinks in a warm, dimly lit lounge bar with dark walls and soft lighting.">
+        <figcaption>Warm low lighting, dark walls and a long bar set the mood for unhurried conversation.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="studio" aria-labelledby="studioTitle">
+    <div class="wrap">
+      <p class="eyebrow">Section 02</p>
+      <h2 id="studioTitle">Studio</h2>
+      <figure>
+        <img src="/assets/creator-workspace-20261005.png"
+             width="1672" height="941" loading="lazy" decoding="async"
+             alt="Fictional adult creators collaborating in a softly lit lounge studio with warm decor and shared workspace.">
+        <figcaption>A collaborative lounge studio · considered decor, warm tones and a relaxed, creative atmosphere.</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-row">
+      <span>Black Garter · Venue Gallery</span>
+      <span>Adults 18+ only</span>
+      <a href="https://www.google.com/">Exit</a>
+    </div>
+    <p style="margin-top:14px;">AI-generated visual concepts. Fictional people and spaces; not documentary photographs of the venue or its staff.</p>
+  </div>
+</footer>
+
+<elevenlabs-convai hidden></elevenlabs-convai>
+
+<script>
+(function () {
+  "use strict";
+
+  var KEY = "venueGalleryAdultConfirmed";
+  var gate = document.getElementById("ageGate");
+  var enterBtn = document.getElementById("gateEnter");
+
+  function storageGet(k) {
+    try { return window.sessionStorage.getItem(k); } catch (e) { return null; }
+  }
+  function storageSet(k, v) {
+    try { window.sessionStorage.setItem(k, v); } catch (e) { /* ignore */ }
+  }
+
+  var background = document.querySelectorAll("header.site,main,footer.site");
+  function setBackgroundInert(value) {
+    Array.prototype.forEach.call(background, function (el) { el.inert = value; });
+  }
+
+  function openGate() {
+    setBackgroundInert(true);
+    document.body.classList.add("gated");
+    gate.hidden = false;
+    var focusables = getFocusables();
+    if (focusables.length) { focusables[0].focus(); }
+    document.addEventListener("keydown", onKeydown, true);
+  }
+
+  function closeGate() {
+    gate.hidden = true;
+    document.body.classList.remove("gated");
+    document.removeEventListener("keydown", onKeydown, true);
+    storageSet(KEY, "true");
+    setBackgroundInert(false);
+    document.getElementById("galleryMain").focus({preventScroll:true});
+  }
+
+  function getFocusables() {
+    return Array.prototype.slice.call(
+      gate.querySelectorAll('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])')
+    ).filter(function (el) { return el.offsetParent !== null || el === enterBtn; });
+  }
+
+  function onKeydown(e) {
+    if (e.key === "Escape") {
+      // Gate closes only on explicit adult confirmation; swallow Escape.
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    if (e.key !== "Tab") { return; }
+    var focusables = getFocusables();
+    if (!focusables.length) { return; }
+    var first = focusables[0];
+    var last = focusables[focusables.length - 1];
+    var active = document.activeElement;
+    if (e.shiftKey) {
+      if (active === first || !gate.contains(active)) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (active === last || !gate.contains(active)) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
+  enterBtn.addEventListener("click", closeGate);
+
+  if (storageGet(KEY) === "true") {
+    gate.hidden = true;
+    document.body.classList.remove("gated");
+  } else {
+    openGate();
+  }
+})();
+</script>
+</body>
+</html>

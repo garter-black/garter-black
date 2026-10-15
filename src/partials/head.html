@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta name="robots" content="{{robots}}">
+<meta name="theme-color" content="#060606">
+<link rel="canonical" href="https://garter.black{{canonical}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Black Garter">
+<meta property="og:locale" content="en_AU">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{desc}}">
+<meta property="og:url" content="https://garter.black{{canonical}}">
+<meta property="og:image" content="https://garter.black{{og}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="geo.region" content="AU-NSW">
+<meta name="geo.placename" content="Rockdale, Sydney">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="/assets/garter.css?v={{ver}}">
+{{importmap}}
+<script>
+/* Hera reception mount - HOUSE PATHS ONLY.
+   Loaded on every built page, but no-ops unless the path is one of the Black Garter
+   house routes. It injects the reception stylesheet, a mount section just inside
+   <main> (above the footer), then the widget script. Voice is configured for the NEW
+   Black Garter Hera copy; while its credits are zero the widget shows an honest
+   "reception unavailable - call or WhatsApp" and never fakes a live call.
+   Corporate pages (e.g. /escorts) are untouched: their existing voice stays as is. */
+(function () {
+  try {
+    var p = (location.pathname || '/').replace(/\/+$/, '') || '/';
+    var house = (p === '/' || p === '/brothel' || p === '/ladies' || p === '/backentrance' || p === '/hotelbyhour')
+      || p.indexOf('/ladies/') === 0;
+    if (!house) return;
+    var d = document;
+    var css = d.createElement('link');
+    css.rel = 'stylesheet'; css.href = '/assets/garter-hera.css?v={{ver}}';
+    d.head.appendChild(css);
+    function boot() {
+      var main = d.getElementById('main');
+      if (!main) return;
+      if (d.getElementById('gb-hera-mount')) return;
+      var sec = d.createElement('section');
+      sec.id = 'gb-hera-mount';
+      sec.className = 'wrap';
+      sec.style.cssText = 'padding:56px 16px 8px;';
+      main.appendChild(sec);
+      var s = d.createElement('script');
+      s.src = '/assets/garter-hera.js?v={{ver}}';
+      s.onload = function () { try { window.GarterHera && window.GarterHera.mount('#gb-hera-mount'); } catch (e) {} };
+      d.head.appendChild(s);
+    }
+    if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', boot);
+    else boot();
+  } catch (e) {}
+})();
+</script>
+{{extrahead}}
+</head>

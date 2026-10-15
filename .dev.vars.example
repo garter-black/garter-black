@@ -1,0 +1,14 @@
+# SANITISED for the estate source-of-truth repo.
+#
+# The copy taken from sites/garter-black-v3 (commit 5f8b6df) carried a real
+# roster gate password on the ROSTER_PASSWORD line. A credential is a secret
+# regardless of the filename or the "example" suffix, so it was replaced here
+# with placeholders. The value is not recoverable from this repo; it belongs in
+# Cloudflare (`wrangler pages secret put ROSTER_PASSWORD --project-name
+# garter-black`) and the operator's own store.
+#
+# The upstream repo still holds the real value and still needs fixing there.
+# See decisions/garter-black.md, section "Sanitisation performed".
+SESSION_SECRET=replace-me-local-only
+ROSTER_PASSWORD=replace-me-local-only
+AI_TOKEN=replace-me-local-only

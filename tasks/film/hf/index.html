@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1350px; overflow: hidden; background: #050505; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #050505; }
+
+      /* shared black backdrop (not a clip: sizes itself) */
+      #bg { position: absolute; inset: 0; background: #050505; }
+
+      /* shots: root-level clips get the framework box; keep it explicit */
+      #root > .clip {
+        position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden;
+      }
+      .inner { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .px {
+        display: block; width: 100%; height: 100%;
+        object-fit: cover;
+        filter: contrast(1.08) saturate(.8) sepia(.28) brightness(.88);
+      }
+      #s1 .px, #s5 .px { object-position: 50% 46%; }
+      #s2 .px { object-position: 68% 55%; }
+      #s3 .px { object-position: 50% 38%; }
+      #s4 .px { object-position: 50% 50%; }
+
+      /* effects layer: vignette, strip lights, glint, grain */
+      #fx { position: absolute; inset: 0; pointer-events: none; }
+
+      #vig {
+        position: absolute; inset: 0;
+        background: radial-gradient(115% 85% at 50% 47%,
+          rgba(0,0,0,0) 40%, rgba(0,0,0,.35) 70%, rgba(0,0,0,.78) 100%);
+      }
+
+      .cob {
+        position: absolute; left: 0;
+        filter: drop-shadow(0 0 5px rgba(226,199,135,.5)) drop-shadow(0 0 15px rgba(200,165,88,.2));
+      }
+      .cob .hot {
+        position: absolute; left: -8px; width: 18px; border-radius: 9px;
+        background: radial-gradient(closest-side,
+          rgba(255,232,180,.55), rgba(226,199,135,.14) 65%, rgba(226,199,135,0));
+      }
+      #cobA { top: 6%; width: 2px; height: 560px;
+        background: linear-gradient(to bottom,
+          rgba(226,199,135,0) 0%, rgba(226,199,135,.5) 12%,
+          rgba(255,232,180,.85) 50%, rgba(226,199,135,.5) 88%, rgba(226,199,135,0) 100%); }
+      #cobA .hot { height: 120px; }
+      #cobB { top: 26%; width: 2px; height: 620px;
+        background: linear-gradient(to bottom,
+          rgba(226,199,135,0) 0%, rgba(226,199,135,.42) 14%,
+          rgba(255,232,180,.78) 50%, rgba(226,199,135,.42) 86%, rgba(226,199,135,0) 100%); }
+      #cobB .hot { height: 120px; }
+      #cobC { top: 42%; width: 1.6px; height: 430px;
+        background: linear-gradient(to bottom,
+          rgba(226,199,135,0) 0%, rgba(226,199,135,.36) 15%,
+          rgba(255,232,180,.66) 50%, rgba(226,199,135,.36) 85%, rgba(226,199,135,0) 100%); }
+      #cobC .hot { height: 100px; }
+      #cobD { top: 34%; width: 1.6px; height: 460px;
+        background: linear-gradient(to bottom,
+          rgba(226,199,135,0) 0%, rgba(226,199,135,.32) 15%,
+          rgba(255,232,180,.6) 50%, rgba(226,199,135,.32) 85%, rgba(226,199,135,0) 100%); }
+      #cobD .hot { height: 90px; }
+
+      #glint {
+        position: absolute; left: 58%; top: 47%; width: 7px; height: 7px; border-radius: 50%;
+        background: radial-gradient(circle, #a8202f 0%, rgba(168,32,47,.55) 35%, rgba(168,32,47,0) 70%);
+        filter: drop-shadow(0 0 6px rgba(168,32,47,.7));
+      }
+
+      #grain {
+        position: absolute; left: 0; top: 0; width: 1460px; height: 1550px;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIj48ZmlsdGVyIGlkPSJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC44NSIgbnVtT2N0YXZlcz0iMiIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjxmZUNvbG9yTWF0cml4IHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAuODYgIDAgMCAwIDAgMC43MiAgMCAwIDAgMCAwLjUwICAxIDAgMCAwIDAiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgZmlsdGVyPSJ1cmwoI24pIi8+PC9zdmc+");
+        background-size: 180px 180px; background-repeat: repeat;
+        opacity: .09;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="hero-film"
+      data-start="0"
+      data-duration="12"
+      data-fps="30"
+      data-width="1080"
+      data-height="1350"
+    >
+      <div id="bg"></div>
+
+      <div id="s1" class="clip" data-start="0" data-duration="2.81" data-track-index="1">
+        <div class="inner" id="s1i"><img class="px" src="assets/corridor.jpg" alt="" /></div>
+      </div>
+      <div id="s2" class="clip" data-start="2.2" data-duration="3.01" data-track-index="2">
+        <div class="inner" id="s2i"><img class="px" src="assets/room-gold.jpg" alt="" /></div>
+      </div>
+      <div id="s3" class="clip" data-start="4.6" data-duration="3.61" data-track-index="3">
+        <div class="inner" id="s3i"><img class="px" src="assets/black-room.jpg" alt="" /></div>
+      </div>
+      <div id="s4" class="clip" data-start="7.0" data-duration="3.61" data-track-index="4">
+        <div class="inner" id="s4i"><img class="px" src="assets/room-lines.jpg" alt="" /><div id="glint"></div></div>
+      </div>
+      <div id="s5" class="clip" data-start="9.4" data-duration="2.6" data-track-index="5">
+        <div class="inner" id="s5i"><img class="px" src="assets/corridor.jpg" alt="" /></div>
+      </div>
+
+      <div id="fx" data-layout-allow-overflow>
+        <div id="vig"></div>
+
+        <div class="cob" id="cobA"><span class="hot"></span></div>
+        <div class="cob" id="cobB"><span class="hot"></span></div>
+        <div class="cob" id="cobC"><span class="hot"></span></div>
+        <div class="cob" id="cobD"><span class="hot"></span></div>
+
+        <div id="grain"></div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      /* scene 1 - corridor (first frame of the loop) */
+      tl.fromTo("#s1i", { scale: 1.04, xPercent: 0, yPercent: 0 },
+        { scale: 1.12, xPercent: 0.8, yPercent: -0.5, duration: 2.8, ease: "sine.inOut" }, 0);
+      tl.to("#s1i", { opacity: 0, duration: 0.6, ease: "sine.in" }, 2.2);
+
+      /* scene 2 - room gold */
+      tl.set("#s2i", { opacity: 0 }, 0);
+      tl.fromTo("#s2i", { scale: 1.04, xPercent: 0, yPercent: 0 },
+        { scale: 1.12, xPercent: -0.7, yPercent: -0.6, duration: 2.6, ease: "sine.inOut" }, 2.2);
+      tl.fromTo("#s2i", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "sine.out" }, 2.8);
+      tl.to("#s2i", { opacity: 0, duration: 0.6, ease: "sine.in" }, 4.6);
+
+      /* scene 3 - black room */
+      tl.set("#s3i", { opacity: 0 }, 0);
+      tl.fromTo("#s3i", { scale: 1.04, xPercent: 0, yPercent: 0 },
+        { scale: 1.12, xPercent: 0.6, yPercent: 0.5, duration: 2.6, ease: "sine.inOut" }, 4.6);
+      tl.fromTo("#s3i", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "sine.out" }, 5.2);
+      tl.to("#s3i", { opacity: 0, duration: 0.6, ease: "sine.in" }, 7.0);
+
+      /* scene 4 - room lines */
+      tl.set("#s4i", { opacity: 0 }, 0);
+      tl.fromTo("#s4i", { scale: 1.04, xPercent: 0, yPercent: 0 },
+        { scale: 1.12, xPercent: -0.8, yPercent: 0.4, duration: 2.6, ease: "sine.inOut" }, 7.0);
+      tl.fromTo("#s4i", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "sine.out" }, 7.6);
+      tl.to("#s4i", { opacity: 0, duration: 0.6, ease: "sine.in" }, 9.4);
+
+      /* scene 5 - corridor returns; settle on the exact first-frame state */
+      tl.set("#s5i", { opacity: 0 }, 0);
+      tl.fromTo("#s5i", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "sine.out" }, 10.0);
+      tl.fromTo("#s5i", { scale: 1.04, xPercent: 0, yPercent: 0 },
+        { scale: 1.09, xPercent: 0.4, yPercent: -0.3, duration: 1.0, ease: "sine.inOut" }, 10.0);
+      tl.fromTo("#s5i", { scale: 1.09, xPercent: 0.4, yPercent: -0.3 },
+        { scale: 1.04, xPercent: 0, yPercent: 0, duration: 0.8, ease: "sine.inOut", immediateRender: false }, 11.0);
+
+      /* strip lights sweeping the house (invisible at both loop ends) */
+      tl.set("#cobA", { opacity: 0 }, 0);
+      tl.fromTo("#cobA", { x: -90 }, { x: 1170, duration: 2.4, ease: "none" }, 0.8);
+      tl.to("#cobA", { opacity: 0.85, duration: 0.35, ease: "sine.out" }, 0.8);
+      tl.to("#cobA", { opacity: 0, duration: 0.35, ease: "sine.in" }, 2.85);
+      tl.fromTo("#cobA .hot", { y: 20 }, { y: 420, duration: 2.4, ease: "sine.inOut" }, 0.8);
+
+      tl.set("#cobB", { rotation: 14, opacity: 0 }, 0);
+      tl.fromTo("#cobB", { x: 1190 }, { x: -130, duration: 2.4, ease: "none" }, 4.4);
+      tl.to("#cobB", { opacity: 0.7, duration: 0.35, ease: "sine.out" }, 4.4);
+      tl.to("#cobB", { opacity: 0, duration: 0.35, ease: "sine.in" }, 6.45);
+      tl.fromTo("#cobB .hot", { y: 30 }, { y: 470, duration: 2.4, ease: "sine.inOut" }, 4.4);
+
+      tl.set("#cobC", { opacity: 0 }, 0);
+      tl.fromTo("#cobC", { x: 1210 }, { x: -120, duration: 2.0, ease: "none" }, 7.2);
+      tl.to("#cobC", { opacity: 0.55, duration: 0.3, ease: "sine.out" }, 7.2);
+      tl.to("#cobC", { opacity: 0, duration: 0.3, ease: "sine.in" }, 8.9);
+      tl.fromTo("#cobC .hot", { y: 20 }, { y: 320, duration: 2.0, ease: "sine.inOut" }, 7.2);
+
+      tl.set("#cobD", { opacity: 0 }, 0);
+      tl.fromTo("#cobD", { x: 1180 }, { x: -110, duration: 1.7, ease: "none" }, 9.6);
+      tl.to("#cobD", { opacity: 0.5, duration: 0.25, ease: "sine.out" }, 9.6);
+      tl.to("#cobD", { opacity: 0, duration: 0.25, ease: "sine.in" }, 11.05);
+      tl.fromTo("#cobD .hot", { y: 10 }, { y: 360, duration: 1.7, ease: "sine.inOut" }, 9.6);
+
+      /* the one deep red glint per loop */
+      tl.set("#glint", { opacity: 0 }, 0);
+      tl.fromTo("#glint", { scale: 0.7 }, { scale: 1, duration: 0.9, ease: "sine.out" }, 8.4);
+      tl.to("#glint", { opacity: 1, duration: 0.3, ease: "sine.out" }, 8.4);
+      tl.to("#glint", { opacity: 0, duration: 0.3, ease: "sine.in" }, 9.0);
+
+      /* fine film grain: one tile of drift per loop, invisible seam */
+      tl.fromTo("#grain", { x: 0, y: 0 }, { x: -360, y: -180, duration: 12, ease: "none" }, 0);
+
+      window.__timelines["hero-film"] = tl;
+    </script>
+  </body>
+</html>
